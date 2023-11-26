@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
-import { FaBasketShopping } from 'react-icons/fa6';
+import { GrBasket } from 'react-icons/gr';
 import { GrRestaurant } from 'react-icons/gr';
 import { GrFavorite } from 'react-icons/gr';
 import { Suspense } from 'react';
@@ -15,8 +15,15 @@ import {
   Nav,
   Wrapper,
 } from './Layout.style';
+import { Select } from '../Select/Select';
 
 const Layout = () => {
+  const pagesMenu = [
+    { name: 'Appetizer', to: 'appetizer' },
+    { name: 'Desserts', to: 'desserts' },
+    { name: 'Drinks', to: 'drinks' },
+  ];
+
   return (
     <>
       <Header>
@@ -26,33 +33,27 @@ const Layout = () => {
               <GrRestaurant /> Kindzmarauli
             </Logo>
             <List>
-              <Item></Item>
               <Item>
-                <Link activeclassname="active" to="appetizer">
-                  Appetizer
-                </Link>
+                <Select />
               </Item>
-              <Item>
-                <Link activeclassname="active" to="desserts">
-                  Desserts
-                </Link>
-              </Item>
-              <Item>
-                <Link activeclassname="active" to="drinks">
-                  Drinks
-                </Link>
-              </Item>
+              {pagesMenu.map(({ name, to }) => (
+                <Item key={name}>
+                  <Link activeclassname="active" to={to}>
+                    {name}
+                  </Link>
+                </Item>
+              ))}
             </List>
             <Wrapper>
-              <Button>
+              <Link activeclassname="active" to="favorite">
                 <GrFavorite />
-              </Button>
-              <Button>
+              </Link>
+              <Button type="button">
                 <TbUser />
               </Button>
-              <Button>
-                <FaBasketShopping />
-              </Button>
+              <Link activeclassname="active" to="basket">
+                <GrBasket />
+              </Link>
             </Wrapper>
           </Nav>
         </Container>

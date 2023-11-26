@@ -25,28 +25,6 @@ export const List = styled.ul`
 
 export const Item = styled.li``;
 
-export const Select = styled.select`
-  background-color: transparent;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: normal;
-  color: var(--main-color);
-  border: none;
-  transition: color var(--transition);
-
-  &:focus {
-    color: var(--active-color);
-  }
-`;
-
-export const Option = styled.option`
-  padding: 21px 81px 23px 20px;
-
-  margin-bottom: 20px;
-  background-color: #000;
-  color: var(--main-color);
-`;
-
 export const Link = styled(NavLink)`
   color: #fff;
   font-size: 18px;

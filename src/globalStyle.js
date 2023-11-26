@@ -16,21 +16,26 @@ export const GlobalStyle = createGlobalStyle`
 
 :root {
   --main-color: #fff;
+  --main-color-dark: #000;
   --active-color: #fbd13e;
   --transition: 250ms ease-in-out;
+  --button-basket-background: #ffcf00;
+  --button-basket-background-active: #ffb200d6;
+  --button-basket-color-active: #262626;
+  --gram-background: #80808094;
 }
 
 body{
   margin: 0;
   font-family: 'Montserrat',sans-serif;
   background-color: #0F0F11;
-  color: #fff;
 }
 
 p,
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin: 0;
 }
 
@@ -51,9 +56,12 @@ a{
   text-decoration: none;
 }
 
+button{
+  padding: 0;
+}
+
 #root{
     min-height: 100vh; 
-
     background-image: url(${img});
     background-repeat: no-repeat;
     background-size: 1350px;
@@ -131,6 +139,6 @@ a{
 
 export const Container = styled.div`
   margin: 0 auto;
-  max-width: 1600px;
+  max-width: 1702px;
   padding: 0 51px 0 34px;
 `;

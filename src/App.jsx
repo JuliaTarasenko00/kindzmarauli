@@ -13,6 +13,8 @@ const GrilledDishesPage = lazy(() =>
 const AppetizerPage = lazy(() => import('./page/AppetizerPage/AppetizerPage'));
 const DessertsPage = lazy(() => import('./page/DessertsPage/DessertsPage'));
 const DrinksPage = lazy(() => import('./page/DrinksPage/DrinksPage'));
+const Favorite = lazy(() => import('./page/Favorite/Favorite'));
+const Basket = lazy(() => import('./page/Basket/Basket'));
 
 function App() {
   return (
@@ -20,12 +22,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/hoot_dishes_khinkali" element={<KhinkaliPage />} />
-          <Route path="/hoot_dishes_main" element={<MainDishesPage />} />
-          <Route path="/hoot_dishes_grilled" element={<GrilledDishesPage />} />
-          <Route path="/appetizer" element={<AppetizerPage />} />
-          <Route path="/desserts" element={<DessertsPage />} />
-          <Route path="/drinks" element={<DrinksPage />} />
+          <Route path="hoot_dishes_khinkali" element={<KhinkaliPage />} />
+          <Route path="hoot_dishes_main" element={<MainDishesPage />} />
+          <Route path="hoot_dishes_grilled" element={<GrilledDishesPage />} />
+          <Route path="appetizer" element={<AppetizerPage />} />
+          <Route path="desserts" element={<DessertsPage />} />
+          <Route path="drinks" element={<DrinksPage />} />
+          <Route path="favorite" element={<Favorite />} />
+          <Route path="basket" element={<Basket />} />
         </Route>
       </Routes>
     </Suspense>
