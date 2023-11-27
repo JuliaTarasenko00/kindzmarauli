@@ -18,7 +18,7 @@ import {
   List,
   Section,
   Title,
-} from './menu.styled';
+} from './Menu.styled';
 import { Fragment } from 'react';
 
 export const Menu = () => {
