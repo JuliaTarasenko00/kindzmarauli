@@ -11,6 +11,7 @@ import {
   NameDish,
   PopularItem,
   PopularList,
+  PopularWrapper,
   Prise,
   Title,
   WrapperPrice,
@@ -27,18 +28,20 @@ export const PopularDishes = () => {
           {popular.map((dish) => {
             return (
               <PopularItem key={dish.id}>
-                <Image
-                  src={dish.image}
-                  alt={dish.name}
-                  loading="lazy"
-                  width="245"
-                />
-                <NameDish>{dish.name}</NameDish>
-                <GramDish>{dish.weight}g</GramDish>
-                <DishDescription>{dish.description}</DishDescription>
-                {dish?.discountedPrice && (
-                  <DiscountedPrice>{dish.discountedPrice}$</DiscountedPrice>
-                )}
+                <PopularWrapper>
+                  <Image
+                    src={dish.image}
+                    alt={dish.name}
+                    loading="lazy"
+                    width="245"
+                  />
+                  <NameDish>{dish.name}</NameDish>
+                  <GramDish>{dish.weight}g</GramDish>
+                  <DishDescription>{dish.description}</DishDescription>
+                  {dish?.discountedPrice && (
+                    <DiscountedPrice>{dish.discountedPrice}$</DiscountedPrice>
+                  )}
+                </PopularWrapper>
                 <WrapperPrice>
                   <Prise>{dish.price}$</Prise>
                   <Button type="button">

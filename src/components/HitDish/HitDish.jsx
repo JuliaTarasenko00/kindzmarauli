@@ -42,7 +42,7 @@ export const HitDish = () => {
               height="184"
               loading="lazy"
             />
-            <Link href="tel:+38(099)990-88-00">+38(099)990-88-00</Link>
+            <Link href="tel:+38(099)900-00-00">+38(099)900-00-00</Link>
             <Link className="email" href="mailto:kindzmarauli@gmail.com">
               kindzmarauli@gmail.com
             </Link>

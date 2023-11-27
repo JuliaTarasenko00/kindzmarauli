@@ -23,7 +23,13 @@ export const PopularList = styled.ul`
 `;
 
 export const PopularItem = styled.li`
+  display: flex;
+  flex-direction: column;
   width: 220px;
+`;
+
+export const PopularWrapper = styled.div`
+  flex-grow: 1;
 `;
 
 export const Image = styled.img`
@@ -36,6 +42,7 @@ export const NameDish = styled.h4`
   font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
+  margin-top: 15px;
 `;
 
 export const GramDish = styled.p`
@@ -90,6 +97,7 @@ export const Button = styled.button`
   padding-bottom: 0;
   text-align: center;
   background-color: var(--button-basket-background);
+  transition: color var(--transition), background-color var(--transition);
 
   &:hover,
   :focus {

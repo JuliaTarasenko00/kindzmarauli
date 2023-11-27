@@ -31,6 +31,7 @@ export const Link = styled.a`
   font-size: 25px;
   font-weight: 500;
   margin-top: 37px;
+  transition: color var(--transition);
 
   &.email {
     font-size: 18px;
@@ -38,6 +39,11 @@ export const Link = styled.a`
     line-height: 1;
     text-decoration-line: underline;
     margin-top: 7px;
+  }
+
+  &:hover,
+  :focus {
+    color: var(--active-color);
   }
 `;
 
@@ -109,6 +115,7 @@ export const Button = styled.button`
   padding-bottom: 0;
   text-align: center;
   background-color: var(--button-basket-background);
+  transition: background-color var(--transition), color var(--transition);
 
   &:hover,
   :focus {

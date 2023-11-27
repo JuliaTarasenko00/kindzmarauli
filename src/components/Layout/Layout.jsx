@@ -16,6 +16,7 @@ import {
   Wrapper,
 } from './Layout.style';
 import { Select } from '../Select/Select';
+import { Footer } from '../Footer/Footer';
 
 const Layout = () => {
   const pagesMenu = [
@@ -63,6 +64,7 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
+      <Footer />
     </>
   );
 };
