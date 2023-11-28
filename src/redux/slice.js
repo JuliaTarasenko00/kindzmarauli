@@ -26,10 +26,18 @@ export const dishesSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
+      .addCase(getHotMenu.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(getHotMenu.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.hotDishes = payload;
         state.error = null;
+      })
+      .addCase(getHotMenu.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
       });
   },
 });

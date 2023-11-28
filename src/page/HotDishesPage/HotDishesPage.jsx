@@ -3,12 +3,14 @@ import { useLocation } from 'react-router-dom';
 import { GrilledDishesSection } from '../../components/GrilledDishes/GrilledDishes';
 import { KhinkaliSection } from '../../components/Khinkali/Khinkali';
 import { MainDishesSection } from '../../components/MainDishes/MainDishes';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getHotMenu } from '../../redux/operation';
 import { specificsDish } from '../../helpers/specifics_dish';
 import { Section } from './HotDishesPage.styled';
+import { loading } from '../../redux/selector';
 
 const HotDishes = () => {
+  const isLoading = useSelector(loading);
   const mainRef = useRef(null);
   const grilledRef = useRef(null);
   const khinkaliRef = useRef(null);
@@ -37,15 +39,20 @@ const HotDishes = () => {
 
   return (
     <>
-      <Section ref={mainRef}>
-        <MainDishesSection />
-      </Section>
-      <Section ref={grilledRef}>
-        <GrilledDishesSection />
-      </Section>
-      <Section ref={khinkaliRef}>
-        <KhinkaliSection />
-      </Section>
+      {isLoading && <p>Loading...</p>}
+      {!isLoading && (
+        <>
+          <Section ref={mainRef}>
+            <MainDishesSection />
+          </Section>
+          <Section ref={grilledRef}>
+            <GrilledDishesSection />
+          </Section>
+          <Section ref={khinkaliRef}>
+            <KhinkaliSection />
+          </Section>
+        </>
+      )}
     </>
   );
 };
