@@ -36,7 +36,7 @@ export const PopularDishes = () => {
                     width="245"
                   />
                   <NameDish>{dish.name}</NameDish>
-                  <GramDish>{dish.weight}g</GramDish>
+                  <GramDish>{dish.gram}g</GramDish>
                   <DishDescription>{dish.description}</DishDescription>
                   {dish?.discountedPrice && (
                     <DiscountedPrice>{dish.discountedPrice}$</DiscountedPrice>

@@ -59,7 +59,7 @@ const Layout = () => {
           </Nav>
         </Container>
       </Header>
-      <main>
+      <main style={{ flexGrow: 1 }}>
         <Suspense fallback={<p>Loading...</p>}>
           <Outlet />
         </Suspense>

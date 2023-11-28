@@ -65,6 +65,9 @@ button{
     background-image: url(${img});
     background-repeat: no-repeat;
     background-size: 1350px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 

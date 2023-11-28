@@ -34,6 +34,8 @@ export const PopularWrapper = styled.div`
 
 export const Image = styled.img`
   border-radius: 5px;
+  height: 245px;
+  object-fit: cover;
 `;
 
 export const NameDish = styled.h4`
