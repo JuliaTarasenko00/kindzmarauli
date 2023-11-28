@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Section = styled.section`
@@ -40,7 +40,7 @@ export const Item = styled.li`
 
 export const ImgFirst = styled.img``;
 
-export const Link = styled(NavLink)`
+export const Navigate = styled(Link)`
   color: var(--main-color);
   text-align: center;
   font-size: 20px;

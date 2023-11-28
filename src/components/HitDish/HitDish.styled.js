@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
-  padding-top: 44px;
-`;
+export const Section = styled.section``;
 
 export const WrapperSection = styled.div`
   display: flex;

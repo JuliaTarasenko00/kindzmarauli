@@ -29,6 +29,7 @@ body{
   margin: 0;
   font-family: 'Montserrat',sans-serif;
   background-color: #0F0F11;
+
 }
 
 p,
@@ -65,7 +66,6 @@ button{
     background-image: url(${img});
     background-repeat: no-repeat;
     background-size: 1350px;
-
     display: flex;
     flex-direction: column;
 }
@@ -138,6 +138,9 @@ button{
   font-style: normal;
   font-display: swap;
   }
+
+
+
 `;
 
 export const Container = styled.div`

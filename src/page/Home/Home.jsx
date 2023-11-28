@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { HitDish } from '../../components/HitDish/HitDish';
-import { PopularDishes } from '../../components/PopularDishes/PopularDishes';
 import { useEffect } from 'react';
 import { getMenuPopular } from '../../redux/operation';
 import { Menu } from '../../components/Menu/Menu';
+import { CreatedMarkup } from '../../components/CreatedMarkup/CreatedMarkup';
+import { popularDishes } from '../../redux/selector';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const popular = useSelector(popularDishes);
 
   useEffect(() => {
     dispatch(getMenuPopular());
@@ -15,7 +17,9 @@ const Home = () => {
   return (
     <>
       <HitDish />
-      <PopularDishes />
+      <section>
+        <CreatedMarkup title={'Popular Dishes'} dishes={popular} />
+      </section>
       <Menu />
     </>
   );

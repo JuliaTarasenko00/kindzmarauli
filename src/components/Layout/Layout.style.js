@@ -2,7 +2,17 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding-bottom: 44px;
   padding-top: 50px;
+  z-index: 20;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.6195728291316527) 48%
+  );
 `;
 
 export const Nav = styled.nav`

@@ -8,10 +8,26 @@ const $instants = axios.create({
 });
 
 export const getMenuPopular = createAsyncThunk(
-  'menu/getAll',
+  'menu/getPopular',
   async (_, thunkAPI) => {
     try {
       const { data } = await $instants.get('dishes?page=1&limit=12');
+      return data;
+    } catch (error) {
+      const { status } = error.response;
+      if (status === 500) {
+        toast.error('Server error.', styleToastify);
+      }
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const getHotMenu = createAsyncThunk(
+  'menu/HotMenu',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await $instants.get('dishes');
       return data;
     } catch (error) {
       const { status } = error.response;

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SelectWrapper = styled.div`
@@ -40,7 +40,7 @@ export const SelectItem = styled.li`
   }
 `;
 
-export const SelectLink = styled(NavLink)`
+export const SelectLink = styled(Link)`
   display: block;
   color: #fff;
   width: 100%;

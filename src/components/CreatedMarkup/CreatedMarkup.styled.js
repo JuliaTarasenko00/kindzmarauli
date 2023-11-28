@@ -10,6 +10,10 @@ export const Title = styled.h3`
   line-height: 1.12;
 
   margin: 0 auto;
+
+  &.hot_dishes {
+    margin: 0;
+  }
 `;
 
 export const PopularList = styled.ul`

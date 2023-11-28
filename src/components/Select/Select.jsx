@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GoChevronDown } from 'react-icons/go';
 import { GoChevronUp } from 'react-icons/go';
 import {
@@ -9,33 +9,52 @@ import {
   Title,
 } from './Select.styled';
 import { useLocation } from 'react-router-dom';
+import { specificsDish } from '../../helpers/specifics_dish';
 
 const options = [
   {
     name: 'Main Dishes',
-    to: '/hoot_dishes_main',
+    to: `/hot_dishes#${specificsDish.MAIN}`,
   },
   {
     name: 'Grilled Dishes',
-    to: '/hoot_dishes_grilled',
+    to: `/hot_dishes#${specificsDish.GRILLED}`,
   },
   {
     name: 'Khinkali',
-    to: '/hoot_dishes_khinkali',
+    to: `/hot_dishes#${specificsDish.KHINKALI}`,
   },
 ];
 
 export const Select = () => {
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useState('Hoot Dishes');
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const location = options.every(({ to }) => to !== pathname);
     if (location) {
-      setSelected('Hoot Dishes');
+      setSelected('Hot Dishes');
     }
   }, [pathname]);
+
+  const handleClick = (dish) => {
+    if (window.location.hash === dish) {
+      window.location.hash = '#';
+      timeoutRef.current = setTimeout(() => {
+        window.location.hash = dish;
+      }, 300);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <SelectWrapper>
@@ -57,7 +76,7 @@ export const Select = () => {
           }}
         >
           {options.map(({ name, to }) => (
-            <SelectItem key={name}>
+            <SelectItem key={name} onClick={() => handleClick(hash)}>
               <SelectLink to={to}>{name}</SelectLink>
             </SelectItem>
           ))}

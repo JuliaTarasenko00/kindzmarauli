@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Container } from '../../globalStyle';
 import imageHot from '../../assets/img/image_17.png';
 import imageHotDishes from '../../assets/img/image_18.png';
@@ -14,17 +15,21 @@ import {
   ImgFirst,
   ImgLast,
   Item,
-  Link,
+  Navigate,
   List,
   Section,
   Title,
 } from './Menu.styled';
-import { Fragment } from 'react';
 
 export const Menu = () => {
   const options = [
     { name: 'Discount', first: '20%', last: '30%' },
-    { name: 'Hot Dishes', first: imageHotDishes, last: imageHot },
+    {
+      name: 'Hot Dishes',
+      first: imageHotDishes,
+      last: imageHot,
+      navig: '/hot_dishes',
+    },
     { name: 'Soups', first: imgSoup, last: imgSoups },
     { name: 'Khinkali', first: imgKhinkali, last: imgKhinkalis },
     { name: 'Cold Snacks', first: imgCold, last: imgColdS },
@@ -42,7 +47,7 @@ export const Menu = () => {
                 {index === 0 ? (
                   <Item style={{ backgroundColor: '#B70000' }}>
                     <DiscountTitle>{option.first}</DiscountTitle>
-                    <Link>{option.name}🔥</Link>
+                    <Navigate to={option.navig}>{option.name}🔥</Navigate>
                     <DiscountTitle className="discount_last">
                       {option.last}
                     </DiscountTitle>
@@ -50,7 +55,7 @@ export const Menu = () => {
                 ) : (
                   <Item>
                     <ImgFirst src={option.first} alt={option.name} />
-                    <Link>{option.name}</Link>
+                    <Navigate to={option.navig}>{option.name}</Navigate>
                     <ImgLast src={option.last} alt={option.name} />
                   </Item>
                 )}

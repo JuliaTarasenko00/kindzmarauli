@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getMenuPopular } from './operation';
+import { getHotMenu, getMenuPopular } from './operation';
 
 const initialState = {
   popularDishes: [],
+  hotDishes: [],
   isLoading: false,
   error: null,
 };
@@ -24,6 +25,11 @@ export const dishesSlice = createSlice({
       .addCase(getMenuPopular.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+      })
+      .addCase(getHotMenu.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.hotDishes = payload;
+        state.error = null;
       });
   },
 });
