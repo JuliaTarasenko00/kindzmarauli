@@ -1,4 +1,4 @@
-import{R as s,c as l,d as x,s as t,j as o,C as u}from"./index-wv0GVt9Y.js";import{c as d}from"./index.esm-Hj-vP__V.js";function p(e=s){const n=e===s?l:x(e);return function(){const{store:i}=n();return i}}const h=p();function g(e=s){const n=e===s?h:p(e);return function(){return n().dispatch}}const H=g();t.section``;const c=t.h3`
+import{R as s,c as l,d as x,s as t,j as o,C as d}from"./index-MvNcwale.js";import{c as u}from"./index.esm-b37Nqo_s.js";function p(e=s){const n=e===s?l:x(e);return function(){const{store:i}=n();return i}}const h=p();function g(e=s){const n=e===s?h:p(e);return function(){return n().dispatch}}const H=g();t.section``;const c=t.h3`
   width: 643px;
   color: var(--main-color);
   font-size: 80px;
@@ -95,4 +95,4 @@ import{R as s,c as l,d as x,s as t,j as o,C as u}from"./index-wv0GVt9Y.js";impor
   border-radius: 2px;
   padding: 2px 0;
   margin-bottom: 23px;
-`;const S=e=>{const{title:n,dishes:a,titleHotDishes:i}=e;return o.jsxs(u,{children:[n&&o.jsx(c,{children:n}),i&&o.jsx(c,{className:"hot_dishes",children:i}),o.jsx(m,{children:a.map(r=>o.jsxs(f,{children:[o.jsxs(b,{children:[o.jsx(v,{src:r.image,alt:r.name,loading:"lazy",width:"245"}),o.jsx(j,{children:r.name}),o.jsxs(k,{children:[r.gram,"g"]}),o.jsx(w,{children:r.description}),(r==null?void 0:r.discountedPrice)&&o.jsxs(z,{children:[r.discountedPrice,"$"]})]}),o.jsxs(D,{children:[o.jsxs(y,{children:[r.price,"$"]}),o.jsx(C,{type:"button",children:o.jsx(d,{})})]})]},r.id))})]})},$=e=>e.dishes.popularDishes,B=e=>e.dishes.hotDishes;export{S as C,B as h,$ as p,H as u};
+`;const S=e=>{const{title:n,dishes:a,titleHotDishes:i}=e;return o.jsxs(d,{children:[n&&o.jsx(c,{children:n}),i&&o.jsx(c,{className:"hot_dishes",children:i}),o.jsx(m,{children:a.map(r=>o.jsxs(f,{children:[o.jsxs(b,{children:[o.jsx(v,{src:r.image,alt:r.name,loading:"lazy",width:"245"}),o.jsx(j,{children:r.name}),o.jsxs(k,{children:[r.gram,"g"]}),o.jsx(w,{children:r.description}),(r==null?void 0:r.discountedPrice)&&o.jsxs(z,{children:[r.discountedPrice,"$"]})]}),o.jsxs(D,{children:[o.jsxs(y,{children:[r.price,"$"]}),o.jsx(C,{type:"button",children:o.jsx(u,{})})]})]},r.id))})]})},$=e=>e.dishes.popularDishes,B=e=>e.dishes.hotDishes,G=e=>e.dishes.isLoading;export{S as C,B as h,G as l,$ as p,H as u};
