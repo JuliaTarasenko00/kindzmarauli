@@ -10,6 +10,7 @@ export const SectionFooter = styled.footer`
 export const WrapperContact = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 37px;
 `;
 
 export const NameRestaurant = styled.p`
@@ -44,17 +45,9 @@ export const Link = styled.a`
 export const WrapperOfficial = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 69px;
 
-  &::before {
-    content: '';
-    background-color: #fff;
-    width: 95%;
-    height: 0.2px;
-    position: absolute;
-    bottom: 40%;
-    opacity: 0.3;
-  }
+  border-top: 0.5px solid grey;
+  padding-top: 28px;
 `;
 
 export const TitleOfficial = styled.p`
