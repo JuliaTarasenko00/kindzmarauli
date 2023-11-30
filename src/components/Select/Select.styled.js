@@ -23,6 +23,8 @@ export const SelectList = styled.ul`
   padding: 15px;
   background: #000;
   z-index: 100;
+
+  display: ${({ ['data-show']: show }) => (show === 'true' ? 'block' : 'none')};
 `;
 
 export const SelectItem = styled.li`

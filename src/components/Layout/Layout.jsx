@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
 import { GrBasket } from 'react-icons/gr';
 import { GrRestaurant } from 'react-icons/gr';
-import { GrFavorite } from 'react-icons/gr';
 import { Suspense } from 'react';
 import { Container } from '../../globalStyle';
 import {
@@ -17,6 +16,7 @@ import {
 } from './Layout.style';
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
+import { FilterForm } from '../Filter/FilterForm';
 
 const Layout = () => {
   const pagesMenu = [
@@ -46,9 +46,7 @@ const Layout = () => {
               ))}
             </List>
             <Wrapper>
-              <Link activeclassname="active" to="favorite">
-                <GrFavorite />
-              </Link>
+              <FilterForm />
               <Button type="button">
                 <TbUser />
               </Button>

@@ -42,7 +42,8 @@ export const Link = styled(NavLink)`
   line-height: normal;
   transition: color var(--transition);
 
-  &:hover {
+  &:hover,
+  :focus {
     color: var(--active-color);
   }
 
@@ -53,6 +54,7 @@ export const Link = styled(NavLink)`
 
 export const Wrapper = styled.div`
   display: flex;
+  align-items: center;
   gap: 33px;
 `;
 
@@ -65,7 +67,8 @@ export const Button = styled.button`
   font-size: 24px;
   transition: color var(--transition);
 
-  &:hover {
+  &:hover,
+  :focus {
     color: var(--active-color);
   }
 `;

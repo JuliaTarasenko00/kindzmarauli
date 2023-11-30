@@ -2,6 +2,7 @@ import { GrBasket } from 'react-icons/gr';
 import { Container } from '../../globalStyle';
 import {
   Button,
+  Discount,
   DiscountedPrice,
   DishDescription,
   GramDish,
@@ -24,8 +25,13 @@ export const CreatedMarkup = (prop) => {
       {titleHotDishes && <Title className="hot_dishes">{titleHotDishes}</Title>}
       <PopularList>
         {dishes.map((dish) => {
+          const discount = dish.discounted ? Number(dish.discounted) : 0;
+          const discountAmount = (dish.price * discount) / 100;
+          const finalPrice = Math.floor(dish.price - discountAmount);
+
           return (
             <PopularItem key={dish.id}>
+              {dish.discounted && <Discount>{dish.discounted}%</Discount>}
               <PopularWrapper>
                 <Image
                   src={dish.image}
@@ -36,12 +42,14 @@ export const CreatedMarkup = (prop) => {
                 <NameDish>{dish.name}</NameDish>
                 <GramDish>{dish.gram}g</GramDish>
                 <DishDescription>{dish.description}</DishDescription>
-                {dish?.discountedPrice && (
-                  <DiscountedPrice>{dish.discountedPrice}$</DiscountedPrice>
-                )}
               </PopularWrapper>
               <WrapperPrice>
-                <Prise>{dish.price}$</Prise>
+                <div>
+                  {dish?.discounted && (
+                    <DiscountedPrice>{dish.price}$</DiscountedPrice>
+                  )}
+                  <Prise>{finalPrice}$</Prise>
+                </div>
                 <Button type="button">
                   <GrBasket />
                 </Button>

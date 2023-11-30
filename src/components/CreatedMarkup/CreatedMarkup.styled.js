@@ -30,6 +30,17 @@ export const PopularItem = styled.li`
   display: flex;
   flex-direction: column;
   width: 220px;
+  position: relative;
+`;
+
+export const Discount = styled.p`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: #ff00008c;
+  border-radius: 2.5px;
+  padding: 5px;
+  color: white;
 `;
 
 export const PopularWrapper = styled.div`
@@ -93,6 +104,7 @@ export const DiscountedPrice = styled.p`
   line-height: normal;
   text-decoration-line: line-through;
   opacity: 0.8;
+  margin-bottom: 10px;
 `;
 
 export const Button = styled.button`

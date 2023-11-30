@@ -61,6 +61,11 @@ button{
   padding: 0;
 }
 
+svg{
+  width: 24px;
+  height: 24px;
+}
+
 #root{
     min-height: 100vh; 
     background-image: url(${img});
@@ -68,6 +73,18 @@ button{
     background-size: 1350px;
     display: flex;
     flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track{
+  background-color:  #80808080;
+}
+::-webkit-scrollbar-thumb{
+  background-color:#fbd13e;
+  border-radius: 15px;
 }
 
 
@@ -138,8 +155,6 @@ button{
   font-style: normal;
   font-display: swap;
   }
-
-
 
 `;
 

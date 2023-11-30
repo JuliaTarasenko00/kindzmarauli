@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { GoChevronDown } from 'react-icons/go';
-import { GoChevronUp } from 'react-icons/go';
 import {
   SelectItem,
   SelectLink,
@@ -64,24 +63,24 @@ export const Select = () => {
         }}
         data-active={isActive.toString()}
       >
-        {selected} {!isActive ? <GoChevronDown /> : <GoChevronUp />}
+        {selected}
+        <GoChevronDown />
       </Title>
-      {isActive && (
-        <SelectList
-          onClick={(ev) => {
-            if (ev.target !== ev.currentTarget) {
-              setSelected(ev.target.textContent);
-              setIsActive(false);
-            }
-          }}
-        >
-          {options.map(({ name, to }) => (
-            <SelectItem key={name} onClick={() => handleClick(hash)}>
-              <SelectLink to={to}>{name}</SelectLink>
-            </SelectItem>
-          ))}
-        </SelectList>
-      )}
+      <SelectList
+        data-show={isActive.toString()}
+        onClick={(ev) => {
+          if (ev.target !== ev.currentTarget) {
+            setSelected(ev.target.textContent);
+            setIsActive(false);
+          }
+        }}
+      >
+        {options.map(({ name, to }) => (
+          <SelectItem key={name} onClick={() => handleClick(hash)}>
+            <SelectLink to={to}>{name}</SelectLink>
+          </SelectItem>
+        ))}
+      </SelectList>
     </SelectWrapper>
   );
 };
