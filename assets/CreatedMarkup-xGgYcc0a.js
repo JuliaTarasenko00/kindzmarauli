@@ -1,4 +1,4 @@
-import{s as r,j as o,C as x}from"./index-T5CKbiHJ.js";import{a as d}from"./selector-OVmEZyHJ.js";r.section``;const e=r.h3`
+import{s as r,j as o,C as x}from"./index-47n2C3uy.js";import{a as d}from"./selector-FzZYIeaJ.js";r.section``;const e=r.h3`
   width: 643px;
   color: var(--main-color);
   font-size: 80px;
