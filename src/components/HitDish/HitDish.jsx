@@ -27,15 +27,15 @@ import {
   WrapperSection,
 } from './HitDish.styled';
 import { popularDishes } from '../../redux/selector';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 export const HitDish = () => {
   const popular = useSelector(popularDishes);
-  const randomDish = useRef(null);
+  const [randomDish, setRandomDish] = useState(null);
 
   useEffect(() => {
     const random = Math.floor(Math.random() * popular.length);
-    randomDish.current = popular[random];
+    return setRandomDish(popular[random]);
   }, [popular]);
 
   return (
@@ -60,18 +60,18 @@ export const HitDish = () => {
           </WrapperInfo>
           <WrapperDish>
             <ImgDish
-              src={randomDish.current?.image}
-              alt={randomDish.current?.name}
+              src={randomDish?.image}
+              alt={randomDish?.name}
               width="1170"
               height="550"
               loading="lazy"
             />
             <DishDetails>
-              <NameDish>{randomDish.current?.name}</NameDish>
+              <NameDish>{randomDish?.name}</NameDish>
               <Gram>250g</Gram>
-              <Description>{randomDish.current?.description}</Description>
+              <Description>{randomDish?.description}</Description>
               <WrapperPrice>
-                <Prise>{randomDish.current?.price}$</Prise>
+                <Prise>{randomDish?.price}$</Prise>
                 <Button type="button">
                   <GrBasket />
                 </Button>
