@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { styleToastify } from '../components/toastify';
+import { styleToastify } from '../../components/toastify';
 
 const $instants = axios.create({
   baseURL: 'https://655f6e49879575426b455569.mockapi.io/',
@@ -23,8 +23,8 @@ export const getMenuPopular = createAsyncThunk(
   },
 );
 
-export const getHotMenu = createAsyncThunk(
-  'menu/HotMenu',
+export const getAllMenu = createAsyncThunk(
+  'menu/AllMenu',
   async (_, thunkAPI) => {
     try {
       const { data } = await $instants.get('dishes');

@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { CreatedMarkup } from '../CreatedMarkup/CreatedMarkup';
 import { specificsDish } from '../../helpers/specifics_dish';
-import { hotDishes } from '../../redux/selector';
+import { allDishes } from '../../redux/selector';
 
 export const MainDishesSection = () => {
-  const allDishes = useSelector(hotDishes);
-  const mainDishes = allDishes.filter(
+  const allDish = useSelector(allDishes);
+  const mainDishes = allDish.filter(
     (dish) => dish.specificsDish === specificsDish.MAIN,
   );
 

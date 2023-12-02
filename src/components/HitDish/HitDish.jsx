@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { GrBasket } from 'react-icons/gr';
 import { Container } from '../../globalStyle';
 import designSmall from '../../assets/img/design_small.png';
@@ -25,8 +26,18 @@ import {
   WrapperPrice,
   WrapperSection,
 } from './HitDish.styled';
+import { popularDishes } from '../../redux/selector';
+import { useEffect, useRef } from 'react';
 
 export const HitDish = () => {
+  const popular = useSelector(popularDishes);
+  const randomDish = useRef(null);
+
+  useEffect(() => {
+    const random = Math.floor(Math.random() * popular.length);
+    randomDish.current = popular[random];
+  }, [popular]);
+
   return (
     <Section>
       <Container>
@@ -49,21 +60,18 @@ export const HitDish = () => {
           </WrapperInfo>
           <WrapperDish>
             <ImgDish
-              src="https://www.thegrill.ee/wp-content/uploads/2022/03/bskwojx9nn8w.jpg"
-              alt="Khachapuri in Adjara"
+              src={randomDish.current?.image}
+              alt={randomDish.current?.name}
               width="1170"
               height="550"
               loading="lazy"
             />
             <DishDetails>
-              <NameDish>Khachapuri in Adjara</NameDish>
+              <NameDish>{randomDish.current?.name}</NameDish>
               <Gram>250g</Gram>
-              <Description>
-                Khachapuri `Boat` stuffed with melted suluguni cheese, eggs and
-                butter.
-              </Description>
+              <Description>{randomDish.current?.description}</Description>
               <WrapperPrice>
-                <Prise>45$</Prise>
+                <Prise>{randomDish.current?.price}$</Prise>
                 <Button type="button">
                   <GrBasket />
                 </Button>

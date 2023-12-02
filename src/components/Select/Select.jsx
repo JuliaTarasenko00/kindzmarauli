@@ -64,7 +64,9 @@ export const Select = () => {
         data-active={isActive.toString()}
       >
         {selected}
-        <GoChevronDown />
+        <span>
+          <GoChevronDown />
+        </span>
       </Title>
       <SelectList
         data-show={isActive.toString()}

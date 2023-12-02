@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import { hotDishes } from '../../redux/selector';
+import { allDishes } from '../../redux/selector';
 import { specificsDish } from '../../helpers/specifics_dish';
 import { CreatedMarkup } from '../CreatedMarkup/CreatedMarkup';
 
 export const KhinkaliSection = () => {
-  const allDishes = useSelector(hotDishes);
-  const khinkali = allDishes.filter(
+  const allDish = useSelector(allDishes);
+  const khinkali = allDish.filter(
     (dish) => dish.specificsDish === specificsDish.KHINKALI,
   );
 

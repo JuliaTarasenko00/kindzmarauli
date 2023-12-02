@@ -58,3 +58,7 @@ export const DeleteButton = styled.button`
     color: var(--active-color);
   }
 `;
+
+export const FilterSection = styled.section`
+padding-bottom: 40px;
+`

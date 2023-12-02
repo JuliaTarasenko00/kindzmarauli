@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
 import { GrBasket } from 'react-icons/gr';
@@ -17,8 +18,13 @@ import {
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
 import { FilterForm } from '../Filter/FilterForm';
+import { filterDish } from '../../redux/selector';
+import { filterDishes } from '../../redux/filter/slice';
 
 const Layout = () => {
+  const filter = useSelector(filterDish);
+  const dispatch = useDispatch();
+
   const pagesMenu = [
     { name: 'Appetizer', to: 'appetizer' },
     { name: 'Desserts', to: 'desserts' },
@@ -30,7 +36,14 @@ const Layout = () => {
       <Header>
         <Container>
           <Nav>
-            <Logo to="/">
+            <Logo
+              to="/"
+              onClick={() => {
+                if (filter) {
+                  dispatch(filterDishes(''));
+                }
+              }}
+            >
               <GrRestaurant /> Kindzmarauli
             </Logo>
             <List>

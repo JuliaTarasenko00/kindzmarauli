@@ -10,15 +10,21 @@ import {
   Input,
   WrapperButton,
 } from './FilterForm.styled';
+import { useDispatch } from 'react-redux';
+import { filterDishes } from '../../redux/filter/slice';
+import { getAllMenu } from '../../redux/dishes/operation';
 
 export const FilterForm = () => {
+  const dispatch = useDispatch();
   return (
     <FormWrapper>
       <Formik
         initialValues={{ search: '' }}
         onSubmit={(value, { setSubmitting }) => {
           if (value.search !== '') {
-            console.log(value);
+            dispatch(filterDishes(value.search));
+            dispatch(getAllMenu());
+
             setSubmitting(false);
           } else {
             return toast.error('Enter the name of the dish', styleToastify);
@@ -39,7 +45,10 @@ export const FilterForm = () => {
               {values.search !== '' && (
                 <DeleteButton
                   type="button"
-                  onClick={() => resetForm()}
+                  onClick={() => {
+                    dispatch(filterDishes(''));
+                    resetForm();
+                  }}
                   className="delete"
                 >
                   <AiOutlineClose />

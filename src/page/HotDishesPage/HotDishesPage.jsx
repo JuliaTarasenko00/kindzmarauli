@@ -4,7 +4,7 @@ import { GrilledDishesSection } from '../../components/GrilledDishes/GrilledDish
 import { KhinkaliSection } from '../../components/Khinkali/Khinkali';
 import { MainDishesSection } from '../../components/MainDishes/MainDishes';
 import { useDispatch, useSelector } from 'react-redux';
-import { getHotMenu } from '../../redux/operation';
+import { getAllMenu } from '../../redux/dishes/operation';
 import { specificsDish } from '../../helpers/specifics_dish';
 import { Section } from './HotDishesPage.styled';
 import { loading } from '../../redux/selector';
@@ -34,7 +34,7 @@ const HotDishes = () => {
   }, [hash]);
 
   useEffect(() => {
-    dispatch(getHotMenu());
+    dispatch(getAllMenu());
   }, [dispatch]);
 
   return (
