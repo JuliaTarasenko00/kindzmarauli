@@ -11,6 +11,13 @@ export const WrapperContact = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 37px;
+  flex-direction: column;
+  gap: 37px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+  }
 `;
 
 export const NameRestaurant = styled.p`
@@ -26,6 +33,7 @@ export const Link = styled.a`
   font-weight: 500;
   line-height: normal;
   transition: color var(--transition);
+  display: block;
 
   &.email {
     font-size: 12px;
@@ -33,12 +41,21 @@ export const Link = styled.a`
   }
 
   &:not(:last-child) {
-    margin-right: 29px;
+    margin-bottom: 19px;
   }
 
   &:hover,
   :focus {
     color: var(--active-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 29px;
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -48,6 +65,14 @@ export const WrapperOfficial = styled.div`
 
   border-top: 0.5px solid grey;
   padding-top: 28px;
+
+  flex-direction: column;
+  gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+  }
 `;
 
 export const TitleOfficial = styled.p`

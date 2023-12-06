@@ -3,15 +3,20 @@ import styled from 'styled-components';
 export const Section = styled.section``;
 
 export const WrapperSection = styled.div`
-  display: flex;
-  gap: 68px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 68px;
+  }
 `;
 
-export const WrapperInfo = styled.div``;
+export const WrapperInfo = styled.div`
+  position: relative;
+`;
 
 export const Title = styled.p`
   color: var(--main-color);
-  width: 312px;
+  max-width: 312px;
   font-size: 22px;
   line-height: 1.2;
   font-weight: 500;
@@ -46,29 +51,51 @@ export const Link = styled.a`
 `;
 
 export const WrapperDish = styled.div`
-  position: relative;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: relative;
+  }
 `;
 
 export const ImgDish = styled.img`
-  height: 550px;
+  height: 300px;
   border-radius: 10px;
+  object-fit: fill;
+
+  @media screen and (min-width: 1400px) {
+    width: 900px;
+    height: 500px;
+  }
 `;
 
 export const DishDetails = styled.div`
-  padding: 20px;
-  width: 337px;
+  padding: 10px;
+  max-width: 220px;
   position: absolute;
-  bottom: -60px;
-  left: 73px;
+  bottom: 0;
+  left: 25px;
   background-color: red;
+
+  @media screen and (min-width: 1400px) {
+    padding: 20px;
+    max-width: 337px;
+    bottom: -60px;
+    left: 73px;
+  }
 `;
 
 export const NameDish = styled.h3`
   color: var(--main-color);
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
-  margin-top: 7px;
+  margin-bottom: 7px;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 25px;
+  }
 `;
 
 export const Gram = styled.p`
@@ -87,10 +114,14 @@ export const Description = styled.p`
   margin-top: 7px;
   margin-bottom: 21px;
   color: var(--main-color);
-  font-size: 15px;
+  font-size: 11px;
   font-weight: 500;
   line-height: 1.4;
   opacity: 0.8;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 15px;
+  }
 `;
 
 export const WrapperPrice = styled.div`
@@ -101,8 +132,12 @@ export const WrapperPrice = styled.div`
 
 export const Prise = styled.p`
   color: var(--main-color);
-  font-size: 23px;
+  font-size: 18px;
   font-weight: 800;
+
+  @media screen and (min-width: 1400px) {
+    font-size: 23px;
+  }
 `;
 
 export const Button = styled.button`
@@ -136,15 +171,25 @@ export const DishGram = styled.p`
 `;
 
 export const ImgDesignBig = styled.img`
-  position: absolute;
-  right: 0;
-  bottom: -330px;
-  height: 400px;
+  display: none;
+
+  @media screen and (min-width: 1400px) {
+    position: absolute;
+    right: 0;
+    bottom: -330px;
+    height: 400px;
+    display: block;
+  }
 `;
 
 export const WrapperDessert = styled.div`
-  width: 264px;
-  margin-top: 80px;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    width: 264px;
+    margin-top: 80px;
+  }
 `;
 
 export const DessertImg = styled.img``;

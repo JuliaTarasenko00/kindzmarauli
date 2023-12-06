@@ -3,17 +3,23 @@ import { Outlet } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
 import { GrBasket } from 'react-icons/gr';
 import { GrRestaurant } from 'react-icons/gr';
-import { Suspense } from 'react';
+import { CiMenuFries } from 'react-icons/ci';
+import { TfiClose } from 'react-icons/tfi';
+import { Suspense, useState } from 'react';
 import { Container } from '../../globalStyle';
 import {
   Button,
   Header,
+  HeaderContainer,
   Item,
-  Link,
+  LinkNavigate,
   List,
   Logo,
+  MainNavigate,
   Nav,
-  Wrapper,
+  Span,
+  WrapperAction,
+  WrapperNav,
 } from './Layout.style';
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
@@ -24,6 +30,7 @@ import { filterDishes } from '../../redux/filter/slice';
 const Layout = () => {
   const filter = useSelector(filterDish);
   const dispatch = useDispatch();
+  const [visibility, setVisibility] = useState(false);
 
   const pagesMenu = [
     { name: 'Appetizer', to: 'appetizer' },
@@ -31,11 +38,19 @@ const Layout = () => {
     { name: 'Drinks', to: 'drinks' },
   ];
 
+  const onClickButton = () => {
+    setVisibility(!visibility);
+
+    !visibility
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto');
+  };
+
   return (
     <>
       <Header>
         <Container>
-          <Nav>
+          <HeaderContainer>
             <Logo
               to="/"
               onClick={() => {
@@ -44,30 +59,55 @@ const Layout = () => {
                 }
               }}
             >
-              <GrRestaurant /> Kindzmarauli
+              <Span>
+                <GrRestaurant />
+              </Span>
+              Kindzmarauli
             </Logo>
-            <List>
-              <Item>
-                <Select />
-              </Item>
-              {pagesMenu.map(({ name, to }) => (
-                <Item key={name}>
-                  <Link activeclassname="active" to={to}>
-                    {name}
-                  </Link>
-                </Item>
-              ))}
-            </List>
-            <Wrapper>
-              <FilterForm />
-              <Button type="button">
-                <TbUser />
-              </Button>
-              <Link activeclassname="active" to="basket">
-                <GrBasket />
-              </Link>
-            </Wrapper>
-          </Nav>
+            <Button
+              type="button"
+              className="open_mobil_menu"
+              onClick={onClickButton}
+            >
+              <CiMenuFries />
+            </Button>
+            <WrapperNav data-visibility={visibility.toString()}>
+              <Nav>
+                <Button
+                  className="close_mobil_menu"
+                  type="button"
+                  onClick={onClickButton}
+                >
+                  <TfiClose />
+                </Button>
+                <List>
+                  <Item>
+                    <Select />
+                  </Item>
+                  {pagesMenu.map(({ name, to }) => (
+                    <Item key={name}>
+                      <MainNavigate activeclassname="active" to={to}>
+                        {name}
+                      </MainNavigate>
+                    </Item>
+                  ))}
+                </List>
+              </Nav>
+              <WrapperAction>
+                <FilterForm />
+                <Button type="button" className="user_button">
+                  <TbUser />
+                </Button>
+                <LinkNavigate
+                  to="basket"
+                  preventScrollReset={true}
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  <GrBasket />
+                </LinkNavigate>
+              </WrapperAction>
+            </WrapperNav>
+          </HeaderContainer>
         </Container>
       </Header>
       <main style={{ flexGrow: 1 }}>

@@ -160,6 +160,15 @@ svg{
 
 export const Container = styled.div`
   margin: 0 auto;
-  max-width: 1702px;
-  padding: 0 51px 0 34px;
+  max-width: 375px;
+  padding: 0 21px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 1200px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 1702px;
+    padding: 0 51px;
+  }
 `;

@@ -17,6 +17,12 @@ export const Button = styled.button`
 
 export const FormWrapper = styled.div`
   position: relative;
+  display: block;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const Form = styled.form``;
@@ -60,5 +66,5 @@ export const DeleteButton = styled.button`
 `;
 
 export const FilterSection = styled.section`
-padding-bottom: 40px;
-`
+  padding-bottom: 40px;
+`;

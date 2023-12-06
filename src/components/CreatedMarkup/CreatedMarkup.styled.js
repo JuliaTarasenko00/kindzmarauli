@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-export const Section = styled.section``;
-
 export const Title = styled.h3`
-  width: 643px;
   color: var(--main-color);
-  font-size: 80px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 1.12;
+  margin: 20px auto 0;
 
-  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    width: 643px;
+    font-size: 80px;
+  }
 
   &.hot_dishes {
     margin: 0;
@@ -19,11 +20,18 @@ export const Title = styled.h3`
 export const PopularList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 15px;
   row-gap: 20px;
-  max-width: 1440px;
   margin: 28px auto 0;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    column-gap: 15px;
+    max-width: 960px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 1440px;
+  }
 `;
 
 export const PopularItem = styled.li`

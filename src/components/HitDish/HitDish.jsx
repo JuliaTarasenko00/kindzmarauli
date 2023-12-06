@@ -62,7 +62,7 @@ export const HitDish = () => {
             <ImgDish
               src={randomDish?.image}
               alt={randomDish?.name}
-              width="1170"
+              width="600"
               height="550"
               loading="lazy"
             />
