@@ -50,6 +50,9 @@ export const MenuSlider = () => {
     <>
       <SectionMobil>
         <Container>
+          <Wrapper>
+            <Title>Menu</Title>
+          </Wrapper>
           <Swiper
             effect={'flip'}
             grabCursor={true}

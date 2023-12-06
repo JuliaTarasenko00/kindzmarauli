@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SectionMobil = styled.section`
-  padding-bottom: 169px;
+  padding-bottom: 60px;
   display: block;
   @media screen and (min-width: 768px) {
     display: none;
@@ -10,9 +10,9 @@ export const SectionMobil = styled.section`
 `;
 
 export const Section = styled.section`
-  padding-bottom: 169px;
   display: none;
   @media screen and (min-width: 768px) {
+    padding-bottom: 169px;
     display: block;
   }
 `;
