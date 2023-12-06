@@ -1,4 +1,4 @@
-import{s as n,j as o,C as x}from"./index-nRg_HU8q.js";import{a as d}from"./selector-DRuVlppg.js";const e=n.h3`
+import{s as n,j as o,C as x}from"./index-CjfqT4--.js";import{a as d}from"./selector-Wo9YAPmK.js";const e=n.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
@@ -92,6 +92,7 @@ import{s as n,j as o,C as x}from"./index-nRg_HU8q.js";import{a as d}from"./selec
 `,y=n.button`
   cursor: pointer;
   border: none;
+  color: #000;
   font-size: 25px;
   padding: 5px;
   padding-bottom: 0;
