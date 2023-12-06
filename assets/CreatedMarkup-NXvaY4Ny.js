@@ -1,4 +1,4 @@
-import{s as n,j as o,C as x}from"./index-CjfqT4--.js";import{a as d}from"./selector-Wo9YAPmK.js";const e=n.h3`
+import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selector-udjM90mu.js";const e=n.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
