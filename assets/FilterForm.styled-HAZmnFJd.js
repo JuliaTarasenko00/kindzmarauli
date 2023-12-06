@@ -1,4 +1,4 @@
-import{s as o}from"./index-47n2C3uy.js";const t=o.button`
+import{s as o}from"./index-_AmBHhSq.js";const t=o.button`
   cursor: pointer;
 
   background-color: transparent;
@@ -13,6 +13,12 @@ import{s as o}from"./index-47n2C3uy.js";const t=o.button`
   }
 `,n=o.div`
   position: relative;
+  display: block;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;o.form``;const a=o.input`
   padding: 10px;
   background: transparent;
@@ -46,5 +52,5 @@ import{s as o}from"./index-47n2C3uy.js";const t=o.button`
     color: var(--active-color);
   }
 `,e=o.section`
-padding-bottom: 40px;
+  padding-bottom: 40px;
 `;export{t as B,s as D,n as F,a as I,i as W,e as a};
