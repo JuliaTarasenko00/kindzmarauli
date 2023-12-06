@@ -118,6 +118,7 @@ export const DiscountedPrice = styled.p`
 export const Button = styled.button`
   cursor: pointer;
   border: none;
+  color: #000;
   font-size: 25px;
   padding: 5px;
   padding-bottom: 0;
