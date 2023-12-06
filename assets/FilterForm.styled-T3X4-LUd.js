@@ -1,4 +1,4 @@
-import{s as o}from"./index-_AmBHhSq.js";const t=o.button`
+import{s as o}from"./index-nRg_HU8q.js";const t=o.button`
   cursor: pointer;
 
   background-color: transparent;
