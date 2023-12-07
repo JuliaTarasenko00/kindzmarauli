@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { GrBasket } from 'react-icons/gr';
 import { Container } from '../../globalStyle';
 import {
@@ -60,4 +61,20 @@ export const CreatedMarkup = (prop) => {
       </PopularList>
     </Container>
   );
+};
+
+CreatedMarkup.propTypes = {
+  title: PropTypes.string,
+  titleHotDishes: PropTypes.string,
+  dishes: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      gram: PropTypes.number.isRequired,
+      specificsDish: PropTypes.string,
+      image: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };

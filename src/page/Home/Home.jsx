@@ -6,7 +6,7 @@ import { CreatedMarkup } from '../../components/CreatedMarkup/CreatedMarkup';
 import { filterDish, popularDishes } from '../../redux/selector';
 import { Filter } from '../../components/Filter/Filter';
 import { Section } from './Home.styled';
-import { MenuSlider } from '../../components/MenuSlider/MenuSlider';
+import { Menu } from '../../components/Menu/Menu';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Home = () => {
           <Section>
             <CreatedMarkup title={'Popular Dishes'} dishes={popular} />
           </Section>
-          <MenuSlider />
+          <Menu />
         </>
       )}
     </>
