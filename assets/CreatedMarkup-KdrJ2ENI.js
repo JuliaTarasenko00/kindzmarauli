@@ -1,4 +1,4 @@
-import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selector-udjM90mu.js";const e=n.h3`
+import{g as f,s as o,j as t,C as b}from"./index-2FRWfh_V.js";import{a as y}from"./selector-bQwE5Kaj.js";var m={exports:{}},v="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",w=v,j=w;function g(){}function u(){}u.resetWarningCache=g;var T=function(){function e(s,r,c,p,l,h){if(h!==j){var d=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw d.name="Invariant Violation",d}}e.isRequired=e;function i(){return e}var a={array:e,bigint:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:i,element:e,elementType:e,instanceOf:i,node:e,objectOf:i,oneOf:i,oneOfType:i,shape:i,exact:i,checkPropTypes:u,resetWarningCache:g};return a.PropTypes=a,a};m.exports=T();var k=m.exports;const n=f(k),x=o.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
@@ -13,7 +13,7 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
   &.hot_dishes {
     margin: 0;
   }
-`,g=n.ul`
+`,P=o.ul`
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
@@ -28,12 +28,12 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
   @media screen and (min-width: 1400px) {
     max-width: 1440px;
   }
-`,m=n.li`
+`,R=o.li`
   display: flex;
   flex-direction: column;
   width: 220px;
   position: relative;
-`,u=n.p`
+`,D=o.p`
   position: absolute;
   top: 5px;
   left: 5px;
@@ -41,20 +41,20 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
   border-radius: 2.5px;
   padding: 5px;
   color: white;
-`,h=n.div`
+`,_=o.div`
   flex-grow: 1;
-`,f=n.img`
+`,z=o.img`
   border-radius: 5px;
   height: 245px;
   object-fit: cover;
-`,b=n.h4`
+`,O=o.h4`
   color: var(--main-color);
   font-family: Montserrat;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
   margin-top: 15px;
-`,v=n.p`
+`,C=o.p`
   width: 47px;
   padding: 2px 5px;
   text-align: center;
@@ -66,22 +66,22 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
   line-height: normal;
   margin-top: 10px;
   margin-bottom: 10px;
-`,w=n.p`
+`,S=o.p`
   color: var(--main-color);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.38;
   opacity: 0.8;
   margin-bottom: 14px;
-`,j=n.div`
+`,q=o.div`
   display: flex;
   align-items: center;
   gap: 18px;
-`,k=n.p`
+`,E=o.p`
   color: var(--main-color);
   font-size: 23px;
   font-weight: 800;
-`,z=n.p`
+`,N=o.p`
   color: var(--main-color);
   font-size: 18px;
   font-weight: 600;
@@ -89,7 +89,7 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
   text-decoration-line: line-through;
   opacity: 0.8;
   margin-bottom: 10px;
-`,y=n.button`
+`,W=o.button`
   cursor: pointer;
   border: none;
   color: #000;
@@ -105,7 +105,7 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
     background-color: var(--button-basket-background-active);
     color: var(--button-basket-color-active);
   }
-`;n.p`
+`;o.p`
   color: var(--main-color);
   font-size: 13px;
   font-weight: 500;
@@ -116,4 +116,4 @@ import{s as n,j as o,C as x}from"./index-7f429aPN.js";import{a as d}from"./selec
   border-radius: 2px;
   padding: 2px 0;
   margin-bottom: 23px;
-`;const C=a=>{const{title:r,dishes:c,titleHotDishes:i}=a;return o.jsxs(x,{children:[r&&o.jsx(e,{children:r}),i&&o.jsx(e,{className:"hot_dishes",children:i}),o.jsx(g,{children:c.map(t=>{const s=t.discounted?Number(t.discounted):0,p=t.price*s/100,l=Math.floor(t.price-p);return o.jsxs(m,{children:[t.discounted&&o.jsxs(u,{children:[t.discounted,"%"]}),o.jsxs(h,{children:[o.jsx(f,{src:t.image,alt:t.name,loading:"lazy",width:"245"}),o.jsx(b,{children:t.name}),o.jsxs(v,{children:[t.gram,"g"]}),o.jsx(w,{children:t.description})]}),o.jsxs(j,{children:[o.jsxs("div",{children:[(t==null?void 0:t.discounted)&&o.jsxs(z,{children:[t.price,"$"]}),o.jsxs(k,{children:[l,"$"]})]}),o.jsx(y,{type:"button",children:o.jsx(d,{})})]})]},t.id)})})]})};export{C};
+`;const I=e=>{const{title:i,dishes:a,titleHotDishes:s}=e;return t.jsxs(b,{children:[i&&t.jsx(x,{children:i}),s&&t.jsx(x,{className:"hot_dishes",children:s}),t.jsx(P,{children:a.map(r=>{const c=r.discounted?Number(r.discounted):0,p=r.price*c/100,l=Math.floor(r.price-p);return t.jsxs(R,{children:[r.discounted&&t.jsxs(D,{children:[r.discounted,"%"]}),t.jsxs(_,{children:[t.jsx(z,{src:r.image,alt:r.name,loading:"lazy",width:"245"}),t.jsx(O,{children:r.name}),t.jsxs(C,{children:[r.gram,"g"]}),t.jsx(S,{children:r.description})]}),t.jsxs(q,{children:[t.jsxs("div",{children:[(r==null?void 0:r.discounted)&&t.jsxs(N,{children:[r.price,"$"]}),t.jsxs(E,{children:[l,"$"]})]}),t.jsx(W,{type:"button",children:t.jsx(y,{})})]})]},r.id)})})]})};I.propTypes={title:n.string,titleHotDishes:n.string,dishes:n.arrayOf(n.shape({name:n.string.isRequired,description:n.string.isRequired,price:n.number.isRequired,gram:n.number.isRequired,specificsDish:n.string,image:n.string.isRequired,id:n.string.isRequired})).isRequired};export{I as C,n as P};
