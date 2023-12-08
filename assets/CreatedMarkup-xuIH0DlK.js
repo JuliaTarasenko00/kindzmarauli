@@ -1,4 +1,4 @@
-import{s as n,j as i,C as m}from"./index-v82_khNA.js";import{P as t,a as l}from"./selector-qcE2dmNE.js";const a=n.h3`
+import{s as n,j as i,C as m}from"./index-toT6-GZ9.js";import{P as t,a as l}from"./selector-N-iprwsM.js";const a=n.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
@@ -14,13 +14,15 @@ import{s as n,j as i,C as m}from"./index-v82_khNA.js";import{P as t,a as l}from"
     margin: 0;
   }
 `,h=n.ul`
+  max-width: 333px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   margin: 28px auto 0;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
+    row-gap: 20px;
     column-gap: 15px;
     max-width: 960px;
   }
@@ -31,7 +33,7 @@ import{s as n,j as i,C as m}from"./index-v82_khNA.js";import{P as t,a as l}from"
 `,g=n.li`
   display: flex;
   flex-direction: column;
-  max-width: 25vh;
+  max-width: 19vh;
   position: relative;
 
   @media screen and (min-width: 768px) {
@@ -175,4 +177,4 @@ import{s as n,j as i,C as m}from"./index-v82_khNA.js";import{P as t,a as l}from"
     font-size: 13px;
     width: 47px;
   }
-`;const P=s=>{const{title:o,dishes:c,titleHotDishes:r}=s;return i.jsxs(m,{children:[o&&i.jsx(a,{children:o}),r&&i.jsx(a,{className:"hot_dishes",children:r}),i.jsx(h,{children:c.map(e=>{const d=e.discounted?Number(e.discounted):0,p=e.price*d/100,x=Math.floor(e.price-p);return i.jsxs(g,{children:[e.discounted&&i.jsxs(u,{children:[e.discounted,"%"]}),i.jsxs(f,{children:[i.jsx(w,{src:e.image,alt:e.name,loading:"lazy",width:"245"}),i.jsx(b,{children:e.name}),i.jsxs(v,{children:[e.gram,"g"]}),i.jsx(j,{children:e.description})]}),i.jsxs(z,{children:[i.jsxs("div",{children:[(e==null?void 0:e.discounted)&&i.jsxs(y,{children:[e.price,"$"]}),i.jsxs(k,{children:[x,"$"]})]}),i.jsx(D,{type:"button",children:i.jsx(l,{})})]})]},e.id)})})]})};P.propTypes={title:t.string,titleHotDishes:t.string,dishes:t.arrayOf(t.shape({name:t.string.isRequired,description:t.string.isRequired,price:t.number.isRequired,gram:t.number.isRequired,specificsDish:t.string,image:t.string.isRequired,id:t.string.isRequired})).isRequired};export{P as C};
+`;const P=s=>{const{title:o,dishes:p,titleHotDishes:r}=s;return i.jsxs(m,{children:[o&&i.jsx(a,{children:o}),r&&i.jsx(a,{className:"hot_dishes",children:r}),i.jsx(h,{children:p.map(e=>{const c=e.discounted?Number(e.discounted):0,d=e.price*c/100,x=Math.floor(e.price-d);return i.jsxs(g,{children:[e.discounted&&i.jsxs(u,{children:[e.discounted,"%"]}),i.jsxs(f,{children:[i.jsx(w,{src:e.image,alt:e.name,loading:"lazy",width:"245"}),i.jsx(b,{children:e.name}),i.jsxs(v,{children:[e.gram,"g"]}),i.jsx(j,{children:e.description})]}),i.jsxs(z,{children:[i.jsxs("div",{children:[(e==null?void 0:e.discounted)&&i.jsxs(y,{children:[e.price,"$"]}),i.jsxs(k,{children:[x,"$"]})]}),i.jsx(D,{type:"button",children:i.jsx(l,{})})]})]},e.id)})})]})};P.propTypes={title:t.string,titleHotDishes:t.string,dishes:t.arrayOf(t.shape({name:t.string.isRequired,description:t.string.isRequired,price:t.number.isRequired,gram:t.number.isRequired,specificsDish:t.string,image:t.string.isRequired,id:t.string.isRequired})).isRequired};export{P as C};
