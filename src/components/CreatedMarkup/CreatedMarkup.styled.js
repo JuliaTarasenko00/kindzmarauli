@@ -18,13 +18,15 @@ export const Title = styled.h3`
 `;
 
 export const PopularList = styled.ul`
+  max-width: 333px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   margin: 28px auto 0;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
+    row-gap: 20px;
     column-gap: 15px;
     max-width: 960px;
   }
@@ -37,7 +39,7 @@ export const PopularList = styled.ul`
 export const PopularItem = styled.li`
   display: flex;
   flex-direction: column;
-  max-width: 25vh;
+  max-width: 19vh;
   position: relative;
 
   @media screen and (min-width: 768px) {
