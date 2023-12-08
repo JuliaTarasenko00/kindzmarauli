@@ -31,13 +31,13 @@ export const ImgDesignSmall = styled.img`
 export const Link = styled.a`
   display: block;
   color: var(--main-color);
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 500;
   margin-top: 37px;
   transition: color var(--transition);
 
   &.email {
-    font-size: 18px;
+    font-size: 10px;
     font-weight: 500;
     line-height: 1;
     text-decoration-line: underline;
@@ -47,6 +47,14 @@ export const Link = styled.a`
   &:hover,
   :focus {
     color: var(--active-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 25px;
+
+    &.email {
+      font-size: 18px;
+    }
   }
 `;
 

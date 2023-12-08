@@ -20,7 +20,7 @@ export const Title = styled.h3`
 export const PopularList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  row-gap: 20px;
+  gap: 20px;
   margin: 28px auto 0;
   justify-content: center;
 
@@ -37,18 +37,29 @@ export const PopularList = styled.ul`
 export const PopularItem = styled.li`
   display: flex;
   flex-direction: column;
-  width: 220px;
+  width: 110px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 220px;
+  }
 `;
 
 export const Discount = styled.p`
   position: absolute;
   top: 5px;
   left: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
   background-color: #ff00008c;
   border-radius: 2.5px;
   padding: 5px;
-  color: white;
+  color: var(--main-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 23px;
+  }
 `;
 
 export const PopularWrapper = styled.div`
@@ -57,71 +68,104 @@ export const PopularWrapper = styled.div`
 
 export const Image = styled.img`
   border-radius: 5px;
-  height: 245px;
+  height: 95px;
   object-fit: cover;
+
+  @media screen and (min-width: 768px) {
+    height: 245px;
+  }
 `;
 
 export const NameDish = styled.h4`
   color: var(--main-color);
-  font-family: Montserrat;
-  font-size: 20px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.2;
-  margin-top: 15px;
+  margin-top: 5px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 20px;
+    margin-top: 15px;
+  }
 `;
 
 export const GramDish = styled.p`
-  width: 47px;
+  width: 37px;
   padding: 2px 5px;
   text-align: center;
   border-radius: 2px;
   background-color: var(--gram-background);
   color: var(--main-color);
-  font-size: 13px;
+  font-size: 9px;
   font-weight: 500;
   line-height: normal;
   margin-top: 10px;
   margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 47px;
+    font-size: 13px;
+  }
 `;
 
 export const DishDescription = styled.p`
   color: var(--main-color);
-  font-size: 13px;
+  font-size: 8px;
   font-weight: 500;
   line-height: 1.38;
   opacity: 0.8;
   margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 export const WrapperPrice = styled.div`
   display: flex;
   align-items: center;
   gap: 18px;
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
 `;
 
 export const Prise = styled.p`
   color: var(--main-color);
-  font-size: 23px;
+  font-size: 10px;
   font-weight: 800;
+
+  @media screen and (min-width: 768px) {
+    font-size: 23px;
+  }
 `;
 
 export const DiscountedPrice = styled.p`
   color: var(--main-color);
-  font-size: 18px;
+  font-size: 10px;
   font-weight: 600;
   line-height: normal;
   text-decoration-line: line-through;
   opacity: 0.8;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Button = styled.button`
   cursor: pointer;
   border: none;
   color: #000;
-  font-size: 25px;
-  padding: 5px;
-  padding-bottom: 0;
+  padding: 3px;
+  padding-bottom: 1px;
   text-align: center;
   background-color: var(--button-basket-background);
   transition: color var(--transition), background-color var(--transition);
@@ -131,17 +175,32 @@ export const Button = styled.button`
     background-color: var(--button-basket-background-active);
     color: var(--button-basket-color-active);
   }
+
+  & svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 5px;
+    padding-bottom: 3px;
+  }
 `;
 
 export const DishGram = styled.p`
   color: var(--main-color);
-  font-size: 13px;
+  font-size: 9px;
   font-weight: 500;
   line-height: 1;
-  width: 47px;
+  width: 37px;
   background-color: var(----gram-background);
   text-align: center;
   border-radius: 2px;
   padding: 2px 0;
   margin-bottom: 23px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 13px;
+    width: 47px;
+  }
 `;

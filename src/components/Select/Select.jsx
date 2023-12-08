@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { GoChevronDown } from 'react-icons/go';
 import {
@@ -25,7 +26,9 @@ const options = [
   },
 ];
 
-export const Select = () => {
+export const Select = (prop) => {
+  const { onClick } = prop;
+
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useState('Hoot Dishes');
   const { pathname, hash } = useLocation();
@@ -74,6 +77,8 @@ export const Select = () => {
           if (ev.target !== ev.currentTarget) {
             setSelected(ev.target.textContent);
             setIsActive(false);
+
+            onClick();
           }
         }}
       >
@@ -85,4 +90,8 @@ export const Select = () => {
       </SelectList>
     </SelectWrapper>
   );
+};
+
+Select.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };

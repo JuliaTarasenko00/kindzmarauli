@@ -82,11 +82,15 @@ const Layout = () => {
                 </Button>
                 <List>
                   <Item>
-                    <Select />
+                    <Select onClick={onClickButton} />
                   </Item>
                   {pagesMenu.map(({ name, to }) => (
                     <Item key={name}>
-                      <MainNavigate activeclassname="active" to={to}>
+                      <MainNavigate
+                        activeclassname="active"
+                        to={to}
+                        onClick={onClickButton}
+                      >
                         {name}
                       </MainNavigate>
                     </Item>
