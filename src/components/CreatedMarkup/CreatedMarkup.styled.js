@@ -37,7 +37,7 @@ export const PopularList = styled.ul`
 export const PopularItem = styled.li`
   display: flex;
   flex-direction: column;
-  width: 110px;
+  max-width: 25vh;
   position: relative;
 
   @media screen and (min-width: 768px) {
@@ -49,7 +49,7 @@ export const Discount = styled.p`
   position: absolute;
   top: 5px;
   left: 5px;
-  font-size: 10px;
+  font-size: 3vh;
   font-weight: 500;
   line-height: 1.2;
   background-color: #ff00008c;
@@ -78,7 +78,7 @@ export const Image = styled.img`
 
 export const NameDish = styled.h4`
   color: var(--main-color);
-  font-size: 10px;
+  font-size: 2.5vh;
   font-weight: 500;
   line-height: 1.2;
   margin-top: 5px;
@@ -94,13 +94,13 @@ export const NameDish = styled.h4`
 `;
 
 export const GramDish = styled.p`
-  width: 37px;
+  width: 7vh;
   padding: 2px 5px;
   text-align: center;
   border-radius: 2px;
   background-color: var(--gram-background);
   color: var(--main-color);
-  font-size: 9px;
+  font-size: 2vh;
   font-weight: 500;
   line-height: normal;
   margin-top: 10px;
@@ -114,7 +114,7 @@ export const GramDish = styled.p`
 
 export const DishDescription = styled.p`
   color: var(--main-color);
-  font-size: 8px;
+  font-size: 1.8vh;
   font-weight: 500;
   line-height: 1.38;
   opacity: 0.8;
@@ -137,7 +137,7 @@ export const WrapperPrice = styled.div`
 
 export const Prise = styled.p`
   color: var(--main-color);
-  font-size: 10px;
+  font-size: 2vh;
   font-weight: 800;
 
   @media screen and (min-width: 768px) {
@@ -147,7 +147,7 @@ export const Prise = styled.p`
 
 export const DiscountedPrice = styled.p`
   color: var(--main-color);
-  font-size: 10px;
+  font-size: 2vh;
   font-weight: 600;
   line-height: normal;
   text-decoration-line: line-through;
