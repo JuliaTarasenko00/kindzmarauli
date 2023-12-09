@@ -39,7 +39,7 @@ export const PopularList = styled.ul`
 export const PopularItem = styled.li`
   display: flex;
   flex-direction: column;
-  max-width: 19vh;
+  width: 117px;
   position: relative;
 
   @media screen and (min-width: 768px) {
