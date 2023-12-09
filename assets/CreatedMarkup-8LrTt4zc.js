@@ -1,4 +1,4 @@
-import{s as n,j as i,C as m}from"./index-toT6-GZ9.js";import{P as t,a as l}from"./selector-N-iprwsM.js";const a=n.h3`
+import{s as n,j as i,C as m}from"./index-lYmy7WKL.js";import{P as t,a as l}from"./selector-YPcMvgxH.js";const a=n.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
@@ -33,7 +33,7 @@ import{s as n,j as i,C as m}from"./index-toT6-GZ9.js";import{P as t,a as l}from"
 `,g=n.li`
   display: flex;
   flex-direction: column;
-  max-width: 19vh;
+  width: 117px;
   position: relative;
 
   @media screen and (min-width: 768px) {
