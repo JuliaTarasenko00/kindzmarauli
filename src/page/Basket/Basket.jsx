@@ -1,5 +1,7 @@
+import { BasketMarkup } from '../../components/BasketMarkup/BasketMarkup';
+
 const Basket = () => {
-  return <p>Basket</p>;
+  return <BasketMarkup />;
 };
 
 export default Basket;

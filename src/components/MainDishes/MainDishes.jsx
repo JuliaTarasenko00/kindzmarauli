@@ -9,5 +9,5 @@ export const MainDishesSection = () => {
     (dish) => dish.specificsDish === specificsDish.MAIN,
   );
 
-  return <CreatedMarkup titleHotDishes={'Main Dishes'} dishes={mainDishes} />;
+  return <CreatedMarkup titleDishes={'Main Dishes'} dishes={mainDishes} />;
 };

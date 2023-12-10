@@ -28,10 +28,12 @@ import {
 } from './HitDish.styled';
 import { popularDishes } from '../../redux/selector';
 import { useEffect, useState } from 'react';
+import useAddDishBasket from '../../helpers/hooks/addDishBasket';
 
 export const HitDish = () => {
   const popular = useSelector(popularDishes);
   const [randomDish, setRandomDish] = useState(null);
+  const addDishBasket = useAddDishBasket(Array(randomDish));
 
   useEffect(() => {
     const random = Math.floor(Math.random() * popular.length);
@@ -68,11 +70,14 @@ export const HitDish = () => {
             />
             <DishDetails>
               <NameDish>{randomDish?.name}</NameDish>
-              <Gram>250g</Gram>
+              <Gram>{randomDish?.gram}</Gram>
               <Description>{randomDish?.description}</Description>
               <WrapperPrice>
                 <Prise>{randomDish?.price}$</Prise>
-                <Button type="button">
+                <Button
+                  type="button"
+                  onClick={() => addDishBasket(randomDish?.id)}
+                >
                   <GrBasket />
                 </Button>
               </WrapperPrice>

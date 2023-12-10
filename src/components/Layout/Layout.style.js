@@ -165,19 +165,20 @@ export const WrapperAction = styled.div`
   }
 `;
 
-export const LinkNavigate = styled(Link)`
-  color: var(--main-color);
-  font-size: 18px;
+export const WrapperBasket = styled.div`
+  position: relative;
+`;
+
+export const NumberOrders = styled.p`
+  position: absolute;
+  top: -13px;
+  right: -10px;
+  color: #000;
+  text-align: center;
+  font-size: 12px;
   font-weight: 500;
-  line-height: normal;
-  transition: color var(--transition);
-
-  &:hover,
-  :focus {
-    color: var(--active-color);
-  }
-
-  &.active {
-    color: var(--active-color);
-  }
+  background-color: #9d4805;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid;
 `;

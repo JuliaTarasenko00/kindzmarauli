@@ -16,16 +16,18 @@ import {
   Title,
   WrapperPrice,
 } from './CreatedMarkup.styled';
+import useAddDishBasket from '../../helpers/hooks/addDishBasket';
 
 export const CreatedMarkup = (prop) => {
-  const { title, dishes, titleHotDishes } = prop;
+  const { title, dishes, titleDishes } = prop;
+  const addDishBasket = useAddDishBasket(dishes);
 
   return (
     <Container>
       {title && <Title>{title}</Title>}
-      {titleHotDishes && <Title className="hot_dishes">{titleHotDishes}</Title>}
+      {titleDishes && <Title className="hot_dishes">{titleDishes}</Title>}
       <PopularList>
-        {dishes.map((dish) => {
+        {dishes?.map((dish) => {
           const discount = dish.discounted ? Number(dish.discounted) : 0;
           const discountAmount = (dish.price * discount) / 100;
           const finalPrice = Math.floor(dish.price - discountAmount);
@@ -51,7 +53,7 @@ export const CreatedMarkup = (prop) => {
                   )}
                   <Prise>{finalPrice}$</Prise>
                 </div>
-                <Button type="button">
+                <Button type="button" onClick={() => addDishBasket(dish.id)}>
                   <GrBasket />
                 </Button>
               </WrapperPrice>
@@ -68,13 +70,13 @@ CreatedMarkup.propTypes = {
   titleHotDishes: PropTypes.string,
   dishes: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      gram: PropTypes.number.isRequired,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      price: PropTypes.number,
+      gram: PropTypes.number,
       specificsDish: PropTypes.string,
-      image: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
+      image: PropTypes.string,
+      id: PropTypes.string,
     }),
   ).isRequired,
 };

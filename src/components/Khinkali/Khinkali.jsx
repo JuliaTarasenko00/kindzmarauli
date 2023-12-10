@@ -9,5 +9,5 @@ export const KhinkaliSection = () => {
     (dish) => dish.specificsDish === specificsDish.KHINKALI,
   );
 
-  return <CreatedMarkup titleHotDishes={'Khinkali'} dishes={khinkali} />;
+  return <CreatedMarkup titleDishes={'Khinkali'} dishes={khinkali} />;
 };

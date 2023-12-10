@@ -33,6 +33,7 @@ export const Select = (prop) => {
   const [selected, setSelected] = useState('Hoot Dishes');
   const { pathname, hash } = useLocation();
   const timeoutRef = useRef(null);
+  const selectRef = useRef();
 
   useEffect(() => {
     const location = options.every(({ to }) => to !== pathname);
@@ -59,7 +60,7 @@ export const Select = (prop) => {
   }, []);
 
   return (
-    <SelectWrapper>
+    <SelectWrapper ref={selectRef}>
       <Title
         onClick={() => {
           setIsActive(!isActive);

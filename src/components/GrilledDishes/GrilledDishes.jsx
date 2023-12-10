@@ -9,5 +9,5 @@ export const GrilledDishesSection = () => {
     (dish) => dish.specificsDish === specificsDish.GRILLED,
   );
 
-  return <CreatedMarkup titleHotDishes={'Grilled Dishes'} dishes={grill} />;
+  return <CreatedMarkup titleDishes={'Grilled Dishes'} dishes={grill} />;
 };

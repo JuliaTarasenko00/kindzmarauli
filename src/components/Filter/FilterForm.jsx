@@ -1,23 +1,33 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import { AiOutlineClose } from 'react-icons/ai';
 import { LuSearch } from 'react-icons/lu';
-import { toast } from 'react-toastify';
-
-import { styleToastify } from '../toastify';
 import {
   Button,
   DeleteButton,
+  ErrorTitle,
   FormWrapper,
   Input,
   WrapperButton,
+  WrapperForm,
 } from './FilterForm.styled';
 import { filterDishes } from '../../redux/filter/slice';
 import { getAllMenu } from '../../redux/dishes/operation';
 
-export const FilterForm = () => {
+const SignupSchema = Yup.object().shape({
+  search: Yup.string()
+    .min(3, 'Enter more than 3 characters')
+    .max(50, 'Too Long!')
+    .required('Enter the name of the dish'),
+});
+
+export const FilterForm = (prop) => {
+  const { onClick } = prop;
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -30,12 +40,10 @@ export const FilterForm = () => {
     const searchValue = values.search.trim();
     setValue(searchValue);
 
-    if (searchValue === '') {
-      toast.error('Enter the name of the dish', styleToastify);
-    }
-
     navigate('search');
     setSubmitting(false);
+
+    onClick();
   }
 
   useEffect(() => {
@@ -48,43 +56,62 @@ export const FilterForm = () => {
 
   return (
     <FormWrapper>
-      <Formik initialValues={{ search: value }} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={{ search: value }}
+        onSubmit={handleSubmit}
+        validationSchema={SignupSchema}
+      >
         {({
           values,
           handleChange,
           handleSubmit,
           resetForm,
           errors,
+          touched,
           isSubmitting,
         }) => (
           <Form onSubmit={handleSubmit}>
-            <Input
-              error={errors.search}
-              type="text"
-              name="search"
-              placeholder="Search..."
-              onChange={handleChange}
-              value={values.search}
-            />
-            <WrapperButton>
-              {values.search !== '' && (
-                <DeleteButton
-                  type="button"
-                  onClick={() => {
-                    resetForm({ values: { search: '' } });
-                  }}
-                  className="delete"
-                >
-                  <AiOutlineClose />
-                </DeleteButton>
+            <WrapperForm>
+              <Input
+                type="text"
+                name="search"
+                placeholder="Search..."
+                onChange={handleChange}
+                value={values.search}
+              />
+              {errors.search && touched.search ? (
+                <ErrorTitle>{errors.search}</ErrorTitle>
+              ) : (
+                ''
               )}
-              <Button className="search" type="submit" disabled={isSubmitting}>
-                <LuSearch />
-              </Button>
-            </WrapperButton>
+              <WrapperButton>
+                {values.search !== '' && (
+                  <DeleteButton
+                    type="button"
+                    onClick={() => {
+                      resetForm({ values: { search: '' } });
+                    }}
+                    className="delete"
+                  >
+                    <AiOutlineClose />
+                  </DeleteButton>
+                )}
+                <Button
+                  className="search"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  <LuSearch />
+                </Button>
+              </WrapperButton>
+            </WrapperForm>
           </Form>
         )}
       </Formik>
     </FormWrapper>
   );
+};
+
+FilterForm.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };

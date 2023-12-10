@@ -26,20 +26,20 @@ export const PopularList = styled.ul`
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    row-gap: 20px;
-    column-gap: 15px;
-    max-width: 960px;
+    gap: 15px;
+    max-width: 690px;
   }
 
   @media screen and (min-width: 1400px) {
-    max-width: 1440px;
+    max-width: 940px;
+    gap: 20px;
   }
 `;
 
 export const PopularItem = styled.li`
   display: flex;
   flex-direction: column;
-  width: 117px;
+  width: 145px;
   position: relative;
 
   @media screen and (min-width: 768px) {

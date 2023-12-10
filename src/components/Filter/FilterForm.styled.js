@@ -16,7 +16,6 @@ export const Button = styled.button`
 `;
 
 export const FormWrapper = styled.div`
-  position: relative;
   display: block;
   margin-bottom: 20px;
 
@@ -27,6 +26,18 @@ export const FormWrapper = styled.div`
 
 export const Form = styled.form``;
 
+export const WrapperForm = styled.div`
+  position: relative;
+`;
+
+export const ErrorTitle = styled.p`
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  color: #ff000091;
+  width: max-content;
+`;
+
 export const Input = styled.input`
   padding: 10px;
   background: transparent;
@@ -34,6 +45,7 @@ export const Input = styled.input`
   border: 2px solid #ffffff63;
   height: 44px;
   color: var(--main-color);
+  outline-color: transparent;
 `;
 
 export const WrapperButton = styled.div`
