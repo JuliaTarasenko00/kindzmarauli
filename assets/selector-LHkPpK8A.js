@@ -1,0 +1,1 @@
+const i=s=>s.dishes.popularDishes,a=s=>s.dishes.allDishes,e=s=>s.dishes.isLoading,t=s=>s.filter.filter,l=s=>s.basket.basketDishes,o=s=>s.basket.totalPrise;export{a,o as b,l as d,t as f,e as l,i as p};

@@ -1,4 +1,4 @@
-import{s as o}from"./index-lYmy7WKL.js";const t=o.button`
+import{s as o}from"./index-9Zlf0_0l.js";const r=o.button`
   cursor: pointer;
 
   background-color: transparent;
@@ -12,21 +12,29 @@ import{s as o}from"./index-lYmy7WKL.js";const t=o.button`
     color: var(--active-color);
   }
 `,n=o.div`
-  position: relative;
   display: block;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
   }
-`;o.form``;const a=o.input`
+`;o.form``;const a=o.div`
+  position: relative;
+`,i=o.p`
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  color: #ff000091;
+  width: max-content;
+`,s=o.input`
   padding: 10px;
   background: transparent;
   border-radius: 10px;
   border: 2px solid #ffffff63;
   height: 44px;
   color: var(--main-color);
-`,i=o.div`
+  outline-color: transparent;
+`,e=o.div`
   position: absolute;
   right: 15px;
   top: 50%;
@@ -35,7 +43,7 @@ import{s as o}from"./index-lYmy7WKL.js";const t=o.button`
   display: flex;
   align-items: center;
   gap: 8px;
-`,s=o.button`
+`,p=o.button`
   border: none;
   background-color: transparent;
   color: grey;
@@ -51,6 +59,6 @@ import{s as o}from"./index-lYmy7WKL.js";const t=o.button`
   :focus {
     color: var(--active-color);
   }
-`,e=o.section`
+`,c=o.section`
   padding-bottom: 40px;
-`;export{t as B,s as D,n as F,a as I,i as W,e as a};
+`;export{r as B,p as D,i as E,n as F,s as I,a as W,e as a,c as b};
