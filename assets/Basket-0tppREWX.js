@@ -1,4 +1,4 @@
-import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}from"./index-TmudzKTD.js";import{c as v,a as y,F as k,A as x,d as C,e as B}from"./index.esm-LZbLwpDX.js";import{G as z}from"./iconBase-lH-4ai4s.js";import{d as L,b as V,u as D}from"./selector-pH0UbsYR.js";function O(n){return z({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(n)}const H=e.section`
+import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as w,l as j}from"./index-Mz9nrpqA.js";import{c as v,a as y,F as k,A as x,d as C,e as B}from"./index.esm-1AihhtEV.js";import{G as z}from"./iconBase-YBSqRQ7H.js";import{d as L,b as V,u as D}from"./selector-iiw-Pbxi.js";function O(o){return z({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const H=e.section`
   padding-bottom: 42px;
 
   @media screen and (min-width: 768px) {
@@ -19,7 +19,6 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
   font-size: 60px;
   font-weight: 500;
   line-height: 1.12;
-  text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
     font-size: 80px;
@@ -54,7 +53,7 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
   align-items: center;
   justify-content: space-around;
   gap: 10px;
-
+  padding: 10px;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
@@ -62,12 +61,14 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
   @media screen and (min-width: 768px) {
     justify-content: flex-start;
     gap: 60px;
+    padding: 0;
   }
 `,W=e.div`
   display: flex;
   flex-direction: column;
   align-items: start;
   position: relative;
+  flex-grow: 1;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -92,8 +93,9 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
 `,T=e.div`
   display: flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 7px;
+  width: 100%;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     display: block;
@@ -107,12 +109,13 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
 `,I=e.p`
   color: var(--main-color);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 900;
   line-height: normal;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 7px;
     font-size: 20px;
+    font-weight: 500;
   }
 `,E=e.p`
   color: var(--main-color);
@@ -139,29 +142,67 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
   cursor: pointer;
   color: var(--main-color);
   background-color: transparent;
-  border: none;
+  border: 1px solid;
+  border-radius: 50%;
+  text-align: center;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  transition: color var(--transition);
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  :focus {
+    color: var(--active-color);
+  }
+
+  &svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 35px;
+    height: 35px;
+    &svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 `,Z=e.p`
   color: var(--main-color);
 `,G=e.p`
   color: var(--main-color);
-  font-size: 23px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 500;
   line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 23px;
+    font-weight: 800;
+  }
 `,Y=e.button`
   cursor: pointer;
   position: absolute;
   bottom: 0;
   right: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
   color: #ff0000;
   background-color: transparent;
   border: 1px solid #ff0000;
-  padding: 4px;
   padding-bottom: 0;
   transition: color var(--transition), border var(--transition);
+  align-items: center;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
     position: relative;
     margin-right: 35px;
+    width: 40px;
+    height: 40px;
   }
 
   &:hover,
@@ -242,9 +283,9 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
   position: absolute;
   bottom: -20px;
   left: 0;
-`,ot=e.div`
+`,nt=e.div`
   position: relative;
-`,nt=e.button`
+`,ot=e.button`
   position: absolute;
   position: absolute;
   right: 25px;
@@ -335,4 +376,4 @@ import{s as e,j as t,a as h,c as p,C as g,d as u,h as f,m as b,k as j,l as w}fro
   @media screen and (min-width: 768px) {
     margin: 30px auto 0;
   }
-`,lt=v().shape({code:y().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(k,{initialValues:{code:""},onSubmit:(n,{setSubmitting:r})=>{console.log(n.code.trim()),r(!1)},validationSchema:lt,children:({values:n,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:o})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(ot,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:o,value:n.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",n.code!==""&&t.jsx(nt,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(x,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",xt=()=>{const n=h();return t.jsxs(t.Fragment,{children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:dt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>n("/"),children:"On tre main"})]})},mt=()=>{const n=p(L),r=p(V),i=D(),a=o=>{i(f(o))},s=o=>{i(b(o))},c=o=>{window.confirm("Are you sure want to remove?")&&i(j(o))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(w())};return t.jsx(H,{children:t.jsx(g,{children:t.jsxs(t.Fragment,{children:[n.length===0&&t.jsx(xt,{}),n.length>0&&t.jsxs(t.Fragment,{children:[t.jsxs(N,{children:[t.jsx(P,{children:"Basket"}),t.jsxs(F,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(S,{children:n.map(o=>{const{finalPrice:m}=u(o);return t.jsxs(A,{children:[t.jsx(M,{src:o.image,alt:o.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(I,{children:o.name}),t.jsxs(E,{children:[o.gram,"g"]})]}),t.jsxs($,{children:[m,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(o),children:t.jsx(C,{})}),t.jsx(Z,{children:o.count}),t.jsx(d,{type:"button",onClick:()=>a(o),children:t.jsx(B,{})})]}),t.jsxs(G,{children:[o.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(o.id),children:t.jsx(x,{})})]})]},o.id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(q,{children:[t.jsx(_,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})]})})})},bt=()=>t.jsx(mt,{});export{bt as default};
+`,lt=v().shape({code:y().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(k,{initialValues:{code:""},onSubmit:(o,{setSubmitting:r})=>{console.log(o.code.trim()),r(!1)},validationSchema:lt,children:({values:o,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:n})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(nt,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:n,value:o.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",o.code!==""&&t.jsx(ot,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(x,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",xt=()=>{const o=h();return t.jsxs(t.Fragment,{children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:dt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},mt=()=>{const o=p(L),r=p(V),i=D(),a=n=>{i(f(n))},s=n=>{i(b(n))},c=n=>{window.confirm("Are you sure want to remove?")&&i(w(n))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(j())};return t.jsx(H,{children:t.jsx(g,{children:t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(xt,{}),o.length>0&&t.jsxs(t.Fragment,{children:[t.jsxs(N,{children:[t.jsx(P,{children:"Basket"}),t.jsxs(F,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(S,{children:o.map(n=>{const{finalPrice:m}=u(n);return t.jsxs(A,{children:[t.jsx(M,{src:n.image,alt:n.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(I,{children:n.name}),t.jsxs(E,{children:[n.gram,"g"]})]}),t.jsxs($,{children:[m,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(n),children:t.jsx(C,{})}),t.jsx(Z,{children:n.count}),t.jsx(d,{type:"button",onClick:()=>a(n),children:t.jsx(B,{})})]}),t.jsxs(G,{children:[n.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(n.id),children:t.jsx(x,{})})]})]},n.id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(q,{children:[t.jsx(_,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})]})})})},bt=()=>t.jsx(mt,{});export{bt as default};
