@@ -116,7 +116,7 @@ const Layout = () => {
                   <TbUser />
                 </Button>
                 <WrapperBasket>
-                  <MainNavigate to="basket">
+                  <MainNavigate to="basket" onClick={closeMenu}>
                     <GrBasket />
                   </MainNavigate>
                   {numberOrders > 0 && (

@@ -9,6 +9,7 @@ import {
   Description,
   DessertImg,
   DessertTitle,
+  Discount,
   DishDetails,
   DishGram,
   Gram,
@@ -29,11 +30,13 @@ import {
 import { popularDishes } from '../../redux/selector';
 import { useEffect, useState } from 'react';
 import useAddDishBasket from '../../helpers/hooks/addDishBasket';
+import { dishPricing } from '../../helpers/hooks/dishPricing';
 
 export const HitDish = () => {
   const popular = useSelector(popularDishes);
   const [randomDish, setRandomDish] = useState(null);
   const addDishBasket = useAddDishBasket(Array(randomDish));
+  const price = dishPricing(randomDish);
 
   useEffect(() => {
     const random = Math.floor(Math.random() * popular.length);
@@ -68,12 +71,16 @@ export const HitDish = () => {
               height="550"
               loading="lazy"
             />
+            {randomDish?.discounted && (
+              <Discount>{randomDish?.discounted}%</Discount>
+            )}
+
             <DishDetails>
               <NameDish>{randomDish?.name}</NameDish>
               <Gram>{randomDish?.gram}</Gram>
               <Description>{randomDish?.description}</Description>
               <WrapperPrice>
-                <Prise>{randomDish?.price}$</Prise>
+                <Prise>{price?.finalPrice}$</Prise>
                 <Button
                   type="button"
                   onClick={() => addDishBasket(randomDish?.id)}

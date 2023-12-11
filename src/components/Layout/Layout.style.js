@@ -167,6 +167,12 @@ export const WrapperAction = styled.div`
 
 export const WrapperBasket = styled.div`
   position: relative;
+  width: 24px;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
 `;
 
 export const NumberOrders = styled.p`

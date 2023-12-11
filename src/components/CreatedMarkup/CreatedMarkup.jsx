@@ -17,6 +17,7 @@ import {
   WrapperPrice,
 } from './CreatedMarkup.styled';
 import useAddDishBasket from '../../helpers/hooks/addDishBasket';
+import { dishPricing } from '../../helpers/hooks/dishPricing';
 
 export const CreatedMarkup = (prop) => {
   const { title, dishes, titleDishes } = prop;
@@ -28,9 +29,7 @@ export const CreatedMarkup = (prop) => {
       {titleDishes && <Title className="hot_dishes">{titleDishes}</Title>}
       <PopularList>
         {dishes?.map((dish) => {
-          const discount = dish.discounted ? Number(dish.discounted) : 0;
-          const discountAmount = (dish.price * discount) / 100;
-          const finalPrice = Math.floor(dish.price - discountAmount);
+          const { finalPrice } = dishPricing(dish);
 
           return (
             <PopularItem key={dish.id}>

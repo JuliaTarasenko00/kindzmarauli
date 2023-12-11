@@ -8,4 +8,4 @@ export const filterDish = (state) => state.filter.filter;
 
 export const dishWithBasket = (state) => state.basket.basketDishes;
 
-export const price = (state) => state.basket.totalPrise;
+export const price = (state) => state.basket.totalPrice;

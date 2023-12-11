@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { dishPricing } from '../../helpers/hooks/dishPricing';
 
 const initialState = {
   basketDishes: [],
-  totalPrise: 0,
+  totalPrice: 0,
 };
 
 export const basketSlice = createSlice({
@@ -10,34 +11,57 @@ export const basketSlice = createSlice({
   initialState,
   reducers: {
     addBasketDish: (state, { payload }) => {
+      const { finalPrice } = dishPricing(payload);
+
       const findItem = state.basketDishes.find(
         (dish) => dish.id === payload.id,
       );
 
       if (findItem) {
         findItem.count++;
+        findItem.total = finalPrice * findItem.count;
       } else {
-        state.basketDishes.push({ ...payload, count: 1 });
+        state.basketDishes.push({ ...payload, count: 1, total: finalPrice });
       }
 
-      state.totalPrise = state.basketDishes.reduce((sum, obj) => {
-        return Number(obj.price) * Number(obj.count) + sum;
+      state.totalPrice = state.basketDishes.reduce((sum, obj) => {
+        return obj.total + sum;
       }, 0);
     },
+
     deleteBasketDish: (state, { payload }) => {
       state.basketDishes = state.basketDishes.filter(
         (dish) => dish.id !== payload,
       );
-      state.totalPrise = state.basketDishes.reduce((sum, obj) => {
-        return Number(obj.price) - sum;
+
+      state.totalPrice = state.basketDishes.reduce((sum, obj) => {
+        return sum + obj.total;
       }, 0);
     },
+
     clearBasket: (state) => {
       state.basketDishes = [];
-      state.totalPrise = 0;
+      state.totalPrice = 0;
+    },
+
+    minusBasketDish: (state, { payload }) => {
+      const findItem = state.basketDishes.find(
+        (dish) => dish.id === payload.id,
+      );
+
+      if (findItem && findItem.count > 1) {
+        findItem.count--;
+        findItem.total -= findItem.total / (findItem.count + 1);
+      } else {
+        return;
+      }
+
+      state.totalPrice = state.basketDishes.reduce((sum, obj) => {
+        return sum + obj.total;
+      }, 0);
     },
   },
 });
 
-export const { addBasketDish, deleteBasketDish, clearBasket } =
+export const { addBasketDish, deleteBasketDish, clearBasket, minusBasketDish } =
   basketSlice.actions;

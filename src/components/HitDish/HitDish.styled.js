@@ -148,6 +148,23 @@ export const Prise = styled.p`
   }
 `;
 
+export const Discount = styled.p`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 3vh;
+  font-weight: 500;
+  line-height: 1.2;
+  background-color: #ff00008c;
+  border-radius: 2.5px;
+  padding: 5px;
+  color: var(--main-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 23px;
+  }
+`;
+
 export const Button = styled.button`
   cursor: pointer;
   border: none;
