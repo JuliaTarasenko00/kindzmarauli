@@ -73,6 +73,7 @@ export const Select = (prop) => {
       </Title>
       <SelectList
         data-show={isActive.toString()}
+        className={isActive ? '' : 'hidden'}
         onClick={(ev) => {
           if (ev.target !== ev.currentTarget) {
             setSelected(ev.target.textContent);

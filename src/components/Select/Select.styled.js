@@ -27,6 +27,19 @@ export const SelectList = styled.ul`
   z-index: 100;
   opacity: ${({ ['data-show']: show }) => (show === 'true' ? '1' : '0')};
   transition: opacity var(--transition);
+
+  &.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 `;
 
 export const SelectItem = styled.li`
