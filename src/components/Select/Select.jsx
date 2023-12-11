@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import { GoChevronDown } from 'react-icons/go';
+import { GoChevronUp } from 'react-icons/go';
 import {
   SelectItem,
   SelectLink,
@@ -68,9 +69,7 @@ export const Select = (prop) => {
         data-active={isActive.toString()}
       >
         {selected}
-        <span>
-          <GoChevronDown />
-        </span>
+        {isActive ? <GoChevronUp /> : <GoChevronDown />}
       </Title>
       <SelectList
         data-show={isActive.toString()}

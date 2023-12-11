@@ -7,7 +7,9 @@ export const SelectWrapper = styled.div`
 
 export const Title = styled.p`
   cursor: pointer;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${({ ['data-active']: active }) =>
     active === 'false' ? '#fff' : 'var(--active-color)'};
   font-size: 18px;
@@ -23,8 +25,8 @@ export const SelectList = styled.ul`
   padding: 15px;
   background: #000;
   z-index: 100;
-
-  display: ${({ ['data-show']: show }) => (show === 'true' ? 'block' : 'none')};
+  opacity: ${({ ['data-show']: show }) => (show === 'true' ? '1' : '0')};
+  transition: opacity var(--transition);
 `;
 
 export const SelectItem = styled.li`

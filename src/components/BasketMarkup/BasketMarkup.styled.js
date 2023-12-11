@@ -25,7 +25,6 @@ export const Title = styled.h3`
   font-size: 60px;
   font-weight: 500;
   line-height: 1.12;
-  text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
     font-size: 80px;
@@ -66,7 +65,7 @@ export const Item = styled.li`
   align-items: center;
   justify-content: space-around;
   gap: 10px;
-
+  padding: 10px;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
@@ -74,6 +73,7 @@ export const Item = styled.li`
   @media screen and (min-width: 768px) {
     justify-content: flex-start;
     gap: 60px;
+    padding: 0;
   }
 `;
 
@@ -82,6 +82,7 @@ export const WrapperInformation = styled.div`
   flex-direction: column;
   align-items: start;
   position: relative;
+  flex-grow: 1;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -110,8 +111,9 @@ export const Img = styled.img`
 export const WrapperDish = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 7px;
+  width: 100%;
+  justify-content: space-between;
 
   @media screen and (min-width: 768px) {
     display: block;
@@ -127,12 +129,13 @@ export const WrapperDish = styled.div`
 export const Name = styled.p`
   color: var(--main-color);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 900;
   line-height: normal;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 7px;
     font-size: 20px;
+    font-weight: 500;
   }
 `;
 
@@ -167,7 +170,34 @@ export const ButtonCount = styled.button`
   cursor: pointer;
   color: var(--main-color);
   background-color: transparent;
-  border: none;
+  border: 1px solid;
+  border-radius: 50%;
+  text-align: center;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  transition: color var(--transition);
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  :focus {
+    color: var(--active-color);
+  }
+
+  &svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 35px;
+    height: 35px;
+    &svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 `;
 
 export const Count = styled.p`
@@ -176,9 +206,14 @@ export const Count = styled.p`
 
 export const Sum = styled.p`
   color: var(--main-color);
-  font-size: 23px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 500;
   line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 23px;
+    font-weight: 800;
+  }
 `;
 
 export const ButtonDelete = styled.button`
@@ -186,16 +221,22 @@ export const ButtonDelete = styled.button`
   position: absolute;
   bottom: 0;
   right: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
   color: #ff0000;
   background-color: transparent;
   border: 1px solid #ff0000;
-  padding: 4px;
   padding-bottom: 0;
   transition: color var(--transition), border var(--transition);
+  align-items: center;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
     position: relative;
     margin-right: 35px;
+    width: 40px;
+    height: 40px;
   }
 
   &:hover,

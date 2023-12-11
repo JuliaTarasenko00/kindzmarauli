@@ -24,20 +24,24 @@ export const Title = styled.p`
 `;
 
 export const ImgDesignSmall = styled.img`
-  position: relative;
-  left: -40px;
+  display: none;
+  @media screen and (min-width: 768px) {
+    position: relative;
+    left: -40px;
+    display: block;
+  }
 `;
 
 export const Link = styled.a`
-  display: block;
+  display: none;
   color: var(--main-color);
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 500;
   margin-top: 37px;
   transition: color var(--transition);
 
   &.email {
-    font-size: 10px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1;
     text-decoration-line: underline;
@@ -50,11 +54,7 @@ export const Link = styled.a`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 25px;
-
-    &.email {
-      font-size: 18px;
-    }
+    display: block;
   }
 `;
 
