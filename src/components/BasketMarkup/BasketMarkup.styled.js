@@ -64,15 +64,20 @@ export const Item = styled.li`
   background-color: #000;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 10px;
 
   &:not(:last-child) {
     margin-bottom: 10px;
   }
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    gap: 60px;
+  }
 `;
 
 export const WrapperInformation = styled.div`
-  margin: 10px 10px 10px 0;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -97,7 +102,7 @@ export const Img = styled.img`
   object-fit: cover;
 
   @media screen and (min-width: 768px) {
-    height: 180px;
+    height: 195px;
     width: 195px;
   }
 `;
@@ -111,6 +116,10 @@ export const WrapperDish = styled.div`
   @media screen and (min-width: 768px) {
     display: block;
     margin-bottom: 0;
+    width: 150px;
+  }
+
+  @media screen and (min-width: 1400px) {
     width: 240px;
   }
 `;
