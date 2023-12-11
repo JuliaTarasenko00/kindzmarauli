@@ -1,4 +1,4 @@
-import{h as x,s as t,j as i,C as h,d as m}from"./index-7fHoI_Rq.js";import{P as e,a as l}from"./index-rPe6PMzo.js";import{u as g}from"./selector-Ek175ylJ.js";const u=s=>{const r=g();return a=>{const d=s.find(n=>n.id===a);r(x(d))}},p=t.h3`
+import{h as x,s as t,j as i,C as h,d as m}from"./index-TmudzKTD.js";import{P as e,a as l}from"./index-UfcYzeDs.js";import{u as g}from"./selector-pH0UbsYR.js";const u=s=>{const r=g();return a=>{const d=s.find(n=>n.id===a);r(x(d))}},p=t.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
