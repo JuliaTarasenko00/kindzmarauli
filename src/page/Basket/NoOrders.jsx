@@ -5,7 +5,7 @@ import {
   NoOrdersDescription,
   NoOrdersImg,
   NoOrdersTitle,
-} from './BasketMarkup.styled';
+} from '../../components/BasketMarkup/BasketMarkup.styled';
 
 export const NoOrders = () => {
   const navigate = useNavigate();

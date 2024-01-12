@@ -1,33 +1,44 @@
 import PropTypes from 'prop-types';
-import { Fragment } from 'react';
-import { Container } from '../../globalStyle';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-flip';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './styles.css';
+import { EffectFlip, Navigation } from 'swiper/modules';
+import { Container } from '../../../globalStyle';
 import {
   DiscountTitle,
   ImgFirst,
   ImgLast,
-  Item,
   Navigate,
-  List,
-  Section,
   Title,
   Wrapper,
-} from './Menu.styled';
+  SectionMobil,
+  MobileItem,
+} from '../Menu.styled';
 
-export const MenuList = (props) => {
+export const MenuSlider = (props) => {
   const { options } = props;
 
   return (
-    <Section>
+    <SectionMobil>
       <Container>
         <Wrapper>
           <Title>Menu</Title>
         </Wrapper>
-        <List>
+        <Swiper
+          effect={'flip'}
+          grabCursor={true}
+          navigation={true}
+          modules={[EffectFlip, Navigation]}
+          className="mySwiper"
+        >
           {options.map((option, index) => {
             return (
-              <Fragment key={option.name}>
+              <SwiperSlide key={option.name}>
                 {index === 0 ? (
-                  <Item
+                  <MobileItem
                     style={{
                       backgroundColor: '#B70000',
                     }}
@@ -37,9 +48,9 @@ export const MenuList = (props) => {
                     <DiscountTitle className="discount_last">
                       {option.last}
                     </DiscountTitle>
-                  </Item>
+                  </MobileItem>
                 ) : (
-                  <Item>
+                  <MobileItem>
                     <ImgFirst
                       src={option.first}
                       alt={option.name}
@@ -53,18 +64,18 @@ export const MenuList = (props) => {
                       width={150}
                       height={100}
                     />
-                  </Item>
+                  </MobileItem>
                 )}
-              </Fragment>
+              </SwiperSlide>
             );
           })}
-        </List>
+        </Swiper>
       </Container>
-    </Section>
+    </SectionMobil>
   );
 };
 
-MenuList.propTypes = {
+MenuSlider.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

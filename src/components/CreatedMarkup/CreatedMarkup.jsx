@@ -30,10 +30,11 @@ export const CreatedMarkup = (prop) => {
       <PopularList>
         {dishes?.map((dish) => {
           const { finalPrice } = dishPricing(dish);
-
           return (
             <PopularItem key={dish.id}>
-              {dish.discounted && <Discount>{dish.discounted}%</Discount>}
+              {dish?.discounted !== 0 && (
+                <Discount>{dish.discounted}%</Discount>
+              )}
               <PopularWrapper>
                 <Image
                   src={dish.image}
@@ -47,7 +48,7 @@ export const CreatedMarkup = (prop) => {
               </PopularWrapper>
               <WrapperPrice>
                 <div>
-                  {dish?.discounted && (
+                  {dish?.discounted !== 0 && (
                     <DiscountedPrice>{dish.price}$</DiscountedPrice>
                   )}
                   <Prise>{finalPrice}$</Prise>

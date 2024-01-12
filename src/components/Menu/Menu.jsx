@@ -1,5 +1,3 @@
-import { MenuList } from './MenuList';
-import { MenuSlider } from './MenuSlider';
 import imageHot from '../../assets/img/image_17.png';
 import imageHotDishes from '../../assets/img/image_18.png';
 import imgSoups from '../../assets/img/image_19.png';
@@ -10,6 +8,8 @@ import imgSalad from '../../assets/img/image_23.png';
 import imgSalads from '../../assets/img/image_24.png';
 import imgColdS from '../../assets/img/image_25.png';
 import imgCold from '../../assets/img/image_26.png';
+import { MenuSlider } from './components/MenuSlider';
+import { MenuList } from './components/MenuList';
 
 export const Menu = () => {
   const options = [

@@ -10,7 +10,7 @@ import {
   Label,
   Wrapper,
   WrapperPromo,
-} from './BasketMarkup.styled';
+} from '../BasketMarkup.styled';
 
 const SignupSchema = Yup.object().shape({
   code: Yup.string()

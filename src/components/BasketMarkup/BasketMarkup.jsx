@@ -26,7 +26,7 @@ import {
   WrapperInformation,
   WrapperName,
 } from './BasketMarkup.styled';
-import { FormPromoCode } from './FormPromoCode';
+import { FormPromoCode } from './components/FormPromoCode';
 import { dishPricing } from '../../helpers/hooks/dishPricing';
 import {
   addBasketDish,
@@ -34,7 +34,6 @@ import {
   deleteBasketDish,
   minusBasketDish,
 } from '../../redux/basket/slice';
-import { NoOrders } from './NoOrders';
 
 export const BasketMarkup = () => {
   const dishes = useSelector(dishWithBasket);
@@ -65,67 +64,64 @@ export const BasketMarkup = () => {
     <Section>
       <Container>
         <>
-          {dishes.length === 0 && <NoOrders />}
-          {dishes.length > 0 && (
-            <>
-              <WrapperName>
-                <Title>Basket</Title>
-                <ButtonRemoveBasket type="button" onClick={onClickRemoveOrders}>
-                  Clear Basket
-                  <RiDeleteBin2Line />
-                </ButtonRemoveBasket>
-              </WrapperName>
-              <List>
-                {dishes.map((dish) => {
-                  const { finalPrice } = dishPricing(dish);
-                  return (
-                    <Item key={dish.id}>
-                      <Img src={dish.image} alt={dish.name} width="195" />
-                      <WrapperInformation>
-                        <WrapperDish>
-                          <Name>{dish.name}</Name>
-                          <Gram>{dish.gram}g</Gram>
-                        </WrapperDish>
-                        <Price>{finalPrice}$</Price>
-                        <WrapperButton>
-                          <ButtonCount
-                            type="button"
-                            onClick={() => onClickMinus(dish)}
-                          >
-                            <AiOutlineMinus />
-                          </ButtonCount>
-                          <Count>{dish.count}</Count>
-                          <ButtonCount
-                            type="button"
-                            onClick={() => onClickPlus(dish)}
-                          >
-                            <AiOutlinePlus />
-                          </ButtonCount>
-                        </WrapperButton>
-                        <Sum>{dish.total}$</Sum>
-                        <ButtonDelete
+          <>
+            <WrapperName>
+              <Title>Basket</Title>
+              <ButtonRemoveBasket type="button" onClick={onClickRemoveOrders}>
+                Clear Basket
+                <RiDeleteBin2Line />
+              </ButtonRemoveBasket>
+            </WrapperName>
+            <List>
+              {dishes.map((dish) => {
+                const { finalPrice } = dishPricing(dish);
+                return (
+                  <Item key={dish.id}>
+                    <Img src={dish.image} alt={dish.name} width="195" />
+                    <WrapperInformation>
+                      <WrapperDish>
+                        <Name>{dish.name}</Name>
+                        <Gram>{dish.gram}g</Gram>
+                      </WrapperDish>
+                      <Price>{finalPrice}$</Price>
+                      <WrapperButton>
+                        <ButtonCount
                           type="button"
-                          onClick={() => onClickDeleteDish(dish.id)}
+                          onClick={() => onClickMinus(dish)}
                         >
-                          <AiOutlineClose />
-                        </ButtonDelete>
-                      </WrapperInformation>
-                    </Item>
-                  );
-                })}
-              </List>
-              <WrapperForm>
-                <div>
-                  <FormPromoCode />
-                  <Total>
-                    <Span>Total for payment: </Span>
-                    {totalPrice}$
-                  </Total>
-                  <ButtonOrder type="button">Place an order</ButtonOrder>
-                </div>
-              </WrapperForm>
-            </>
-          )}
+                          <AiOutlineMinus />
+                        </ButtonCount>
+                        <Count>{dish.count}</Count>
+                        <ButtonCount
+                          type="button"
+                          onClick={() => onClickPlus(dish)}
+                        >
+                          <AiOutlinePlus />
+                        </ButtonCount>
+                      </WrapperButton>
+                      <Sum>{dish.total}$</Sum>
+                      <ButtonDelete
+                        type="button"
+                        onClick={() => onClickDeleteDish(dish.id)}
+                      >
+                        <AiOutlineClose />
+                      </ButtonDelete>
+                    </WrapperInformation>
+                  </Item>
+                );
+              })}
+            </List>
+            <WrapperForm>
+              <div>
+                <FormPromoCode />
+                <Total>
+                  <Span>Total for payment: </Span>
+                  {totalPrice}$
+                </Total>
+                <ButtonOrder type="button">Place an order</ButtonOrder>
+              </div>
+            </WrapperForm>
+          </>
         </>
       </Container>
     </Section>
