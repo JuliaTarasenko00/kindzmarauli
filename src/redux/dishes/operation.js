@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { styleToastify } from '../../components/toastify';
 
 const $instants = axios.create({
-  baseURL: 'https://655f6e49879575426b455569.mockapi.io/',
+  baseURL: 'https://kindzmarauli-backend.onrender.com',
 });
 
 export const getMenuPopular = createAsyncThunk(
@@ -27,7 +27,7 @@ export const getAllMenu = createAsyncThunk(
   'menu/AllMenu',
   async (_, thunkAPI) => {
     try {
-      const { data } = await $instants.get('dishes');
+      const { data } = await $instants.get('/dishes');
       return data;
     } catch (error) {
       const { status } = error.response;

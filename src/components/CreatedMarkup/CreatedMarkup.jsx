@@ -31,7 +31,7 @@ export const CreatedMarkup = (prop) => {
         {dishes?.map((dish) => {
           const { finalPrice } = dishPricing(dish);
           return (
-            <PopularItem key={dish.id}>
+            <PopularItem key={dish._id}>
               {dish?.discounted !== 0 && (
                 <Discount>{dish.discounted}%</Discount>
               )}
@@ -48,12 +48,12 @@ export const CreatedMarkup = (prop) => {
               </PopularWrapper>
               <WrapperPrice>
                 <div>
-                  {dish?.discounted !== 0 && (
+                  {dish.discounted !== 0 && (
                     <DiscountedPrice>{dish.price}$</DiscountedPrice>
                   )}
                   <Prise>{finalPrice}$</Prise>
                 </div>
-                <Button type="button" onClick={() => addDishBasket(dish.id)}>
+                <Button type="button" onClick={() => addDishBasket(dish._id)}>
                   <GrBasket />
                 </Button>
               </WrapperPrice>
@@ -76,7 +76,7 @@ CreatedMarkup.propTypes = {
       gram: PropTypes.number,
       specificsDish: PropTypes.string,
       image: PropTypes.string,
-      id: PropTypes.string,
+      _id: PropTypes.string,
     }),
   ).isRequired,
 };

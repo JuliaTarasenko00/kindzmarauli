@@ -14,7 +14,7 @@ export const basketSlice = createSlice({
       const { finalPrice } = dishPricing(payload);
 
       const findItem = state.basketDishes.find(
-        (dish) => dish.id === payload.id,
+        (dish) => dish._id === payload._id,
       );
 
       if (findItem) {
@@ -31,7 +31,7 @@ export const basketSlice = createSlice({
 
     deleteBasketDish: (state, { payload }) => {
       state.basketDishes = state.basketDishes.filter(
-        (dish) => dish.id !== payload,
+        (dish) => dish._id !== payload,
       );
 
       state.totalPrice = state.basketDishes.reduce((sum, obj) => {
@@ -46,7 +46,7 @@ export const basketSlice = createSlice({
 
     minusBasketDish: (state, { payload }) => {
       const findItem = state.basketDishes.find(
-        (dish) => dish.id === payload.id,
+        (dish) => dish._id === payload._id,
       );
 
       if (findItem && findItem.count > 1) {

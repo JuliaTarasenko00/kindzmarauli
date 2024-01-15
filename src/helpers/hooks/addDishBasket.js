@@ -5,7 +5,7 @@ export const useAddDishBasket = (dishes) => {
   const dispatch = useDispatch();
 
   const addDishBasket = (id) => {
-    const addedDish = dishes.find((dish) => dish.id === id);
+    const addedDish = dishes.find((dish) => dish._id === id);
     dispatch(addBasketDish(addedDish));
   };
 

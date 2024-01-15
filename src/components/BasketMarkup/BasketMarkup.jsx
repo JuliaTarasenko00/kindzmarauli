@@ -76,7 +76,7 @@ export const BasketMarkup = () => {
               {dishes.map((dish) => {
                 const { finalPrice } = dishPricing(dish);
                 return (
-                  <Item key={dish.id}>
+                  <Item key={dish._id}>
                     <Img src={dish.image} alt={dish.name} width="195" />
                     <WrapperInformation>
                       <WrapperDish>
@@ -102,7 +102,7 @@ export const BasketMarkup = () => {
                       <Sum>{dish.total}$</Sum>
                       <ButtonDelete
                         type="button"
-                        onClick={() => onClickDeleteDish(dish.id)}
+                        onClick={() => onClickDeleteDish(dish._id)}
                       >
                         <AiOutlineClose />
                       </ButtonDelete>

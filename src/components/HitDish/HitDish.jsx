@@ -19,6 +19,7 @@ import {
   Link,
   NameDish,
   Prise,
+  DiscountedPrice,
   Section,
   Title,
   WrapperDessert,
@@ -71,7 +72,7 @@ export const HitDish = () => {
               height="550"
               loading="lazy"
             />
-            {randomDish?.discounted && (
+            {randomDish?.discounted !== 0 && (
               <Discount>{randomDish?.discounted}%</Discount>
             )}
 
@@ -80,10 +81,15 @@ export const HitDish = () => {
               <Gram>{randomDish?.gram}</Gram>
               <Description>{randomDish?.description}</Description>
               <WrapperPrice>
-                <Prise>{price?.finalPrice}$</Prise>
+                <div>
+                  {randomDish?.discounted !== 0 && (
+                    <DiscountedPrice>{randomDish?.price}$</DiscountedPrice>
+                  )}
+                  <Prise>{price?.finalPrice}$</Prise>
+                </div>
                 <Button
                   type="button"
-                  onClick={() => addDishBasket(randomDish?.id)}
+                  onClick={() => addDishBasket(randomDish?._id)}
                 >
                   <GrBasket />
                 </Button>

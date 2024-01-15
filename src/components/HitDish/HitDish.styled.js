@@ -138,6 +138,21 @@ export const WrapperPrice = styled.div`
   gap: 18px;
 `;
 
+export const DiscountedPrice = styled.p`
+  color: var(--main-color);
+  font-size: 2vh;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: line-through;
+  opacity: 0.8;
+  margin-bottom: 5px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+`;
+
 export const Prise = styled.p`
   color: var(--main-color);
   font-size: 18px;

@@ -11,7 +11,7 @@ export const NoOrders = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <section style={{ paddingBottom: 50 }}>
       <NoOrdersTitle>You shopping cart is empty</NoOrdersTitle>
       <NoOrdersDescription>
         You probably didn’t order any. To order a meal, go to the main page.
@@ -20,6 +20,6 @@ export const NoOrders = () => {
       <NoOrdersButton type="button" onClick={() => navigate('/')}>
         On tre main
       </NoOrdersButton>
-    </>
+    </section>
   );
 };
