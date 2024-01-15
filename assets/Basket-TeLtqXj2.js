@@ -1,10 +1,10 @@
-import{s as e,j as t,c as p,C as g,d as u,h as f,m as b,k as w,l as j,a as v}from"./index-RSaVuNYO.js";import{c as y,a as k,F as C,A as x,d as B,e as z}from"./index.esm-LJbDQjBu.js";import{G as L}from"./iconBase-aXy-DCTg.js";import{d as m,b as V,u as D}from"./selector-8zvn1Lij.js";function O(o){return L({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const F=e.section`
+import{s as e,j as t,c as p,C as g,d as u,h as f,m as b,k as w,l as j,a as v}from"./index-kfm9YZ9o.js";import{c as y,a as k,F as B,A as x,d as C,e as z}from"./index.esm-ElzGR4q9.js";import{G as L}from"./iconBase-rap44k2S.js";import{d as m,b as V,u as D}from"./selector-2_PSBcyn.js";function O(o){return L({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const H=e.section`
   padding-bottom: 42px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 142px;
   }
-`,H=e.div`
+`,N=e.div`
   margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
@@ -14,7 +14,7 @@ import{s as e,j as t,c as p,C as g,d as u,h as f,m as b,k as w,l as j,a as v}fro
     align-items: center;
     justify-content: space-between;
   }
-`,N=e.h3`
+`,P=e.h3`
   color: var(--main-color);
   font-size: 60px;
   font-weight: 500;
@@ -23,7 +23,7 @@ import{s as e,j as t,c as p,C as g,d as u,h as f,m as b,k as w,l as j,a as v}fro
   @media screen and (min-width: 768px) {
     font-size: 80px;
   }
-`,P=e.button`
+`,F=e.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -210,10 +210,10 @@ import{s as e,j as t,c as p,C as g,d as u,h as f,m as b,k as w,l as j,a as v}fro
     color: #4d0000;
     border: 1px solid #4d0000;
   }
-`,q=e.h4`
+`,_=e.h4`
   color: var(--main-color);
   margin-top: 24px;
-`,_=e.span`
+`,q=e.span`
   color: #9ea2aa;
   font-size: 13px;
   font-weight: 500;
@@ -376,4 +376,4 @@ import{s as e,j as t,c as p,C as g,d as u,h as f,m as b,k as w,l as j,a as v}fro
   @media screen and (min-width: 768px) {
     margin: 30px auto 0;
   }
-`,lt=y().shape({code:k().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(C,{initialValues:{code:""},onSubmit:(o,{setSubmitting:r})=>{console.log(o.code.trim()),r(!1)},validationSchema:lt,children:({values:o,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:n})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(nt,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:n,value:o.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",o.code!==""&&t.jsx(ot,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(x,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt=()=>{const o=p(m),r=p(V),i=D(),a=n=>{i(f(n))},s=n=>{i(b(n))},c=n=>{window.confirm("Are you sure want to remove?")&&i(w(n))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(j())};return t.jsx(F,{children:t.jsx(g,{children:t.jsx(t.Fragment,{children:t.jsxs(t.Fragment,{children:[t.jsxs(H,{children:[t.jsx(N,{children:"Basket"}),t.jsxs(P,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(S,{children:o.map(n=>{const{finalPrice:h}=u(n);return t.jsxs(A,{children:[t.jsx(M,{src:n.image,alt:n.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(I,{children:n.name}),t.jsxs(E,{children:[n.gram,"g"]})]}),t.jsxs($,{children:[h,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(n),children:t.jsx(B,{})}),t.jsx(Z,{children:n.count}),t.jsx(d,{type:"button",onClick:()=>a(n),children:t.jsx(z,{})})]}),t.jsxs(G,{children:[n.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(n.id),children:t.jsx(x,{})})]})]},n.id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(q,{children:[t.jsx(_,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})})})})},xt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",mt=()=>{const o=v();return t.jsxs(t.Fragment,{children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:xt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},bt=()=>{const o=p(m);return t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(mt,{}),o.length>0&&t.jsx(dt,{})]})};export{bt as default};
+`,lt=y().shape({code:k().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(B,{initialValues:{code:""},onSubmit:(o,{setSubmitting:r})=>{console.log(o.code.trim()),r(!1)},validationSchema:lt,children:({values:o,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:n})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(nt,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:n,value:o.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",o.code!==""&&t.jsx(ot,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(x,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt=()=>{const o=p(m),r=p(V),i=D(),a=n=>{i(f(n))},s=n=>{i(b(n))},c=n=>{window.confirm("Are you sure want to remove?")&&i(w(n))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(j())};return t.jsx(H,{children:t.jsx(g,{children:t.jsx(t.Fragment,{children:t.jsxs(t.Fragment,{children:[t.jsxs(N,{children:[t.jsx(P,{children:"Basket"}),t.jsxs(F,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(S,{children:o.map(n=>{const{finalPrice:h}=u(n);return t.jsxs(A,{children:[t.jsx(M,{src:n.image,alt:n.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(I,{children:n.name}),t.jsxs(E,{children:[n.gram,"g"]})]}),t.jsxs($,{children:[h,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(n),children:t.jsx(C,{})}),t.jsx(Z,{children:n.count}),t.jsx(d,{type:"button",onClick:()=>a(n),children:t.jsx(z,{})})]}),t.jsxs(G,{children:[n.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(n._id),children:t.jsx(x,{})})]})]},n._id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(_,{children:[t.jsx(q,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})})})})},xt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",mt=()=>{const o=v();return t.jsxs("section",{style:{paddingBottom:50},children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:xt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},bt=()=>{const o=p(m);return t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(mt,{}),o.length>0&&t.jsx(dt,{})]})};export{bt as default};
