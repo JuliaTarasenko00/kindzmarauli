@@ -1,4 +1,4 @@
-import{h as x,s as t,j as i,C as h,d as m}from"./index-kfm9YZ9o.js";import{P as e,a as l}from"./index-sXRa0jEU.js";import{u as g}from"./selector-2_PSBcyn.js";const u=s=>{const r=g();return a=>{const d=s.find(n=>n._id===a);r(x(d))}},p=t.h3`
+import{m as x,s as t,j as i,C as m,k as h,e as l}from"./index-LNaGYFSC.js";import{P as e}from"./index-B1QmkMhy.js";import{u as g}from"./selector-8DzEcZ_M.js";const u=s=>{const r=g();return a=>{const d=s.find(n=>n._id===a);r(x(d))}},p=t.h3`
   color: var(--main-color);
   font-size: 30px;
   font-weight: 500;
@@ -56,7 +56,7 @@ import{h as x,s as t,j as i,C as h,d as m}from"./index-kfm9YZ9o.js";import{P as 
   }
 `,v=t.div`
   flex-grow: 1;
-`,j=t.img`
+`,k=t.img`
   border-radius: 5px;
   height: 95px;
   object-fit: cover;
@@ -64,7 +64,7 @@ import{h as x,s as t,j as i,C as h,d as m}from"./index-kfm9YZ9o.js";import{P as 
   @media screen and (min-width: 768px) {
     height: 245px;
   }
-`,k=t.h4`
+`,j=t.h4`
   color: var(--main-color);
   font-size: 2.5vh;
   font-weight: 500;
@@ -177,4 +177,4 @@ import{h as x,s as t,j as i,C as h,d as m}from"./index-kfm9YZ9o.js";import{P as 
     font-size: 13px;
     width: 47px;
   }
-`;const C=s=>{const{title:r,dishes:o,titleDishes:a}=s,d=u(o);return i.jsxs(h,{children:[r&&i.jsx(p,{children:r}),a&&i.jsx(p,{className:"hot_dishes",children:a}),i.jsx(f,{children:o==null?void 0:o.map(n=>{const{finalPrice:c}=m(n);return i.jsxs(w,{children:[(n==null?void 0:n.discounted)!==0&&i.jsxs(b,{children:[n.discounted,"%"]}),i.jsxs(v,{children:[i.jsx(j,{src:n.image,alt:n.name,loading:"lazy",width:"245"}),i.jsx(k,{children:n.name}),i.jsxs(z,{children:[n.gram,"g"]}),i.jsx(D,{children:n.description})]}),i.jsxs(y,{children:[i.jsxs("div",{children:[n.discounted!==0&&i.jsxs(B,{children:[n.price,"$"]}),i.jsxs(P,{children:[c,"$"]})]}),i.jsx(_,{type:"button",onClick:()=>d(n._id),children:i.jsx(l,{})})]})]},n._id)})})]})};C.propTypes={title:e.string,titleHotDishes:e.string,dishes:e.arrayOf(e.shape({name:e.string,description:e.string,price:e.number,gram:e.number,specificsDish:e.string,image:e.string,_id:e.string})).isRequired};export{C,u};
+`;const C=s=>{const{title:r,dishes:o,titleDishes:a}=s,d=u(o);return i.jsxs(m,{children:[r&&i.jsx(p,{children:r}),a&&i.jsx(p,{className:"hot_dishes",children:a}),i.jsx(f,{children:o==null?void 0:o.map(n=>{const{finalPrice:c}=h(n);return i.jsxs(w,{children:[(n==null?void 0:n.discounted)!==0&&i.jsxs(b,{children:[n.discounted,"%"]}),i.jsxs(v,{children:[i.jsx(k,{src:n.image,alt:n.name,loading:"lazy",width:"245"}),i.jsx(j,{children:n.name}),i.jsxs(z,{children:[n.gram,"g"]}),i.jsx(D,{children:n.description})]}),i.jsxs(y,{children:[i.jsxs("div",{children:[n.discounted!==0&&i.jsxs(B,{children:[n.price,"$"]}),i.jsxs(P,{children:[c,"$"]})]}),i.jsx(_,{type:"button",onClick:()=>d(n._id),children:i.jsx(l,{})})]})]},n._id)})})]})};C.propTypes={title:e.string,titleHotDishes:e.string,dishes:e.arrayOf(e.shape({name:e.string,description:e.string,price:e.number,gram:e.number,specificsDish:e.string,image:e.string,_id:e.string})).isRequired};export{C,u};
