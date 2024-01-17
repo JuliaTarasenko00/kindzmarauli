@@ -15,15 +15,15 @@ import { specificsDish } from '../../helpers/specifics_dish';
 const options = [
   {
     name: 'Main Dishes',
-    to: `/hot_dishes#${specificsDish.MAIN}`,
+    to: `hot_dishes#${specificsDish.MAIN}`,
   },
   {
     name: 'Grilled Dishes',
-    to: `/hot_dishes#${specificsDish.GRILLED}`,
+    to: `hot_dishes#${specificsDish.GRILLED}`,
   },
   {
     name: 'Khinkali',
-    to: `/hot_dishes#${specificsDish.KHINKALI}`,
+    to: `hot_dishes#${specificsDish.KHINKALI}`,
   },
 ];
 

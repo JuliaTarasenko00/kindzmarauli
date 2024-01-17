@@ -8,7 +8,7 @@ import {
   Title,
   Wrapper,
   WrapperDescription,
-} from './HotFound.styled';
+} from './NotFound.styled';
 import { Container } from '../../globalStyle';
 
 const HotFound = () => {

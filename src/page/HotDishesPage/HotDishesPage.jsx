@@ -8,6 +8,7 @@ import { getAllMenu } from '../../redux/dishes/operation';
 import { specificsDish } from '../../helpers/specifics_dish';
 import { Section } from './HotDishesPage.styled';
 import { loading } from '../../redux/selector';
+import { Loader } from '../../components/Loader/Loader';
 
 const HotDishes = () => {
   const isLoading = useSelector(loading);
@@ -39,7 +40,7 @@ const HotDishes = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           <Section ref={mainRef}>

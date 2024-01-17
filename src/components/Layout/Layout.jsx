@@ -27,6 +27,7 @@ import { Footer } from '../Footer/Footer';
 import { FilterForm } from '../Filter/FilterForm';
 import { dishWithBasket, filterDish } from '../../redux/selector';
 import { filterDishes } from '../../redux/filter/slice';
+import { Loader } from '../Loader/Loader';
 
 const Layout = () => {
   const filter = useSelector(filterDish);
@@ -129,7 +130,7 @@ const Layout = () => {
         </Container>
       </Header>
       <main style={{ flexGrow: 1 }}>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>
