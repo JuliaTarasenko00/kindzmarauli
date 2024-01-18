@@ -178,6 +178,11 @@ export const Button = styled.button`
     color: var(--button-basket-color-active);
   }
 
+  &:active {
+    color: var(--button-basket-background-active);
+    background-color: #000;
+  }
+
   & svg {
     width: 16px;
     height: 16px;

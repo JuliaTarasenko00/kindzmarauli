@@ -11,6 +11,8 @@ import {
 } from './Select.styled';
 import { useLocation } from 'react-router-dom';
 import { specificsDish } from '../../helpers/specifics_dish';
+import { useSelector } from 'react-redux';
+import { loading } from '../../redux/selector';
 
 const options = [
   {
@@ -29,7 +31,7 @@ const options = [
 
 export const Select = (prop) => {
   const { onClick } = prop;
-
+  const isLoading = useSelector(loading);
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useState('Hoot Dishes');
   const { pathname, hash } = useLocation();
@@ -44,7 +46,7 @@ export const Select = (prop) => {
   }, [pathname]);
 
   const handleClick = (dish) => {
-    if (window.location.hash === dish) {
+    if (window.location.hash === dish && !isLoading) {
       window.location.hash = '#';
       timeoutRef.current = setTimeout(() => {
         window.location.hash = dish;
@@ -66,7 +68,6 @@ export const Select = (prop) => {
         onClick={() => {
           setIsActive(!isActive);
         }}
-        data-active={isActive.toString()}
       >
         {selected}
         {isActive ? <GoChevronUp /> : <GoChevronDown />}

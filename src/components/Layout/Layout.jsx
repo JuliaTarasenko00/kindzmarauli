@@ -20,6 +20,7 @@ import {
   Span,
   WrapperAction,
   WrapperBasket,
+  WrapperButton,
   WrapperNav,
 } from './Layout.style';
 import { Select } from '../Select/Select';
@@ -113,17 +114,19 @@ const Layout = () => {
               </Nav>
               <WrapperAction>
                 <FilterForm onClick={closeMenu} />
-                <Button type="button" className="user_button">
-                  <TbUser />
-                </Button>
-                <WrapperBasket>
-                  <MainNavigate to="basket" onClick={closeMenu}>
-                    <GrBasket />
-                  </MainNavigate>
-                  {numberOrders > 0 && (
-                    <NumberOrders>{numberOrders}</NumberOrders>
-                  )}
-                </WrapperBasket>
+                <WrapperButton>
+                  <Button type="button" className="user_button">
+                    <TbUser />
+                  </Button>
+                  <WrapperBasket>
+                    <MainNavigate to="basket" onClick={closeMenu}>
+                      <GrBasket />
+                    </MainNavigate>
+                    {numberOrders > 0 && (
+                      <NumberOrders>{numberOrders}</NumberOrders>
+                    )}
+                  </WrapperBasket>
+                </WrapperButton>
               </WrapperAction>
             </WrapperNav>
           </HeaderContainer>

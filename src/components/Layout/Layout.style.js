@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
-import img from '../../assets/img/bg.png';
 
 export const Header = styled.header`
   position: static;
@@ -53,26 +52,19 @@ export const WrapperNav = styled.div`
       visibility === 'true' ? 'visible' : 'hidden'};
     opacity: ${({ ['data-visibility']: opacity }) =>
       opacity === 'true' ? '1' : '0'};
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(25px);
     top: 0;
     left: 0;
     min-width: 100%;
     height: 100%;
     padding: 50px;
     transition: visibility 350ms ease-in-out, opacity 350ms ease-in-out;
-    background-image: linear-gradient(
-        100deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 0.6195728291316527) 48%
-      ),
-      url(${img});
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-content: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   @media screen and (min-width: 1400px) {
@@ -106,8 +98,8 @@ export const Button = styled.button`
   }
   &.close_mobil_menu {
     position: absolute;
-    top: 40px;
-    right: 50px;
+    top: 20px;
+    right: 30px;
   }
 
   @media screen and (min-width: 768px) {
@@ -158,10 +150,22 @@ export const MainNavigate = styled(NavLink)`
 `;
 
 export const WrapperAction = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+
   @media screen and (min-width: 768px) {
-    display: flex;
     align-items: center;
-    gap: 10px;
+  }
+`;
+
+export const WrapperButton = styled.div`
+  display: flex;
+  align-items: flex-end;
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
   }
 `;
 

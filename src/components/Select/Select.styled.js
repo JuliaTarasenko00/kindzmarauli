@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SelectWrapper = styled.div`
@@ -10,12 +10,16 @@ export const Title = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ ['data-active']: active }) =>
-    active === 'false' ? '#fff' : 'var(--active-color)'};
+  color: #fff;
   font-size: 18px;
   font-weight: 500;
   line-height: normal;
   transition: color var(--transition);
+
+  &:hover,
+  :focus {
+    color: var(--active-color);
+  }
 `;
 
 export const SelectList = styled.ul`
@@ -57,9 +61,9 @@ export const SelectItem = styled.li`
   }
 `;
 
-export const SelectLink = styled(Link)`
+export const SelectLink = styled(NavLink)`
   display: block;
-  color: #fff;
+  color: var(--main-color);
   width: 100%;
   font-size: 18px;
   font-weight: 500;

@@ -33,6 +33,7 @@ export const Description = styled.p`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   background-color: transparent;
   color: var(--active-color);
   display: flex;

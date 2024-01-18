@@ -77,23 +77,25 @@ export const HitDish = () => {
             )}
 
             <DishDetails>
-              <NameDish>{randomDish?.name}</NameDish>
-              <Gram>{randomDish?.gram}</Gram>
-              <Description>{randomDish?.description}</Description>
-              <WrapperPrice>
-                <div>
-                  {randomDish?.discounted !== 0 && (
-                    <DiscountedPrice>{randomDish?.price}$</DiscountedPrice>
-                  )}
-                  <Prise>{price?.finalPrice}$</Prise>
-                </div>
-                <Button
-                  type="button"
-                  onClick={() => addDishBasket(randomDish?._id)}
-                >
-                  <GrBasket />
-                </Button>
-              </WrapperPrice>
+              <div>
+                <NameDish>{randomDish?.name}</NameDish>
+                <Gram>{randomDish?.gram}</Gram>
+                <Description>{randomDish?.description}</Description>
+                <WrapperPrice>
+                  <div>
+                    {randomDish?.discounted !== 0 && (
+                      <DiscountedPrice>{randomDish?.price}$</DiscountedPrice>
+                    )}
+                    <Prise>{price?.finalPrice}$</Prise>
+                  </div>
+                  <Button
+                    type="button"
+                    onClick={() => addDishBasket(randomDish?._id)}
+                  >
+                    <GrBasket />
+                  </Button>
+                </WrapperPrice>
+              </div>
             </DishDetails>
             <ImgDesignBig
               src={designBig}

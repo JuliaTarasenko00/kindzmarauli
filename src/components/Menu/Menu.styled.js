@@ -49,18 +49,21 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  background: #000;
+  background-color: #000;
   padding: 0 8px;
   width: 200px;
   height: 220px;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   :focus {
+    background-color: #09234e;
     transform: scale(1.03) translateZ(10px);
   }
 
@@ -98,10 +101,12 @@ export const Navigate = styled(Link)`
 
   @media screen and (min-width: 768px) {
     font-size: 17px;
+    padding: 20px 10px;
   }
 
   @media screen and (min-width: 1400px) {
     font-size: 20px;
+    padding: 30px 20px;
   }
 `;
 

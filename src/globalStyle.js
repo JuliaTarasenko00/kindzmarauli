@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   --active-color: #fbd13e;
   --transition: 250ms ease-in-out;
   --button-basket-background: #ffcf00;
-  --button-basket-background-active: #ffb200d6;
+  --button-basket-background-active: #DBB325;
   --button-basket-color-active: #262626;
   --gram-background: #80808094;
 }

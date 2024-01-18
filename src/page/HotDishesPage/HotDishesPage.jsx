@@ -19,6 +19,8 @@ const HotDishes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (isLoading) return;
+
     switch (hash) {
       case `#${specificsDish.MAIN}`:
         return mainRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -32,7 +34,7 @@ const HotDishes = () => {
       default:
         return;
     }
-  }, [hash]);
+  }, [hash, isLoading]);
 
   useEffect(() => {
     dispatch(getAllMenu());

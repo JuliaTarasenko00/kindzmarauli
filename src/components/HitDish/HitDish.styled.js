@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import img from '../../assets/img/group.webp';
 
 export const Section = styled.section``;
 
@@ -79,23 +80,34 @@ export const ImgDish = styled.img`
 `;
 
 export const DishDetails = styled.div`
-  padding: 10px;
-  max-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 300px;
+  height: 250px;
+  max-height: 100%;
   position: absolute;
   bottom: 0;
   left: 25px;
-  background-color: red;
+  background-image: url(${img});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px 250px;
 
   @media screen and (min-width: 1400px) {
-    padding: 20px;
-    max-width: 337px;
-    bottom: -60px;
+    width: 355.245px;
+    height: 357.933px;
+    bottom: -50%;
     left: 73px;
+    transform: translateY(-20%);
+    background-size: 100%;
   }
 `;
 
 export const NameDish = styled.h3`
   color: var(--main-color);
+  max-width: 220px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
@@ -121,6 +133,7 @@ export const Gram = styled.p`
 export const Description = styled.p`
   margin-top: 7px;
   margin-bottom: 21px;
+  max-width: 231px;
   color: var(--main-color);
   font-size: 11px;
   font-weight: 500;
@@ -194,6 +207,11 @@ export const Button = styled.button`
   :focus {
     background-color: var(--button-basket-background-active);
     color: var(--button-basket-color-active);
+  }
+
+  &:active {
+    color: var(--button-basket-background-active);
+    background-color: #000;
   }
 `;
 

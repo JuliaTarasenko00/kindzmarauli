@@ -1,14 +1,12 @@
 import styled, { keyframes } from 'styled-components';
-import img from '../../assets/img/bg.png';
 
 export const Section = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 5000;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-color: #0f0f11;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(25px);
   height: 100vh;
   overflow: hidden;
   display: grid;
