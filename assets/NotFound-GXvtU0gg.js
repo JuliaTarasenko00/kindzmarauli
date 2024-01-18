@@ -1,4 +1,4 @@
-import{s as t,b as e,j as o,C as i}from"./index-LNaGYFSC.js";import{b as s}from"./index.esm-QFv9Th-8.js";const r="/kindzmarauli/assets/not_found-2AJLBYEH.png",a=t.section`
+import{s as t,c as e,j as o,C as i}from"./index-n1GEpy4V.js";import{b as s}from"./index.esm-QMEAILtD.js";const r="/kindzmarauli/assets/not_found-2AJLBYEH.png",a=t.section`
   padding-top: 40px;
   padding-bottom: 40px;
 `,c=t.div`
@@ -21,6 +21,7 @@ import{s as t,b as e,j as o,C as i}from"./index-LNaGYFSC.js";import{b as s}from"
   line-height: 1.1;
   margin-bottom: 40px;
 `,x=t.button`
+  cursor: pointer;
   background-color: transparent;
   color: var(--active-color);
   display: flex;
