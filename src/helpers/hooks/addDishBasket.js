@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addBasketDish } from '../../redux/basket/slice';
+import { addBasketDish } from '../../redux/basket/operationNotAuth';
 
 export const useAddDishBasket = (dishes) => {
   const dispatch = useDispatch();

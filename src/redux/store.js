@@ -12,8 +12,8 @@ import storage from 'redux-persist/lib/storage';
 
 import { configureStore } from '@reduxjs/toolkit';
 import { dishesSlice } from './dishes/slice';
-import { filterSlice } from './filter/slice';
 import { basketSlice } from './basket/slice';
+import { authenticationSlice } from './auth/slice';
 
 const persistConfig = {
   key: 'basket',
@@ -23,8 +23,8 @@ const persistConfig = {
 export const store = configureStore({
   reducer: {
     dishes: dishesSlice.reducer,
-    filter: filterSlice.reducer,
     basket: persistReducer(persistConfig, basketSlice.reducer),
+    auth: authenticationSlice.reducer,
   },
 
   middleware: (getDefaultMiddleware) =>

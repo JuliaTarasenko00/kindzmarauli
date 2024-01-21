@@ -51,6 +51,11 @@ export const ButtonRemoveBasket = styled.button`
     color: var(--active-color);
   }
 
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 20px;
     margin-top: 0;

@@ -15,10 +15,9 @@ import {
   WrapperButton,
   WrapperForm,
 } from './FilterForm.styled';
-import { filterDishes } from '../../redux/filter/slice';
-import { getAllMenu } from '../../redux/dishes/operation';
+import { searchDishes } from '../../redux/dishes/operation';
 
-const SignupSchema = Yup.object().shape({
+const FilterFormSchema = Yup.object().shape({
   search: Yup.string()
     .min(3, 'Enter more than 3 characters')
     .max(50, 'Too Long!')
@@ -48,10 +47,10 @@ export const FilterForm = (prop) => {
 
   useEffect(() => {
     if (pathname !== '/search') return;
-    dispatch(getAllMenu());
 
     setSearchParams({ q: value });
-    dispatch(filterDishes(searchDish));
+
+    dispatch(searchDishes(searchDish));
   }, [dispatch, pathname, searchDish, setSearchParams, value]);
 
   return (
@@ -59,7 +58,7 @@ export const FilterForm = (prop) => {
       <Formik
         initialValues={{ search: value }}
         onSubmit={handleSubmit}
-        validationSchema={SignupSchema}
+        validationSchema={FilterFormSchema}
       >
         {({
           values,
@@ -79,10 +78,8 @@ export const FilterForm = (prop) => {
                 onChange={handleChange}
                 value={values.search}
               />
-              {errors.search && touched.search ? (
+              {errors.search && touched.search && (
                 <ErrorTitle>{errors.search}</ErrorTitle>
-              ) : (
-                ''
               )}
               <WrapperButton>
                 {values.search !== '' && (

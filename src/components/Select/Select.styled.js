@@ -20,6 +20,11 @@ export const Title = styled.p`
   :focus {
     color: var(--active-color);
   }
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const SelectList = styled.ul`

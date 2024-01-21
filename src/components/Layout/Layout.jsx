@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
 import { GrBasket } from 'react-icons/gr';
@@ -26,14 +26,15 @@ import {
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
 import { FilterForm } from '../Filter/FilterForm';
-import { dishWithBasket, filterDish } from '../../redux/selector';
-import { filterDishes } from '../../redux/filter/slice';
+import { dishWithBasket } from '../../redux/selector';
 import { Loader } from '../Loader/Loader';
+import { useModal } from '../../helpers/hooks/useModal';
+import { ModalComponent } from '../Modal/Modal';
+import { RenderForm } from '../AuthForm/RenderForm';
 
 const Layout = () => {
-  const filter = useSelector(filterDish);
-  const dispatch = useDispatch();
   const [visibility, setVisibility] = useState(false);
+  const { toggleModal, open } = useModal();
   const basket = useSelector(dishWithBasket);
   const numberOrders = basket.reduce((sum, obj) => {
     return obj.count + sum;
@@ -66,14 +67,7 @@ const Layout = () => {
       <Header>
         <Container>
           <HeaderContainer>
-            <Logo
-              to="/"
-              onClick={() => {
-                if (filter) {
-                  dispatch(filterDishes(''));
-                }
-              }}
-            >
+            <Logo to="/">
               <Span>
                 <GrRestaurant />
               </Span>
@@ -115,7 +109,11 @@ const Layout = () => {
               <WrapperAction>
                 <FilterForm onClick={closeMenu} />
                 <WrapperButton>
-                  <Button type="button" className="user_button">
+                  <Button
+                    type="button"
+                    className="user_button"
+                    onClick={toggleModal}
+                  >
                     <TbUser />
                   </Button>
                   <WrapperBasket>
@@ -138,6 +136,11 @@ const Layout = () => {
         </Suspense>
       </main>
       <Footer />
+      {open && (
+        <ModalComponent onClose={toggleModal}>
+          <RenderForm />
+        </ModalComponent>
+      )}
     </>
   );
 };

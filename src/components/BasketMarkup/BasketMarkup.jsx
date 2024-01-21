@@ -33,7 +33,7 @@ import {
   clearBasket,
   deleteBasketDish,
   minusBasketDish,
-} from '../../redux/basket/slice';
+} from '../../redux/basket/operationNotAuth';
 
 export const BasketMarkup = () => {
   const dishes = useSelector(dishWithBasket);

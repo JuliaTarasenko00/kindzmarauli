@@ -1,9 +1,10 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getAllMenu, getMenuPopular } from './operation';
+import { getAllMenu, getMenuPopular, searchDishes } from './operation';
 
 const initialState = {
   popularDishes: [],
   allDishes: [],
+  filteredDishes: [],
   isLoading: false,
   error: null,
 };
@@ -23,7 +24,11 @@ export const dishesSlice = createSlice({
         state.allDishes = payload;
         state.error = null;
       })
-
+      .addCase(searchDishes.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.filteredDishes = payload;
+        state.error = null;
+      })
       .addMatcher(
         isAnyOf(getMenuPopular.pending, getAllMenu.pending),
         (state) => {

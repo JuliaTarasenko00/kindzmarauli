@@ -25,6 +25,11 @@ export const NameRestaurant = styled.p`
   font-size: 30px;
   line-height: 1;
   font-weight: 900;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const Link = styled.a`

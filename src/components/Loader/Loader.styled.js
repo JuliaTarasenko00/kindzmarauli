@@ -5,7 +5,7 @@ export const Section = styled.div`
   top: 0;
   width: 100%;
   z-index: 5000;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000;
   backdrop-filter: blur(25px);
   height: 100vh;
   overflow: hidden;

@@ -1,67 +1,71 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { dishPricing } from '../../helpers/hooks/dishPricing';
+import {
+  addBasketDish,
+  deleteBasketDish,
+  clearBasket,
+  minusBasketDish,
+} from './operationNotAuth';
 
 const initialState = {
   basketDishes: [],
   totalPrice: 0,
+  isLoading: false,
+  error: null,
 };
 
 export const basketSlice = createSlice({
   name: 'basket',
   initialState,
-  reducers: {
-    addBasketDish: (state, { payload }) => {
-      const { finalPrice } = dishPricing(payload);
+  extraReducers: (builder) => {
+    builder
+      .addCase(addBasketDish.fulfilled, (state, { payload }) => {
+        const findItem = state.basketDishes.find(
+          (dish) => dish._id === payload._id,
+        );
 
-      const findItem = state.basketDishes.find(
-        (dish) => dish._id === payload._id,
-      );
+        if (findItem) {
+          findItem.count++;
+          findItem.total = payload.finalPrice * findItem.count;
+        } else {
+          state.basketDishes.push({
+            ...payload,
+            count: 1,
+            total: payload.finalPrice,
+          });
+        }
 
-      if (findItem) {
-        findItem.count++;
-        findItem.total = finalPrice * findItem.count;
-      } else {
-        state.basketDishes.push({ ...payload, count: 1, total: finalPrice });
-      }
+        state.totalPrice = state.basketDishes.reduce((sum, obj) => {
+          return obj.total + sum;
+        }, 0);
+      })
+      .addCase(deleteBasketDish.fulfilled, (state, { payload }) => {
+        state.basketDishes = state.basketDishes.filter(
+          (dish) => dish._id !== payload,
+        );
 
-      state.totalPrice = state.basketDishes.reduce((sum, obj) => {
-        return obj.total + sum;
-      }, 0);
-    },
+        state.totalPrice = state.basketDishes.reduce((sum, obj) => {
+          return sum + obj.total;
+        }, 0);
+      })
+      .addCase(clearBasket.fulfilled, (state) => {
+        state.basketDishes = [];
+        state.totalPrice = 0;
+      })
+      .addCase(minusBasketDish.fulfilled, (state, { payload }) => {
+        const findItem = state.basketDishes.find(
+          (dish) => dish._id === payload._id,
+        );
 
-    deleteBasketDish: (state, { payload }) => {
-      state.basketDishes = state.basketDishes.filter(
-        (dish) => dish._id !== payload,
-      );
+        if (findItem && findItem.count > 1) {
+          findItem.count--;
+          findItem.total -= findItem.total / (findItem.count + 1);
+        } else {
+          return;
+        }
 
-      state.totalPrice = state.basketDishes.reduce((sum, obj) => {
-        return sum + obj.total;
-      }, 0);
-    },
-
-    clearBasket: (state) => {
-      state.basketDishes = [];
-      state.totalPrice = 0;
-    },
-
-    minusBasketDish: (state, { payload }) => {
-      const findItem = state.basketDishes.find(
-        (dish) => dish._id === payload._id,
-      );
-
-      if (findItem && findItem.count > 1) {
-        findItem.count--;
-        findItem.total -= findItem.total / (findItem.count + 1);
-      } else {
-        return;
-      }
-
-      state.totalPrice = state.basketDishes.reduce((sum, obj) => {
-        return sum + obj.total;
-      }, 0);
-    },
+        state.totalPrice = state.basketDishes.reduce((sum, obj) => {
+          return sum + obj.total;
+        }, 0);
+      });
   },
 });
-
-export const { addBasketDish, deleteBasketDish, clearBasket, minusBasketDish } =
-  basketSlice.actions;
