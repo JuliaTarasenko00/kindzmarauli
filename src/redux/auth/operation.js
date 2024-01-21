@@ -61,8 +61,11 @@ export const userSignin = createAsyncThunk(
 export const userCurrent = createAsyncThunk(
   'user/current',
   async (_, thunkAPI) => {
+    console.log('thunkAPI: ', thunkAPI);
     const state = thunkAPI.getState();
-    const token = state.authentication.token;
+    console.log('state2: ', state);
+    const token = state.auth.token;
+    console.log('token: ', token);
     try {
       setToken(token);
       const { data } = await $instants.get('auth/current');
