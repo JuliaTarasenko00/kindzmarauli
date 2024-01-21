@@ -1,10 +1,10 @@
-import{G as g,s as e,j as t,u as p,C as u,l as f,o as b,p as w,q as j,g as v,c as y}from"./index-cEEamm5u.js";import{c as k,a as B,F as C,A as x,e as z,f as L}from"./index.esm-i47jWP3Y.js";import{d as m,b as V,u as D}from"./selector-z3YjTp_A.js";function O(o){return g({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const H=e.section`
+import{G as g,s as e,j as t,u as p,q as x,B as u,e as f,C as b,x as w,D as j,E as v,F as y,n as k,f as B}from"./index-IjBqPqZw.js";import{c as C,a as z,F as L,A as m,e as D,f as V}from"./index.esm-42k8B9K4.js";function O(o){return g({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const F=e.section`
   padding-bottom: 42px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 142px;
   }
-`,N=e.div`
+`,H=e.div`
   margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
@@ -14,7 +14,7 @@ import{G as g,s as e,j as t,u as p,C as u,l as f,o as b,p as w,q as j,g as v,c a
     align-items: center;
     justify-content: space-between;
   }
-`,P=e.h3`
+`,N=e.h3`
   color: var(--main-color);
   font-size: 60px;
   font-weight: 500;
@@ -23,7 +23,7 @@ import{G as g,s as e,j as t,u as p,C as u,l as f,o as b,p as w,q as j,g as v,c a
   @media screen and (min-width: 768px) {
     font-size: 80px;
   }
-`,F=e.button`
+`,P=e.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -111,7 +111,7 @@ import{G as g,s as e,j as t,u as p,C as u,l as f,o as b,p as w,q as j,g as v,c a
   @media screen and (min-width: 1400px) {
     width: 240px;
   }
-`,I=e.p`
+`,E=e.p`
   color: var(--main-color);
   font-size: 12px;
   font-weight: 900;
@@ -122,7 +122,7 @@ import{G as g,s as e,j as t,u as p,C as u,l as f,o as b,p as w,q as j,g as v,c a
     font-size: 20px;
     font-weight: 500;
   }
-`,E=e.p`
+`,I=e.p`
   color: var(--main-color);
   padding: 2px 4px;
   background-color: gray;
@@ -381,4 +381,4 @@ import{G as g,s as e,j as t,u as p,C as u,l as f,o as b,p as w,q as j,g as v,c a
   @media screen and (min-width: 768px) {
     margin: 30px auto 0;
   }
-`,lt=k().shape({code:B().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(C,{initialValues:{code:""},onSubmit:(o,{setSubmitting:r})=>{console.log(o.code.trim()),r(!1)},validationSchema:lt,children:({values:o,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:n})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(nt,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:n,value:o.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",o.code!==""&&t.jsx(ot,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(x,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt=()=>{const o=p(m),r=p(V),i=D(),a=n=>{i(b(n))},s=n=>{i(w(n))},c=n=>{window.confirm("Are you sure want to remove?")&&i(j(n))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(v())};return t.jsx(H,{children:t.jsx(u,{children:t.jsx(t.Fragment,{children:t.jsxs(t.Fragment,{children:[t.jsxs(N,{children:[t.jsx(P,{children:"Basket"}),t.jsxs(F,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(S,{children:o.map(n=>{const{finalPrice:h}=f(n);return t.jsxs(A,{children:[t.jsx(M,{src:n.image,alt:n.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(I,{children:n.name}),t.jsxs(E,{children:[n.gram,"g"]})]}),t.jsxs($,{children:[h,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(n),children:t.jsx(z,{})}),t.jsx(Z,{children:n.count}),t.jsx(d,{type:"button",onClick:()=>a(n),children:t.jsx(L,{})})]}),t.jsxs(G,{children:[n.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(n._id),children:t.jsx(x,{})})]})]},n._id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(_,{children:[t.jsx(q,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})})})})},xt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",mt=()=>{const o=y();return t.jsxs("section",{style:{paddingBottom:50},children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:xt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},ft=()=>{const o=p(m);return t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(mt,{}),o.length>0&&t.jsx(dt,{})]})};export{ft as default};
+`,lt=C().shape({code:z().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(L,{initialValues:{code:""},onSubmit:(o,{setSubmitting:r})=>{console.log(o.code.trim()),r(!1)},validationSchema:lt,children:({values:o,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:n})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(nt,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:n,value:o.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",o.code!==""&&t.jsx(ot,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(m,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt=()=>{const o=p(x),r=p(u),i=f(),a=n=>{i(j(n))},s=n=>{i(v(n))},c=n=>{window.confirm("Are you sure want to remove?")&&i(y(n))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(k())};return t.jsx(F,{children:t.jsx(b,{children:t.jsx(t.Fragment,{children:t.jsxs(t.Fragment,{children:[t.jsxs(H,{children:[t.jsx(N,{children:"Basket"}),t.jsxs(P,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(S,{children:o.map(n=>{const{finalPrice:h}=w(n);return t.jsxs(A,{children:[t.jsx(M,{src:n.image,alt:n.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(E,{children:n.name}),t.jsxs(I,{children:[n.gram,"g"]})]}),t.jsxs($,{children:[h,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(n),children:t.jsx(D,{})}),t.jsx(Z,{children:n.count}),t.jsx(d,{type:"button",onClick:()=>a(n),children:t.jsx(V,{})})]}),t.jsxs(G,{children:[n.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(n._id),children:t.jsx(m,{})})]})]},n._id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(_,{children:[t.jsx(q,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})})})})},xt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",mt=()=>{const o=B();return t.jsxs("section",{style:{paddingBottom:50},children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:xt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},ut=()=>{const o=p(x);return t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(mt,{}),o.length>0&&t.jsx(dt,{})]})};export{ut as default};
