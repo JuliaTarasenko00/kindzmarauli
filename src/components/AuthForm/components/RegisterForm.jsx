@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import { FaRegSmile, FaRegSmileBeam } from 'react-icons/fa';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -14,6 +15,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { userSignup } from '../../../redux/auth/operation';
 import { clearBasket } from '../../../redux/basket/operationNotAuth';
+import { getToken, loading } from '../../../redux/selector';
+import { toast } from 'react-toastify';
+import { styleToastify } from '../../toastify';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -24,18 +29,17 @@ const RegisterSchema = Yup.object().shape({
     .matches(emailRegexp, `This is an ERROR email`)
     .required(`Email required`),
   password: Yup.string()
-    .min(6, 'Password must contain at least 6 characters')
+    .min(8, 'Password must contain at least 8 characters')
     .required(`Password required`),
   tel: Yup.number().min(10).required(`Phone number required`),
 });
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ onClose }) => {
   const [visible, setVisible] = useState(false);
-  const error = useSelector((state) => state.auth.error);
-  const loading = useSelector((state) => state.auth.isLoading);
-
-  console.log('error: ', error);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector(getToken);
+  const isLoading = useSelector(loading);
 
   const handelSubmitForm = (values) => {
     const data = {
@@ -45,12 +49,18 @@ export const RegisterForm = () => {
       phoneNumber: values.tel,
     };
 
-    if (error === null && !loading) {
-      dispatch(clearBasket());
-    }
-
     dispatch(userSignup(data));
+
+    navigate('user_account');
   };
+
+  useEffect(() => {
+    if (token !== '' && !isLoading) {
+      dispatch(clearBasket());
+      onClose();
+      toast.success('You have successfully registered', styleToastify);
+    }
+  }, [dispatch, isLoading, onClose, token]);
 
   return (
     <Formik
@@ -65,7 +75,6 @@ export const RegisterForm = () => {
         handleBlur,
         errors,
         touched,
-        isSubmitting,
       }) => (
         <Form onSubmit={handleSubmit}>
           <WrapperInput>
@@ -125,11 +134,13 @@ export const RegisterForm = () => {
               <ErrorTitle>{errors.password}</ErrorTitle>
             )}
           </WrapperInput>
-          <ButtonSubmit type="submit" disabled={isSubmitting}>
-            Register Now
-          </ButtonSubmit>
+          <ButtonSubmit type="submit">Register Now</ButtonSubmit>
         </Form>
       )}
     </Formik>
   );
+};
+
+RegisterForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };

@@ -24,9 +24,7 @@ const FilterFormSchema = Yup.object().shape({
     .required('Enter the name of the dish'),
 });
 
-export const FilterForm = (prop) => {
-  const { onClick } = prop;
-
+export const FilterForm = ({ onClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();

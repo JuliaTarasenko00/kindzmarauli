@@ -20,11 +20,17 @@ const persistConfig = {
   storage,
 };
 
+const persistConfigAuth = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
     dishes: dishesSlice.reducer,
     basket: persistReducer(persistConfig, basketSlice.reducer),
-    auth: authenticationSlice.reducer,
+    auth: persistReducer(persistConfigAuth, authenticationSlice.reducer),
   },
 
   middleware: (getDefaultMiddleware) =>

@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useModal = () => {
   const [open, setOpen] = useState(false);
 
-  const toggleModal = () => {
+  const toggleModal = useCallback(() => {
     setOpen(!open);
-  };
+  }, [open]);
 
   useEffect(() => {
     if (open) {

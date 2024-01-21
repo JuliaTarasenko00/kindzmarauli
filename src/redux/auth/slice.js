@@ -1,9 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { userSignup } from './operation';
+import { userCurrent, userLogOut, userSignin, userSignup } from './operation';
 
 const initialState = {
   token: '',
-  user: {},
+  user: null,
   isLoading: false,
   error: null,
   authentication: false,
@@ -15,21 +15,56 @@ export const authenticationSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(userSignup.fulfilled, (state, { payload }) => {
-        console.log('payload: ', payload);
         state.isLoading = false;
         state.authentication = true;
         state.user = payload;
         state.token = payload.token;
         state.error = null;
       })
-      .addMatcher(isAnyOf(userSignup.pending), (state) => {
-        state.isLoading = true;
-        state.authentication = false;
+      .addCase(userSignin.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.authentication = true;
+        state.user = payload;
+        state.token = payload.token;
         state.error = null;
       })
-      .addMatcher(isAnyOf(userSignup.rejected), (state, { payload }) => {
+      .addCase(userCurrent.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.authentication = true;
+        state.user = payload;
+        state.error = null;
+      })
+      .addCase(userLogOut.fulfilled, (state) => {
         state.isLoading = false;
         state.authentication = false;
-        state.error = payload;
-      }),
+        state.user = null;
+        state.token = '';
+        state.error = null;
+      })
+      .addMatcher(
+        isAnyOf(
+          userSignup.pending,
+          userLogOut.pending,
+          userSignin.pending,
+          userCurrent.pending,
+        ),
+        (state) => {
+          state.isLoading = true;
+          state.authentication = false;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        isAnyOf(
+          userSignup.rejected,
+          userSignin.rejected,
+          userLogOut.rejected,
+          userCurrent.rejected,
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.authentication = false;
+          state.error = payload;
+        },
+      ),
 });

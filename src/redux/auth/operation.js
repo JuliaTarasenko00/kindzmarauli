@@ -62,7 +62,6 @@ export const userCurrent = createAsyncThunk(
   'user/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log('thunkAPI: ', thunkAPI);
     const token = state.authentication.token;
     try {
       setToken(token);

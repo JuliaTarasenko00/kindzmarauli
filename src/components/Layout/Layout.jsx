@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
 import { GrBasket } from 'react-icons/gr';
 import { GrRestaurant } from 'react-icons/gr';
@@ -26,7 +26,7 @@ import {
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
 import { FilterForm } from '../Filter/FilterForm';
-import { dishWithBasket } from '../../redux/selector';
+import { dishWithBasket, getToken } from '../../redux/selector';
 import { Loader } from '../Loader/Loader';
 import { useModal } from '../../helpers/hooks/useModal';
 import { ModalComponent } from '../Modal/Modal';
@@ -36,6 +36,9 @@ const Layout = () => {
   const [visibility, setVisibility] = useState(false);
   const { toggleModal, open } = useModal();
   const basket = useSelector(dishWithBasket);
+  const token = useSelector(getToken);
+  const navigate = useNavigate();
+
   const numberOrders = basket.reduce((sum, obj) => {
     return obj.count + sum;
   }, 0);
@@ -112,7 +115,9 @@ const Layout = () => {
                   <Button
                     type="button"
                     className="user_button"
-                    onClick={toggleModal}
+                    onClick={() =>
+                      token === '' ? toggleModal() : navigate('user_account')
+                    }
                   >
                     <TbUser />
                   </Button>
@@ -138,7 +143,7 @@ const Layout = () => {
       <Footer />
       {open && (
         <ModalComponent onClose={toggleModal}>
-          <RenderForm />
+          <RenderForm onClose={toggleModal} />
         </ModalComponent>
       )}
     </>
