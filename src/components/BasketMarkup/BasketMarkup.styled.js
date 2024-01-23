@@ -189,6 +189,12 @@ export const ButtonCount = styled.button`
   :focus {
     color: var(--active-color);
   }
+  &.minus {
+    cursor: ${({ ['$datadisabled']: disabled }) =>
+      disabled === 'true' ? 'no-drop' : 'pointer'};
+    color: ${({ ['$datadisabled']: disabled }) =>
+      disabled === 'true' ? 'grey' : 'var(--main-color)'};
+  }
 
   &svg {
     width: 10px;

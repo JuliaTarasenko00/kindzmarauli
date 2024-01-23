@@ -3,9 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from './components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataUser, dishWithBasket, getToken } from './redux/selector';
+import { dataUser, getToken } from './redux/selector';
 import { userCurrent } from './redux/auth/operation';
-import { clearBasket } from './redux/basket/operationNotAuth';
 
 const PrivateRoute = lazy(() =>
   import('./components/PrivateRoute/PrivateRoute'),
@@ -28,18 +27,13 @@ const UserAccount = lazy(() => import('./page/UserAccount/UserAccount'));
 function App() {
   const token = useSelector(getToken);
   const user = useSelector(dataUser);
-  const basket = useSelector(dishWithBasket);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token !== '' && user === null) {
       dispatch(userCurrent());
     }
-
-    if (token !== '' && basket.length !== 0) {
-      dispatch(clearBasket());
-    }
-  }, [basket.length, dispatch, token, user]);
+  }, [dispatch, token, user]);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { RiDeleteBin2Line } from 'react-icons/ri';
-import { dishWithBasket, price } from '../../redux/selector';
+import { authentication, dishWithBasket, price } from '../../redux/selector';
 import { Container } from '../../globalStyle';
 import {
   ButtonCount,
@@ -34,31 +34,54 @@ import {
   deleteBasketDish,
   minusBasketDish,
 } from '../../redux/basket/operationNotAuth';
+import {
+  deleteDishAuth,
+  magnificationCountDishBasket,
+  reductionCountDishBasket,
+} from '../../redux/basket/operation';
+import { useCallback } from 'react';
 
 export const BasketMarkup = () => {
   const dishes = useSelector(dishWithBasket);
   const totalPrice = useSelector(price);
   const dispatch = useDispatch();
+  const auth = useSelector(authentication);
 
-  const onClickPlus = (dish) => {
-    dispatch(addBasketDish(dish));
-  };
+  const onClickPlus = useCallback(
+    (dish) => {
+      const action = auth
+        ? magnificationCountDishBasket(dish._id)
+        : addBasketDish(dish);
+      dispatch(action);
+    },
+    [auth, dispatch],
+  );
 
-  const onClickMinus = (dish) => {
-    dispatch(minusBasketDish(dish));
-  };
+  const onClickMinus = useCallback(
+    (dish) => {
+      const action = auth
+        ? reductionCountDishBasket(dish._id)
+        : minusBasketDish(dish);
+      dispatch(action);
+    },
+    [auth, dispatch],
+  );
 
-  const onClickDeleteDish = (id) => {
-    if (window.confirm('Are you sure want to remove?')) {
-      dispatch(deleteBasketDish(id));
-    }
-  };
+  const onClickDeleteDish = useCallback(
+    (id) => {
+      if (window.confirm('Are you sure want to remove?')) {
+        const action = auth ? deleteDishAuth(id) : deleteBasketDish(id);
+        dispatch(action);
+      }
+    },
+    [auth, dispatch],
+  );
 
-  const onClickRemoveOrders = () => {
+  const onClickRemoveOrders = useCallback(() => {
     if (window.confirm('Are you sure want to clear the entire recycle bin?')) {
       dispatch(clearBasket());
     }
-  };
+  }, [dispatch]);
 
   return (
     <Section>
@@ -67,10 +90,12 @@ export const BasketMarkup = () => {
           <>
             <WrapperName>
               <Title>Basket</Title>
-              <ButtonRemoveBasket type="button" onClick={onClickRemoveOrders}>
-                Clear Basket
-                <RiDeleteBin2Line />
-              </ButtonRemoveBasket>
+              {!auth && (
+                <ButtonRemoveBasket type="button" onClick={onClickRemoveOrders}>
+                  Clear Basket
+                  <RiDeleteBin2Line />
+                </ButtonRemoveBasket>
+              )}
             </WrapperName>
             <List>
               {dishes.map((dish) => {
@@ -87,6 +112,9 @@ export const BasketMarkup = () => {
                       <WrapperButton>
                         <ButtonCount
                           type="button"
+                          disabled={dish.count === 1}
+                          $datadisabled={(dish.count === 1).toString()}
+                          className="minus"
                           onClick={() => onClickMinus(dish)}
                         >
                           <AiOutlineMinus />

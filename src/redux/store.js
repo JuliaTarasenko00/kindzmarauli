@@ -19,6 +19,14 @@ const persistConfig = {
   key: 'basket',
   storage,
   whitelist: ['basketDishes', 'totalPrice'],
+  serialize: (state) => {
+    const isUserLoggedIn = store.getState().auth.token;
+    if (isUserLoggedIn) {
+      return [];
+    } else {
+      return JSON.stringify(state);
+    }
+  },
 };
 
 const persistConfigAuth = {

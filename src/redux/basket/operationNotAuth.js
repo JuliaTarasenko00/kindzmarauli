@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { dishPricing } from '../../helpers/hooks/dishPricing';
 
 export const addBasketDish = createAsyncThunk(
-  'bas/addBasketDishNotAuth',
+  'basket/addBasketDishNotAuth',
   (payload) => {
     const { finalPrice } = dishPricing(payload);
     return { ...payload, finalPrice };
@@ -10,7 +10,7 @@ export const addBasketDish = createAsyncThunk(
 );
 
 export const deleteBasketDish = createAsyncThunk(
-  '/deleteBasketDish',
+  'basket/deleteBasketDish',
   (payload) => {
     return payload;
   },
@@ -21,7 +21,7 @@ export const clearBasket = createAsyncThunk('/clearBasket', (payload) => {
 });
 
 export const minusBasketDish = createAsyncThunk(
-  '/minusBasketDish',
+  'basket/minusBasketDish',
   (payload) => {
     return payload;
   },

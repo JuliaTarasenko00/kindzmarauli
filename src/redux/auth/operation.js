@@ -19,7 +19,7 @@ export const userSignup = createAsyncThunk(
         toast.error('Unauthorized', styleToastify);
       }
       if (status === 404) {
-        toast.error('You do not have rights to make changes', styleToastify);
+        toast.error('Not Found', styleToastify);
       }
       if (status === 409) {
         toast.error('Password or Email invalid', styleToastify);
@@ -45,7 +45,7 @@ export const userSignin = createAsyncThunk(
         toast.error('Password or Email invalid', styleToastify);
       }
       if (status === 404) {
-        toast.error('You do not have rights to make changes', styleToastify);
+        toast.error('Not Found', styleToastify);
       }
       if (status === 409) {
         toast.error('Password or Email invalid', styleToastify);

@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { TbUser } from 'react-icons/tb';
 import { GrBasket } from 'react-icons/gr';
@@ -26,12 +26,15 @@ import {
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
 import { FilterForm } from '../Filter/FilterForm';
-import { dishWithBasket } from '../../redux/selector';
+import { authentication, dishWithBasket } from '../../redux/selector';
 import { Loader } from '../Loader/Loader';
+import { getDishesBasketAuth } from '../../redux/basket/operation';
 
 const Layout = () => {
   const [visibility, setVisibility] = useState(false);
   const basket = useSelector(dishWithBasket);
+  const auth = useSelector(authentication);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const numberOrders = basket.reduce((sum, obj) => {
@@ -44,8 +47,12 @@ const Layout = () => {
     { name: 'Drinks', to: 'drinks' },
   ];
 
-  const toggleMenu = () => {
-    setVisibility(!visibility);
+  const openMenu = () => {
+    setVisibility(true);
+  };
+
+  const closeMenu = () => {
+    setVisibility(false);
   };
 
   useEffect(() => {
@@ -55,6 +62,13 @@ const Layout = () => {
       document.body.style.overflow = 'auto';
     };
   }, [visibility]);
+
+  useEffect(() => {
+    if (auth) {
+      dispatch(getDishesBasketAuth());
+    }
+    return;
+  }, [auth, dispatch]);
 
   return (
     <>
@@ -70,7 +84,7 @@ const Layout = () => {
             <Button
               type="button"
               className="open_mobil_menu"
-              onClick={toggleMenu}
+              onClick={openMenu}
             >
               <CiMenuFries />
             </Button>
@@ -79,20 +93,20 @@ const Layout = () => {
                 <Button
                   className="close_mobil_menu"
                   type="button"
-                  onClick={toggleMenu}
+                  onClick={closeMenu}
                 >
                   <TfiClose />
                 </Button>
                 <List>
                   <Item>
-                    <Select onClick={toggleMenu} />
+                    <Select onClick={closeMenu} />
                   </Item>
                   {pagesMenu.map(({ name, to }) => (
                     <Item key={name}>
                       <MainNavigate
                         activeclassname="active"
                         to={to}
-                        onClick={toggleMenu}
+                        onClick={closeMenu}
                       >
                         {name}
                       </MainNavigate>
@@ -101,20 +115,20 @@ const Layout = () => {
                 </List>
               </Nav>
               <WrapperAction>
-                <FilterForm onClick={toggleMenu} />
+                <FilterForm onClick={closeMenu} />
                 <WrapperButton>
                   <Button
                     type="button"
                     className="user_button"
                     onClick={() => {
                       navigate('user_account');
-                      toggleMenu();
+                      closeMenu();
                     }}
                   >
                     <TbUser />
                   </Button>
                   <WrapperBasket>
-                    <MainNavigate to="basket" onClick={toggleMenu}>
+                    <MainNavigate to="basket" onClick={closeMenu}>
                       <GrBasket />
                     </MainNavigate>
                     {numberOrders > 0 && (

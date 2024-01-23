@@ -1,16 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   addBasketDish,
   deleteBasketDish,
   clearBasket,
   minusBasketDish,
 } from './operationNotAuth';
+import {
+  addDishBasketAuth,
+  deleteDishAuth,
+  getDishesBasketAuth,
+  magnificationCountDishBasket,
+  reductionCountDishBasket,
+} from './operation';
 
 const initialState = {
   basketDishes: [],
   totalPrice: 0,
   isLoading: false,
   error: null,
+};
+
+const totalSum = (state) => {
+  return state.reduce((sum, obj) => {
+    return obj.total + sum;
+  }, 0);
 };
 
 export const basketSlice = createSlice({
@@ -34,18 +47,14 @@ export const basketSlice = createSlice({
           });
         }
 
-        state.totalPrice = state.basketDishes.reduce((sum, obj) => {
-          return obj.total + sum;
-        }, 0);
+        state.totalPrice = totalSum(state.basketDishes);
       })
       .addCase(deleteBasketDish.fulfilled, (state, { payload }) => {
         state.basketDishes = state.basketDishes.filter(
           (dish) => dish._id !== payload,
         );
 
-        state.totalPrice = state.basketDishes.reduce((sum, obj) => {
-          return sum + obj.total;
-        }, 0);
+        state.totalPrice = totalSum(state.basketDishes);
       })
       .addCase(clearBasket.fulfilled, (state) => {
         state.basketDishes = [];
@@ -62,10 +71,79 @@ export const basketSlice = createSlice({
         } else {
           return;
         }
-
-        state.totalPrice = state.basketDishes.reduce((sum, obj) => {
-          return sum + obj.total;
-        }, 0);
-      });
+        state.totalPrice = totalSum(state.basketDishes);
+      })
+      .addCase(getDishesBasketAuth.fulfilled, (state, { payload }) => {
+        state.basketDishes = payload;
+        state.totalPrice = totalSum(state.basketDishes);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(addDishBasketAuth.fulfilled, (state, { payload }) => {
+        state.basketDishes.push(payload);
+        state.totalPrice = totalSum(state.basketDishes);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(magnificationCountDishBasket.fulfilled, (state, { payload }) => {
+        state.basketDishes = state.basketDishes.map((dish) => {
+          if (dish._id === payload._id) {
+            return {
+              ...dish,
+              count: payload.count,
+              total: payload.total,
+            };
+          }
+          return dish;
+        });
+        state.totalPrice = totalSum(state.basketDishes);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(reductionCountDishBasket.fulfilled, (state, { payload }) => {
+        state.basketDishes = state.basketDishes.map((dish) => {
+          if (dish._id === payload._id) {
+            return {
+              ...dish,
+              count: payload.count,
+              total: payload.total,
+            };
+          }
+          return dish;
+        });
+        state.totalPrice = totalSum(state.basketDishes);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(deleteDishAuth.fulfilled, (state, { payload }) => {
+        state.basketDishes = state.basketDishes.filter(
+          (dish) => dish._id !== payload._id,
+        );
+        state.totalPrice = totalSum(state.basketDishes);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addMatcher(
+        isAnyOf(
+          addDishBasketAuth.pending,
+          magnificationCountDishBasket.pending,
+          reductionCountDishBasket.pending,
+        ),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        isAnyOf(
+          addDishBasketAuth.rejected,
+          magnificationCountDishBasket.rejected,
+          reductionCountDishBasket.rejected,
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        },
+      );
   },
 });
