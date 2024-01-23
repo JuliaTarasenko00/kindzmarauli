@@ -106,7 +106,10 @@ const Layout = () => {
                   <Button
                     type="button"
                     className="user_button"
-                    onClick={() => navigate('user_account')}
+                    onClick={() => {
+                      navigate('user_account');
+                      toggleMenu();
+                    }}
                   >
                     <TbUser />
                   </Button>

@@ -52,8 +52,7 @@ export const WrapperNav = styled.div`
       visibility === 'true' ? 'visible' : 'hidden'};
     opacity: ${({ ['data-visibility']: opacity }) =>
       opacity === 'true' ? '1' : '0'};
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(25px);
+    background-color: rgb(14 17 21);
     top: 0;
     left: 0;
     min-width: 100%;
