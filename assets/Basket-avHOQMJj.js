@@ -1,10 +1,10 @@
-import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z as v,A as y,B as k,f as B}from"./index-g-uMoczh.js";import{A as m,a as C,b as z}from"./index.esm-CiFXjKjt.js";import{c as L,a as V,F as D}from"./index.esm-be_JcvwO.js";function O(o){return g({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const H=e.section`
+import{G as f,s as e,j as t,u as l,i as g,y as b,e as w,a as j,r as c,z as v,A as y,B as k,D as C,E as B,F as z,H as L,C as D,t as V,f as H}from"./index--ZyevIiM.js";import{A as u,a as N,b as O}from"./index.esm-sh6WCGfp.js";import{c as A,a as F,F as P}from"./index.esm-EHkf48fG.js";function S(o){return f({tag:"svg",attr:{viewBox:"0 0 24 24"},child:[{tag:"path",attr:{d:"M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"}}]})(o)}const $=e.section`
   padding-bottom: 42px;
 
   @media screen and (min-width: 768px) {
     padding-bottom: 142px;
   }
-`,N=e.div`
+`,W=e.div`
   margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
@@ -14,7 +14,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     align-items: center;
     justify-content: space-between;
   }
-`,P=e.h3`
+`,E=e.h3`
   color: var(--main-color);
   font-size: 60px;
   font-weight: 500;
@@ -23,7 +23,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   @media screen and (min-width: 768px) {
     font-size: 80px;
   }
-`,A=e.button`
+`,M=e.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -52,7 +52,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     font-size: 20px;
     margin-top: 0;
   }
-`,F=e.ul``,S=e.li`
+`,T=e.ul``,I=e.li`
   background-color: #000;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     gap: 60px;
     padding: 0;
   }
-`,W=e.div`
+`,_=e.div`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -85,7 +85,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
 
     margin: 0;
   }
-`,M=e.img`
+`,R=e.img`
   width: 100px;
   height: 110px;
   max-height: 100%;
@@ -95,7 +95,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     height: 195px;
     width: 195px;
   }
-`,T=e.div`
+`,Z=e.div`
   display: flex;
   align-items: center;
   margin-bottom: 7px;
@@ -111,7 +111,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   @media screen and (min-width: 1400px) {
     width: 240px;
   }
-`,I=e.p`
+`,G=e.p`
   color: var(--main-color);
   font-size: 12px;
   font-weight: 900;
@@ -122,14 +122,14 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     font-size: 20px;
     font-weight: 500;
   }
-`,E=e.p`
+`,Y=e.p`
   color: var(--main-color);
   padding: 2px 4px;
   background-color: gray;
   text-align: center;
   display: inline;
   border-radius: 2px;
-`,$=e.p`
+`,q=e.p`
   display: none;
   @media screen and (min-width: 768px) {
     display: block;
@@ -138,12 +138,12 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     font-weight: 800;
     line-height: normal;
   }
-`,R=e.div`
+`,J=e.div`
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: center;
-`,d=e.button`
+`,h=e.button`
   cursor: pointer;
   color: var(--main-color);
   background-color: transparent;
@@ -161,6 +161,10 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   :focus {
     color: var(--active-color);
   }
+  &.minus {
+    cursor: ${({["$datadisabled"]:o})=>o==="true"?"no-drop":"pointer"};
+    color: ${({["$datadisabled"]:o})=>o==="true"?"grey":"var(--main-color)"};
+  }
 
   &svg {
     width: 10px;
@@ -175,9 +179,9 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
       height: 24px;
     }
   }
-`,Z=e.p`
+`,K=e.p`
   color: var(--main-color);
-`,G=e.p`
+`,Q=e.p`
   color: var(--main-color);
   font-size: 14px;
   font-weight: 500;
@@ -187,7 +191,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     font-size: 23px;
     font-weight: 800;
   }
-`,Y=e.button`
+`,U=e.button`
   cursor: pointer;
   position: absolute;
   bottom: 0;
@@ -215,26 +219,26 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     color: #4d0000;
     border: 1px solid #4d0000;
   }
-`,_=e.h4`
+`,X=e.h4`
   color: var(--main-color);
   margin-top: 24px;
-`,q=e.span`
+`,tt=e.span`
   color: #9ea2aa;
   font-size: 13px;
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.65px;
   text-transform: uppercase;
-`,J=e.div`
+`,et=e.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
 
   margin-top: 44px;
-`,K=e.form`
+`,nt=e.form`
   width: max-content;
-`,Q=e.label`
+`,ot=e.label`
   color: #9ea2aa;
   font-size: 13px;
   font-weight: 500;
@@ -243,7 +247,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   text-transform: uppercase;
   margin-bottom: 6px;
   display: block;
-`,U=e.div`
+`,it=e.div`
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -255,7 +259,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     flex-direction: row;
     gap: 0;
   }
-`,X=e.input`
+`,rt=e.input`
   margin-right: 19px;
   width: 234px;
   max-width: 100%;
@@ -263,7 +267,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   font-size: 19px;
   font-weight: 500;
   outline: transparent;
-`,tt=e.button`
+`,at=e.button`
   color: #fbd13e;
   background-color: transparent;
   text-align: center;
@@ -282,15 +286,15 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     color: #917206;
     border: 1px solid #917206;
   }
-`,et=e.p`
+`,st=e.p`
   color: #ff000091;
   width: max-content;
   position: absolute;
   bottom: -20px;
   left: 0;
-`,nt=e.div`
+`,ct=e.div`
   position: relative;
-`,ot=e.button`
+`,lt=e.button`
   position: absolute;
   position: absolute;
   right: 25px;
@@ -311,7 +315,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   :focus {
     color: var(--active-color);
   }
-`,it=e.button`
+`,dt=e.button`
   margin-top: 30px;
   background-color: #fbd13e;
   box-shadow: 0px 10px 31px 0px rgba(15, 15, 17, 0.2);
@@ -333,7 +337,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   :focus {
     background-color: #917206;
   }
-`,rt=e.h3`
+`,pt=e.h3`
   color: var(--active-color);
   font-size: 22px;
   text-align: center;
@@ -345,7 +349,7 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     font-size: 32px;
     margin-bottom: 17px;
   }
-`,at=e.p`
+`,xt=e.p`
   color: #777;
   text-align: center;
   font-size: 12px;
@@ -359,9 +363,9 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
     font-size: 18px;
     margin-bottom: 20px;
   }
-`,st=e.img`
+`,mt=e.img`
   margin: 0 auto;
-`,ct=e.button`
+`,ht=e.button`
   border-radius: 30px;
   background-color: #282828;
   color: var(--main-color);
@@ -381,4 +385,4 @@ import{G as g,s as e,j as t,u as p,i as x,x as u,e as f,C as b,q as w,y as j,z a
   @media screen and (min-width: 768px) {
     margin: 30px auto 0;
   }
-`,lt=L().shape({code:V().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),pt=()=>t.jsx(D,{initialValues:{code:""},onSubmit:(o,{setSubmitting:r})=>{console.log(o.code.trim()),r(!1)},validationSchema:lt,children:({values:o,handleChange:r,handleSubmit:i,errors:a,touched:s,isSubmitting:c,resetForm:l,handleBlur:n})=>t.jsxs(K,{onSubmit:i,children:[t.jsx(Q,{children:"Apply promo code:"}),t.jsxs(U,{children:[t.jsxs(nt,{children:[t.jsx(X,{type:"text",name:"code",onChange:r,onBlur:n,value:o.code}),a.code&&s.code?t.jsx(et,{children:a.code}):"",o.code!==""&&t.jsx(ot,{type:"button",onClick:()=>{l({values:{code:""}})},className:"delete",children:t.jsx(m,{})})]}),t.jsx(tt,{type:"submit",disabled:c,children:"Apply"})]})]})}),dt=()=>{const o=p(x),r=p(u),i=f(),a=n=>{i(j(n))},s=n=>{i(v(n))},c=n=>{window.confirm("Are you sure want to remove?")&&i(y(n))},l=()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(k())};return t.jsx(H,{children:t.jsx(b,{children:t.jsx(t.Fragment,{children:t.jsxs(t.Fragment,{children:[t.jsxs(N,{children:[t.jsx(P,{children:"Basket"}),t.jsxs(A,{type:"button",onClick:l,children:["Clear Basket",t.jsx(O,{})]})]}),t.jsx(F,{children:o.map(n=>{const{finalPrice:h}=w(n);return t.jsxs(S,{children:[t.jsx(M,{src:n.image,alt:n.name,width:"195"}),t.jsxs(W,{children:[t.jsxs(T,{children:[t.jsx(I,{children:n.name}),t.jsxs(E,{children:[n.gram,"g"]})]}),t.jsxs($,{children:[h,"$"]}),t.jsxs(R,{children:[t.jsx(d,{type:"button",onClick:()=>s(n),children:t.jsx(C,{})}),t.jsx(Z,{children:n.count}),t.jsx(d,{type:"button",onClick:()=>a(n),children:t.jsx(z,{})})]}),t.jsxs(G,{children:[n.total,"$"]}),t.jsx(Y,{type:"button",onClick:()=>c(n._id),children:t.jsx(m,{})})]})]},n._id)})}),t.jsx(J,{children:t.jsxs("div",{children:[t.jsx(pt,{}),t.jsxs(_,{children:[t.jsx(q,{children:"Total for payment: "}),r,"$"]}),t.jsx(it,{type:"button",children:"Place an order"})]})})]})})})})},xt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",mt=()=>{const o=B();return t.jsxs("section",{style:{paddingBottom:50},children:[t.jsx(rt,{children:"You shopping cart is empty"}),t.jsx(at,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(st,{src:xt,alt:"No orders"}),t.jsx(ct,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},ft=()=>{const o=p(x);return t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(mt,{}),o.length>0&&t.jsx(dt,{})]})};export{ft as default};
+`,gt=A().shape({code:F().min(5,"Enter more than 5 characters").max(50,"Too Long!").required("Enter the promo code")}),ut=()=>t.jsx(P,{initialValues:{code:""},onSubmit:(o,{setSubmitting:s})=>{console.log(o.code.trim()),s(!1)},validationSchema:gt,children:({values:o,handleChange:s,handleSubmit:i,errors:r,touched:d,isSubmitting:p,resetForm:x,handleBlur:m})=>t.jsxs(nt,{onSubmit:i,children:[t.jsx(ot,{children:"Apply promo code:"}),t.jsxs(it,{children:[t.jsxs(ct,{children:[t.jsx(rt,{type:"text",name:"code",onChange:s,onBlur:m,value:o.code}),r.code&&d.code?t.jsx(st,{children:r.code}):"",o.code!==""&&t.jsx(lt,{type:"button",onClick:()=>{x({values:{code:""}})},className:"delete",children:t.jsx(u,{})})]}),t.jsx(at,{type:"submit",disabled:p,children:"Apply"})]})]})}),ft=()=>{const o=l(g),s=l(b),i=w(),r=l(j),d=c.useCallback(n=>{const a=r?v(n._id):y(n);i(a)},[r,i]),p=c.useCallback(n=>{const a=r?k(n._id):C(n);i(a)},[r,i]),x=c.useCallback(n=>{if(window.confirm("Are you sure want to remove?")){const a=r?B(n):z(n);i(a)}},[r,i]),m=c.useCallback(()=>{window.confirm("Are you sure want to clear the entire recycle bin?")&&i(L())},[i]);return t.jsx($,{children:t.jsx(D,{children:t.jsx(t.Fragment,{children:t.jsxs(t.Fragment,{children:[t.jsxs(W,{children:[t.jsx(E,{children:"Basket"}),!r&&t.jsxs(M,{type:"button",onClick:m,children:["Clear Basket",t.jsx(S,{})]})]}),t.jsx(T,{children:o.map(n=>{const{finalPrice:a}=V(n);return t.jsxs(I,{children:[t.jsx(R,{src:n.image,alt:n.name,width:"195"}),t.jsxs(_,{children:[t.jsxs(Z,{children:[t.jsx(G,{children:n.name}),t.jsxs(Y,{children:[n.gram,"g"]})]}),t.jsxs(q,{children:[a,"$"]}),t.jsxs(J,{children:[t.jsx(h,{type:"button",disabled:n.count===1,$datadisabled:(n.count===1).toString(),className:"minus",onClick:()=>p(n),children:t.jsx(N,{})}),t.jsx(K,{children:n.count}),t.jsx(h,{type:"button",onClick:()=>d(n),children:t.jsx(O,{})})]}),t.jsxs(Q,{children:[n.total,"$"]}),t.jsx(U,{type:"button",onClick:()=>x(n._id),children:t.jsx(u,{})})]})]},n._id)})}),t.jsx(et,{children:t.jsxs("div",{children:[t.jsx(ut,{}),t.jsxs(X,{children:[t.jsx(tt,{children:"Total for payment: "}),s,"$"]}),t.jsx(dt,{type:"button",children:"Place an order"})]})})]})})})})},bt="/kindzmarauli/assets/no_orders-x3FV9iE4.png",wt=()=>{const o=H();return t.jsxs("section",{style:{paddingBottom:50},children:[t.jsx(pt,{children:"You shopping cart is empty"}),t.jsx(xt,{children:"You probably didn’t order any. To order a meal, go to the main page."}),t.jsx(mt,{src:bt,alt:"No orders"}),t.jsx(ht,{type:"button",onClick:()=>o("/"),children:"On tre main"})]})},kt=()=>{const o=l(g);return t.jsxs(t.Fragment,{children:[o.length===0&&t.jsx(wt,{}),o.length>0&&t.jsx(ft,{})]})};export{kt as default};

@@ -1,1 +1,0 @@
-import{u as r,a,j as s,N as i}from"./index-g-uMoczh.js";import{P as t}from"./index-n0OxSdNk.js";const n=({children:e,redirectedTo:o="/"})=>r(a)?e:s.jsx(i,{to:o});n.propTypes={children:t.node,redirectedTo:t.string};export{n as default};
