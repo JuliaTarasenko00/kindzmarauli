@@ -18,6 +18,7 @@ import { authenticationSlice } from './auth/slice';
 const persistConfig = {
   key: 'basket',
   storage,
+  whitelist: ['basketDishes', 'totalPrice'],
 };
 
 const persistConfigAuth = {

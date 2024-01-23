@@ -5,7 +5,7 @@ import { GrBasket } from 'react-icons/gr';
 import { GrRestaurant } from 'react-icons/gr';
 import { CiMenuFries } from 'react-icons/ci';
 import { TfiClose } from 'react-icons/tfi';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Container } from '../../globalStyle';
 import {
   Button,
@@ -26,17 +26,12 @@ import {
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
 import { FilterForm } from '../Filter/FilterForm';
-import { dishWithBasket, getToken } from '../../redux/selector';
+import { dishWithBasket } from '../../redux/selector';
 import { Loader } from '../Loader/Loader';
-import { useModal } from '../../helpers/hooks/useModal';
-import { ModalComponent } from '../Modal/Modal';
-import { RenderForm } from '../AuthForm/RenderForm';
 
 const Layout = () => {
   const [visibility, setVisibility] = useState(false);
-  const { toggleModal, open } = useModal();
   const basket = useSelector(dishWithBasket);
-  const token = useSelector(getToken);
   const navigate = useNavigate();
 
   const numberOrders = basket.reduce((sum, obj) => {
@@ -49,21 +44,17 @@ const Layout = () => {
     { name: 'Drinks', to: 'drinks' },
   ];
 
-  const openMenu = () => {
-    setVisibility(true);
-
-    if (!visibility) {
-      return (document.body.style.overflow = 'hidden');
-    }
+  const toggleMenu = () => {
+    setVisibility(!visibility);
   };
 
-  const closeMenu = () => {
-    setVisibility(false);
+  useEffect(() => {
+    document.body.style.overflow = visibility ? 'hidden' : 'auto';
 
-    if (visibility) {
-      return (document.body.style.overflow = 'auto');
-    }
-  };
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [visibility]);
 
   return (
     <>
@@ -79,7 +70,7 @@ const Layout = () => {
             <Button
               type="button"
               className="open_mobil_menu"
-              onClick={openMenu}
+              onClick={toggleMenu}
             >
               <CiMenuFries />
             </Button>
@@ -88,20 +79,20 @@ const Layout = () => {
                 <Button
                   className="close_mobil_menu"
                   type="button"
-                  onClick={closeMenu}
+                  onClick={toggleMenu}
                 >
                   <TfiClose />
                 </Button>
                 <List>
                   <Item>
-                    <Select onClick={closeMenu} />
+                    <Select onClick={toggleMenu} />
                   </Item>
                   {pagesMenu.map(({ name, to }) => (
                     <Item key={name}>
                       <MainNavigate
                         activeclassname="active"
                         to={to}
-                        onClick={closeMenu}
+                        onClick={toggleMenu}
                       >
                         {name}
                       </MainNavigate>
@@ -110,19 +101,17 @@ const Layout = () => {
                 </List>
               </Nav>
               <WrapperAction>
-                <FilterForm onClick={closeMenu} />
+                <FilterForm onClick={toggleMenu} />
                 <WrapperButton>
                   <Button
                     type="button"
                     className="user_button"
-                    onClick={() =>
-                      token === '' ? toggleModal() : navigate('user_account')
-                    }
+                    onClick={() => navigate('user_account')}
                   >
                     <TbUser />
                   </Button>
                   <WrapperBasket>
-                    <MainNavigate to="basket" onClick={closeMenu}>
+                    <MainNavigate to="basket" onClick={toggleMenu}>
                       <GrBasket />
                     </MainNavigate>
                     {numberOrders > 0 && (
@@ -141,11 +130,6 @@ const Layout = () => {
         </Suspense>
       </main>
       <Footer />
-      {open && (
-        <ModalComponent onClose={toggleModal}>
-          <RenderForm onClose={toggleModal} />
-        </ModalComponent>
-      )}
     </>
   );
 };

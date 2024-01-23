@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
+export const WrapperContent = styled.div`
   padding: 40px;
-  width: 700px;
-  max-height: 500px;
+  max-width: 700px;
+  margin: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  row-gap: 30px;
 `;
 
 export const WrapperRenderForm = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-
-  width: 45%;
+  flex-direction: column;
+  row-gap: 20px;
 `;
 
 export const TitleRenderForm = styled.div`
