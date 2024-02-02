@@ -1,1 +1,0 @@
-import{e as n,f as o,u as c,M as r,j as s,C as u,P as i}from"./index--ZyevIiM.js";const p=()=>{const e=n(),a=o(),t=c(r);return s.jsxs(u,{children:[s.jsx("p",{children:" UserAccount"}),s.jsx("p",{children:t==null?void 0:t.fullName}),s.jsx("button",{type:"button",onClick:()=>{e(i()),a("/")},children:"Log out"})]})};export{p as default};
