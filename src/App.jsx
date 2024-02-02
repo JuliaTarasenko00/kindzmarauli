@@ -5,19 +5,21 @@ import { Loader } from './components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataUser, getToken } from './redux/selector';
 import { userCurrent } from './redux/auth/operation';
-import AdminPrivateRoute from './components/PrivateRoute/AdiminPriveRoute';
 
+const NotForAdmin = lazy(() => import('./components/AuthRoute/NotForAdmin'));
+const Login = lazy(() => import('./page/AuthPage/LoginForm'));
+const Register = lazy(() => import('./page/AuthPage/RegisterForm'));
+
+const AdminPrivateRoute = lazy(() =>
+  import('./components/PrivateRoute/AdiminPriveRoute'),
+);
 const PrivateRoute = lazy(() =>
   import('./components/PrivateRoute/PrivateRoute'),
 );
-const AuthRout = lazy(() => import('./components/AuthRoute/AuthRoute'));
-
-const Layout = lazy(() => import('./components/user/Layout/Layout'));
-const Login = lazy(() => import('./page/user/AuthPage/LoginForm'));
-const Register = lazy(() => import('./page/user/AuthPage/RegisterForm'));
 
 //*user-----------
-
+const AuthRout = lazy(() => import('./components/AuthRoute/AuthRoute'));
+const Layout = lazy(() => import('./components/user/Layout/Layout'));
 const MainPage = lazy(() => import('./page/user/MainPage/MainPage'));
 const HotDishesPage = lazy(() =>
   import('./page/user/HotDishesPage/HotDishesPage'),
@@ -52,24 +54,45 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route
+            path="/admin"
+            element={
+              <AdminPrivateRoute redirectedTo="/login">
+                <LayoutAdmin />
+              </AdminPrivateRoute>
+            }
+          >
+            <Route index element={<p style={{ color: '#ffff' }}>All Menu</p>} />
+            <Route
+              path="found"
+              element={<p style={{ color: '#ffff' }}>found</p>}
+            />
+          </Route>
+          <Route
+            path="/login"
+            element={
+              <AuthRout>
+                <Login />
+              </AuthRout>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <AuthRout>
+                <Register />
+              </AuthRout>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <NotForAdmin>
+                <Layout />
+              </NotForAdmin>
+            }
+          >
             <Route index element={<MainPage />} />
-            <Route
-              path="/login"
-              element={
-                <AuthRout>
-                  <Login />
-                </AuthRout>
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <AuthRout>
-                  <Register />
-                </AuthRout>
-              }
-            />
             <Route path="hot_dishes" element={<HotDishesPage />} />
             <Route path="appetizer" element={<AppetizerPage />} />
             <Route path="desserts" element={<DessertsPage />} />
@@ -84,19 +107,6 @@ function App() {
               }
             />
             <Route path="search" element={<Search />} />
-          </Route>
-          <Route
-            path="/admin"
-            element={
-              <AdminPrivateRoute redirectedTo="/login">
-                <LayoutAdmin />
-              </AdminPrivateRoute>
-            }
-          >
-            <Route
-              path="found"
-              element={<p style={{ color: '#ffff' }}>Found</p>}
-            />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

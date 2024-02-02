@@ -6,22 +6,22 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
   ButtonSubmit,
+  ButtonToMenu,
   ErrorTitle,
   Form,
   Img,
   Input,
+  Section,
   TitleRenderForm,
   WrapperContent,
   WrapperInput,
   WrapperInputPassword,
   WrapperRenderForm,
 } from './RenderForm.styled';
-import { userSignin } from '../../../redux/auth/operation';
-import img from '../../../assets/img/auth_form_img.jpg';
-import { Container } from '../../../globalStyle';
-
-export const emailRegexp =
-  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+import { userSignin } from '../../redux/auth/operation';
+import img from '../../assets/img/auth_form_img.jpg';
+import { Container } from '../../globalStyle';
+import { emailRegexp } from '../../helpers/emailRegexp';
 
 const SigninSchema = Yup.object().shape({
   email: Yup.string()
@@ -50,7 +50,7 @@ const LoginForm = () => {
   );
 
   return (
-    <section>
+    <Section>
       <Container>
         <WrapperContent>
           <WrapperRenderForm>
@@ -120,8 +120,11 @@ const LoginForm = () => {
           </WrapperRenderForm>
           <Img src={img} alt="" height="500" width="300" />
         </WrapperContent>
+        <ButtonToMenu type="button" onClick={() => navigate('/')}>
+          Return to the Menu
+        </ButtonToMenu>
       </Container>
-    </section>
+    </Section>
   );
 };
 

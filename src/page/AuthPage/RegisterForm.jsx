@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { FaRegSmile, FaRegSmileBeam } from 'react-icons/fa';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { emailRegexp } from './LoginForm';
 import {
   ButtonSubmit,
+  ButtonToMenu,
   ErrorTitle,
   Form,
   Img,
   Input,
+  Section,
   TitleRenderForm,
   WrapperContent,
   WrapperInput,
@@ -17,9 +18,10 @@ import {
   WrapperRenderForm,
 } from './RenderForm.styled';
 import { useDispatch } from 'react-redux';
-import { userSignup } from '../../../redux/auth/operation';
-import img from '../../../assets/img/auth_form_img.jpg';
-import { Container } from '../../../globalStyle';
+import { userSignup } from '../../redux/auth/operation';
+import img from '../../assets/img/auth_form_img.jpg';
+import { Container } from '../../globalStyle';
+import { emailRegexp } from '../../helpers/emailRegexp';
 
 const RegisterSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -55,7 +57,7 @@ const RegisterForm = () => {
   );
 
   return (
-    <section>
+    <Section>
       <Container>
         <WrapperContent>
           <WrapperRenderForm>
@@ -151,8 +153,11 @@ const RegisterForm = () => {
           </WrapperRenderForm>
           <Img src={img} alt="" height="500" width="300" />
         </WrapperContent>
+        <ButtonToMenu type="button" onClick={() => navigate('/')}>
+          Return to the Menu
+        </ButtonToMenu>
       </Container>
-    </section>
+    </Section>
   );
 };
 

@@ -29,6 +29,7 @@ import { FilterForm } from '../Filter/FilterForm';
 import { authorized, dishWithBasket, role } from '../../../redux/selector';
 import { Loader } from '../../Loader/Loader';
 import { getDishesBasketAuth } from '../../../redux/basket/operation';
+import { ROLES } from '../../../helpers/rolesUser';
 
 const Layout = () => {
   const [visibility, setVisibility] = useState(false);
@@ -65,7 +66,7 @@ const Layout = () => {
   }, [visibility]);
 
   useEffect(() => {
-    if (auth && roles !== 'Admin') {
+    if (auth && roles === ROLES.USER) {
       dispatch(getDishesBasketAuth());
     }
     return;

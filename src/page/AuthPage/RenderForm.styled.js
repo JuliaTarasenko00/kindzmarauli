@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Section = styled.section`
+  min-height: 100vh;
+  display: grid;
+  place-items: center center;
+`;
+
 export const WrapperContent = styled.div`
   padding: 40px;
   max-width: 700px;
@@ -7,7 +13,7 @@ export const WrapperContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 30px;
+  gap: 30px;
 `;
 
 export const WrapperRenderForm = styled.div`
@@ -78,9 +84,9 @@ export const WrapperInputPassword = styled.div`
   position: relative;
 
   & button {
+    cursor: pointer;
     display: flex;
     align-items: center;
-
     position: absolute;
     display: flex;
     align-items: center;
@@ -121,4 +127,16 @@ export const ButtonSubmit = styled.button`
   :focus {
     background-color: #917206;
   }
+`;
+
+export const ButtonToMenu = styled.button`
+  cursor: pointer;
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: #fbd13e;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
 `;

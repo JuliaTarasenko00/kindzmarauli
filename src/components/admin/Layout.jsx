@@ -4,9 +4,11 @@ import { Loader } from '../Loader/Loader';
 
 const LayoutAdmin = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <p style={{ color: '#ffff' }}>Admin</p>
+      <br />
       <button type="button" onClick={() => navigate('/admin/found')}>
         found
       </button>
