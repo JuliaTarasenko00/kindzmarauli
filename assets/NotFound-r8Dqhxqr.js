@@ -1,4 +1,4 @@
-import{s as t,g as e,j as o,C as i}from"./index-Bv6pyXEM.js";import{b as s}from"./index.esm-mBLPvcwU.js";const r="/kindzmarauli/assets/not_found-2AJLBYEH.png",a=t.section`
+import{s as t,d as e,j as o,C as i}from"./index-KBG3bpWx.js";import{b as s}from"./index.esm--keO60ot.js";const r="/kindzmarauli/assets/not_found-2AJLBYEH.png",a=t.section`
   padding-top: 40px;
   padding-bottom: 40px;
 `,c=t.div`

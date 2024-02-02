@@ -1,1 +1,0 @@
-import{u as e,a,r as n,j as u,N as c,P as o}from"./index-Bv6pyXEM.js";const d=({children:r})=>{const s=e(a),t=e(n)==="Admin"?"/admin":"/user_account";return s?u.jsx(c,{to:t}):r};d.propTypes={children:o.node,redirectedTo:o.string};export{d as default};
