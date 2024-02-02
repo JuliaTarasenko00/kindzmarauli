@@ -16,4 +16,6 @@ export const getToken = (state) => state.auth.token;
 
 export const dataUser = (state) => state.auth.user;
 
-export const authentication = (state) => state.auth.authentication;
+export const authorized = (state) => state.auth.authentication;
+
+export const role = (state) => state.auth.role;

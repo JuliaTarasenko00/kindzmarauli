@@ -69,12 +69,6 @@ export const userCurrent = createAsyncThunk(
       return data;
     } catch (error) {
       const { status } = error.response;
-      if (status === 401) {
-        toast.error('Unauthorized', styleToastify);
-      }
-      if (status === 404) {
-        toast.error('Not Found', styleToastify);
-      }
       if (status === 500) {
         toast.error('Server error.', styleToastify);
       }

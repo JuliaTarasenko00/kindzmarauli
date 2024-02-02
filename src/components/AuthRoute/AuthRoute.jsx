@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { authentication } from '../../redux/selector';
+import { authorized, role } from '../../redux/selector';
 import { Navigate } from 'react-router-dom';
 
-const AuthRout = ({ children, redirectedTo = '/' }) => {
-  const auth = useSelector(authentication);
+const AuthRout = ({ children }) => {
+  const auth = useSelector(authorized);
+  const roles = useSelector(role);
+
+  const redirectedTo = roles === 'Admin' ? '/admin' : '/user_account';
 
   return !auth ? children : <Navigate to={redirectedTo} />;
 };

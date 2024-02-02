@@ -5,24 +5,37 @@ import { Loader } from './components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataUser, getToken } from './redux/selector';
 import { userCurrent } from './redux/auth/operation';
+import AdminPrivateRoute from './components/PrivateRoute/AdiminPriveRoute';
 
 const PrivateRoute = lazy(() =>
   import('./components/PrivateRoute/PrivateRoute'),
 );
 const AuthRout = lazy(() => import('./components/AuthRoute/AuthRoute'));
 
-const Layout = lazy(() => import('./components/Layout/Layout'));
-const Login = lazy(() => import('./page/AuthPage/LoginForm'));
-const Register = lazy(() => import('./page/AuthPage/RegisterForm'));
-const MainPage = lazy(() => import('./page/MainPage/MainPage'));
-const HotDishesPage = lazy(() => import('./page/HotDishesPage/HotDishesPage'));
-const AppetizerPage = lazy(() => import('./page/AppetizerPage/AppetizerPage'));
-const DessertsPage = lazy(() => import('./page/DessertsPage/DessertsPage'));
-const DrinksPage = lazy(() => import('./page/DrinksPage/DrinksPage'));
-const Basket = lazy(() => import('./page/Basket/Basket'));
+const Layout = lazy(() => import('./components/user/Layout/Layout'));
+const Login = lazy(() => import('./page/user/AuthPage/LoginForm'));
+const Register = lazy(() => import('./page/user/AuthPage/RegisterForm'));
+
+//*user-----------
+
+const MainPage = lazy(() => import('./page/user/MainPage/MainPage'));
+const HotDishesPage = lazy(() =>
+  import('./page/user/HotDishesPage/HotDishesPage'),
+);
+const AppetizerPage = lazy(() =>
+  import('./page/user/AppetizerPage/AppetizerPage'),
+);
+const DessertsPage = lazy(() =>
+  import('./page/user/DessertsPage/DessertsPage'),
+);
+const DrinksPage = lazy(() => import('./page/user/DrinksPage/DrinksPage'));
+const Basket = lazy(() => import('./page/user/Basket/Basket'));
 const NotFound = lazy(() => import('./page/NotFound/NotFound'));
-const Search = lazy(() => import('./components/Filter/Search'));
-const UserAccount = lazy(() => import('./page/UserAccount/UserAccount'));
+const Search = lazy(() => import('./components/user/Filter/Search'));
+const UserAccount = lazy(() => import('./page/user/UserAccount/UserAccount'));
+
+//*admin
+const LayoutAdmin = lazy(() => import('./components/admin/Layout'));
 
 function App() {
   const token = useSelector(getToken);
@@ -44,7 +57,7 @@ function App() {
             <Route
               path="/login"
               element={
-                <AuthRout redirectedTo="/user_account">
+                <AuthRout>
                   <Login />
                 </AuthRout>
               }
@@ -52,7 +65,7 @@ function App() {
             <Route
               path="/register"
               element={
-                <AuthRout redirectedTo="/user_account">
+                <AuthRout>
                   <Register />
                 </AuthRout>
               }
@@ -71,8 +84,21 @@ function App() {
               }
             />
             <Route path="search" element={<Search />} />
-            <Route path="*" element={<NotFound />} />
           </Route>
+          <Route
+            path="/admin"
+            element={
+              <AdminPrivateRoute redirectedTo="/login">
+                <LayoutAdmin />
+              </AdminPrivateRoute>
+            }
+          >
+            <Route
+              path="found"
+              element={<p style={{ color: '#ffff' }}>Found</p>}
+            />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <ToastContainer />

@@ -3,6 +3,7 @@ import { userCurrent, userLogOut, userSignin, userSignup } from './operation';
 
 const initialState = {
   token: '',
+  role: '',
   user: null,
   isLoading: false,
   error: null,
@@ -19,6 +20,7 @@ export const authenticationSlice = createSlice({
         state.authentication = true;
         state.user = payload;
         state.token = payload.token;
+        state.role = payload.subscription;
         state.error = null;
       })
       .addCase(userSignin.fulfilled, (state, { payload }) => {
@@ -26,12 +28,14 @@ export const authenticationSlice = createSlice({
         state.authentication = true;
         state.user = payload;
         state.token = payload.token;
+        state.role = payload.subscription;
         state.error = null;
       })
       .addCase(userCurrent.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.authentication = true;
         state.user = payload;
+        state.role = payload.subscription;
         state.error = null;
       })
       .addCase(userLogOut.fulfilled, (state) => {
@@ -39,7 +43,13 @@ export const authenticationSlice = createSlice({
         state.authentication = false;
         state.user = null;
         state.token = '';
+        state.role = '';
         state.error = null;
+      })
+      .addCase(userCurrent.rejected, (state) => {
+        if (state.error?.includes('401')) {
+          state.token = '';
+        }
       })
       .addMatcher(
         isAnyOf(

@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux';
 import { authorized, role } from '../../redux/selector';
 import { Navigate } from 'react-router-dom';
 
-const PrivateRoute = ({ children, redirectedTo = '/login' }) => {
+const AdminPrivateRoute = ({ children, redirectedTo = '/login' }) => {
   const auth = useSelector(authorized);
   const admin = useSelector(role);
 
-  return auth && admin !== 'Admin' ? children : <Navigate to={redirectedTo} />;
+  return auth && admin === 'Admin' ? children : <Navigate to={redirectedTo} />;
 };
 
-export default PrivateRoute;
+export default AdminPrivateRoute;
 
-PrivateRoute.propTypes = {
+AdminPrivateRoute.propTypes = {
   children: PropTypes.node,
   redirectedTo: PropTypes.string,
 };

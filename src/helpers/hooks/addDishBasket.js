@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addBasketDish } from '../../redux/basket/operationNotAuth';
-import { authentication, dishWithBasket } from '../../redux/selector';
+import { authorized, dishWithBasket } from '../../redux/selector';
 import {
   addDishBasketAuth,
   magnificationCountDishBasket,
@@ -8,7 +8,7 @@ import {
 
 export const useAddDishBasket = (dishes) => {
   const dispatch = useDispatch();
-  const auth = useSelector(authentication);
+  const auth = useSelector(authorized);
   const basket = useSelector(dishWithBasket);
 
   const addDishBasket = (id) => {
