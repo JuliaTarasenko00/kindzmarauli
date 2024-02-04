@@ -20,7 +20,8 @@ import {
 } from './UserAccount.styled';
 import { Formik } from 'formik';
 import { emailRegexp } from '../../../helpers/emailRegexp';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import MaskedInput from '../../../helpers/MaskPhoneNumber';
 
 const SigninSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -28,7 +29,7 @@ const SigninSchema = Yup.object().shape({
     .max(30, 'Max length 3 symbol'),
   email: Yup.string().matches(emailRegexp, `This is an ERROR email`),
   password: Yup.string().min(8, 'Password must contain at least 8 characters'),
-  phoneNumber: Yup.number().min(10),
+  phoneNumber: Yup.string().min(10),
 });
 
 const UserAccount = () => {
@@ -37,6 +38,7 @@ const UserAccount = () => {
   const user = useSelector(dataUser);
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState({});
+  const ref = useRef(null);
 
   const initialValues = {
     fullName: user?.fullName,
@@ -110,7 +112,9 @@ const UserAccount = () => {
               </WrapperInput>
               <WrapperInput>
                 <WrapperInputVisible>
-                  <Input
+                  <MaskedInput
+                    CustomComponent={Input}
+                    ref={ref}
                     placeholder="Phone Number"
                     type="phoneNumber"
                     name="phoneNumber"

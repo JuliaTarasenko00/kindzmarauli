@@ -55,20 +55,6 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route
-            path="/admin"
-            element={
-              <AdminPrivateRoute redirectedTo="/login">
-                <LayoutAdmin />
-              </AdminPrivateRoute>
-            }
-          >
-            <Route index element={<p style={{ color: '#ffff' }}>All Menu</p>} />
-            <Route
-              path="found"
-              element={<p style={{ color: '#ffff' }}>found</p>}
-            />
-          </Route>
-          <Route
             path="/login"
             element={
               <AuthRout>
@@ -84,6 +70,20 @@ function App() {
               </AuthRout>
             }
           />
+          <Route
+            path="/admin"
+            element={
+              <AdminPrivateRoute redirectedTo="/login">
+                <LayoutAdmin />
+              </AdminPrivateRoute>
+            }
+          >
+            <Route index element={<p style={{ color: '#ffff' }}>All Menu</p>} />
+            <Route
+              path="found"
+              element={<p style={{ color: '#ffff' }}>found</p>}
+            />
+          </Route>
           <Route
             path="/"
             element={

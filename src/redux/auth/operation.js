@@ -11,7 +11,7 @@ export const userSignup = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
-      const { status } = error.response;
+      const { status, data } = error.response;
       if (status === 400) {
         toast.error('Bad request', styleToastify);
       }
@@ -22,7 +22,7 @@ export const userSignup = createAsyncThunk(
         toast.error('Not Found', styleToastify);
       }
       if (status === 409) {
-        toast.error('Password or Email invalid', styleToastify);
+        toast.error(data.message, styleToastify);
       }
       if (status === 500) {
         toast.error('Server error.', styleToastify);
