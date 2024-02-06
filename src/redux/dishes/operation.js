@@ -19,11 +19,13 @@ export const getMenuPopular = createAsyncThunk(
   },
 );
 
-export const searchDishes = createAsyncThunk(
-  'search/dishes',
-  async (text, thunkAPI) => {
+export const getSpecificsDishes = createAsyncThunk(
+  'menu/specifics',
+  async (name, thunkAPI) => {
     try {
-      const { data } = await $instants.get(`dishes?name=${text}`);
+      const { data } = await $instants.get(
+        `dishes/specifics?specificsDish=${name}`,
+      );
       return data;
     } catch (error) {
       const { status } = error.response;
@@ -35,11 +37,11 @@ export const searchDishes = createAsyncThunk(
   },
 );
 
-export const getAllMenu = createAsyncThunk(
-  'menu/AllDishes',
-  async (_, thunkAPI) => {
+export const searchDishes = createAsyncThunk(
+  'search/dishes',
+  async (text, thunkAPI) => {
     try {
-      const { data } = await $instants.get('/dishes');
+      const { data } = await $instants.get(`dishes?name=${text}`);
       return data;
     } catch (error) {
       const { status } = error.response;

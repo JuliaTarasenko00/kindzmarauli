@@ -1,5 +1,7 @@
 export const specificsDish = {
-  MAIN: 'main',
+  MAIN: 'main_course',
   KHINKALI: 'khinkali',
   GRILLED: 'grilled',
+  SALAD: 'salad',
+  HOTSNACK: 'hot_snack',
 };

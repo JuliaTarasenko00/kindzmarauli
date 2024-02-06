@@ -1,6 +1,6 @@
 export const popularDishes = (state) => state.dishes.popularDishes;
 
-export const allDishes = (state) => state.dishes.allDishes;
+export const specificsDishes = (state) => state.dishes.specifics;
 
 export const loading = (state) => state.dishes.isLoading;
 

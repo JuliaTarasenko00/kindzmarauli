@@ -6,7 +6,6 @@ import { Section } from './MainPage.styled';
 import { Loader } from '../../../components/Loader/Loader';
 import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
 import { HitDish } from '../../../components/user/HitDish/HitDish';
-import { Menu } from '../../../components/user/Menu/Menu';
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,6 @@ const MainPage = () => {
           <Section>
             <CreatedMarkup title={'Popular Dishes'} dishes={popular} />
           </Section>
-          <Menu />
         </>
       )}
     </>

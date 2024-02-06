@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+export const WrapperSection = styled.div`
+  width: ${({ ['$data_specificsPage']: data }) =>
+    data === 'true' ? '333px' : '100%'};
+  margin: ${({ ['$data_specificsPage']: data }) =>
+    data === 'true' ? '0 auto' : '0'};
+
+  @media screen and (min-width: 768px) {
+    width: ${({ ['$data_specificsPage']: data }) =>
+      data === 'true' ? '690px' : '100%'};
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: ${({ ['$data_specificsPage']: data }) =>
+      data === 'true' ? '980px' : '100%'};
+  }
+`;
+
 export const Title = styled.h3`
   color: var(--main-color);
   font-size: 30px;
@@ -12,26 +29,36 @@ export const Title = styled.h3`
     font-size: 80px;
   }
 
-  &.hot_dishes {
+  &.specifics {
+    width: 100%;
     margin: 0;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
   }
 `;
 
 export const PopularList = styled.ul`
-  max-width: 333px;
+  max-width: ${({ ['$data_specificsPage']: data }) =>
+    data === 'true' ? '100%' : '333px'};
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 28px auto 0;
-  justify-content: center;
+  margin: ${({ ['$data_specificsPage']: data }) =>
+    data === 'true' ? '28px 0' : '28px auto 0'};
+
+  justify-content: ${({ ['$data_specificsPage']: data }) =>
+    data === 'true' ? 'flex-start' : 'center'};
 
   @media screen and (min-width: 768px) {
     gap: 15px;
-    max-width: 690px;
+    max-width: ${({ ['$data_specificsPage']: data }) =>
+      data === 'true' ? '100%' : '690px'};
   }
 
   @media screen and (min-width: 1400px) {
-    max-width: 940px;
+    max-width: ${({ ['$data_specificsPage']: data }) =>
+      data === 'true' ? '100%' : '940px'};
     gap: 20px;
   }
 `;
