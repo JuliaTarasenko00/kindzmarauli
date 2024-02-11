@@ -1,1 +1,0 @@
-import{u as o,a as i,r as n,j as p,N as m}from"./index-e3Slfalr.js";import{P as r}from"./index-I9-q9K3Z.js";import{R as d}from"./rolesUser-HP9JZ5bM.js";const u=({children:t,redirectedTo:e="/login"})=>{const s=o(i),a=o(n);return s&&a===d.ADMIN?t:p.jsx(m,{to:e})};u.propTypes={children:r.node,redirectedTo:r.string};export{u as default};
