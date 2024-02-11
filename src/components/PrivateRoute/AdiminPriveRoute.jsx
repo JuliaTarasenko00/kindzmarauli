@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { authorized, role } from '../../redux/selector';
 import { ROLES } from '../../helpers/rolesUser';
 
-const AdminPrivateRoute = ({ children, redirectedTo = '/login' }) => {
+const AdminPrivateRoute = ({ children, redirectedTo = '/' }) => {
   const auth = useSelector(authorized);
   const admin = useSelector(role);
 

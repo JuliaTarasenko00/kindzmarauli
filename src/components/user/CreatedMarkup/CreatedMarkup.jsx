@@ -24,7 +24,6 @@ export const CreatedMarkup = (prop) => {
   const { title, dishes, titleDishes } = prop;
   const addDishBasket = useAddDishBasket(dishes);
 
-  console.log('(!!titleDishes).toString(): ', (!!titleDishes).toString());
   return (
     <Container>
       <WrapperSection $data_specificsPage={(!!titleDishes).toString()}>

@@ -37,7 +37,9 @@ const Search = lazy(() => import('./components/user/Filter/Search'));
 const UserAccount = lazy(() => import('./page/user/UserAccount/UserAccount'));
 
 //*admin
-const LayoutAdmin = lazy(() => import('./components/admin/Layout'));
+const MainLayoutAdmin = lazy(() =>
+  import('./components/admin/MainLayout/MainLayout'),
+);
 
 function App() {
   const token = useSelector(getToken);
@@ -73,16 +75,12 @@ function App() {
           <Route
             path="/admin"
             element={
-              <AdminPrivateRoute redirectedTo="/login">
-                <LayoutAdmin />
+              <AdminPrivateRoute redirectedTo="/">
+                <MainLayoutAdmin />
               </AdminPrivateRoute>
             }
           >
             <Route index element={<p style={{ color: '#ffff' }}>All Menu</p>} />
-            <Route
-              path="found"
-              element={<p style={{ color: '#ffff' }}>found</p>}
-            />
           </Route>
           <Route
             path="/"
