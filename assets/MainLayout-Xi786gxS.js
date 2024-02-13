@@ -1,1 +1,0 @@
-import{c as e,j as s,P as a,b as r,L as n,O as c}from"./index-iALe6Y_O.js";const o=()=>{const t=e();return s.jsxs(s.Fragment,{children:[s.jsx("header",{children:s.jsx("div",{children:s.jsx("button",{type:"button",onClick:()=>t(a()),children:"Log Out"})})}),s.jsx("main",{children:s.jsx(r.Suspense,{fallback:s.jsx(n,{}),children:s.jsx(c,{})})})]})};export{o as default};

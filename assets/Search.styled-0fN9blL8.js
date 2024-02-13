@@ -1,4 +1,4 @@
-import{s as o}from"./index-iALe6Y_O.js";const r=o.button`
+import{s as o}from"./index-1bHXgBHC.js";const r=o.button`
   cursor: pointer;
 
   background-color: transparent;
@@ -61,4 +61,4 @@ import{s as o}from"./index-iALe6Y_O.js";const r=o.button`
   }
 `,c=o.section`
   padding-bottom: 40px;
-`;export{r as B,p as D,i as E,n as F,s as I,a as W,e as a,c as b};
+`;export{r as B,p as D,i as E,c as F,s as I,a as W,n as a,e as b};
