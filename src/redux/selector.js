@@ -19,3 +19,5 @@ export const dataUser = (state) => state.auth.user;
 export const authorized = (state) => state.auth.authentication;
 
 export const role = (state) => state.auth.role;
+
+export const listDishes = (state) => state.dishes.dishes;

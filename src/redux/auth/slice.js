@@ -49,6 +49,7 @@ export const authenticationSlice = createSlice({
       .addCase(userCurrent.rejected, (state) => {
         if (state.error?.includes('401')) {
           state.token = '';
+          state.role = '';
         }
       })
       .addMatcher(

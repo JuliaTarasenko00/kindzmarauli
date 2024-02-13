@@ -14,8 +14,8 @@ import {
   Input,
   WrapperButton,
   WrapperForm,
-} from './FilterForm.styled';
-import { searchDishes } from '../../../redux/dishes/operation';
+} from '../page/user/Search/Search.styled';
+import { searchDishes } from '../redux/dishes/operation';
 
 const FilterFormSchema = Yup.object().shape({
   search: Yup.string()
@@ -28,10 +28,9 @@ export const FilterForm = ({ onClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
   const [searchParams, setSearchParams] = useSearchParams();
   const searchDish = searchParams.get('q');
-  const [value, setValue] = useState(searchDish || '');
+  const [value, setValue] = useState(searchDish ?? '');
 
   function handleSubmit(values, { setSubmitting }) {
     const searchValue = values.search.trim();
@@ -40,15 +39,15 @@ export const FilterForm = ({ onClick }) => {
     navigate('search');
     setSubmitting(false);
 
-    onClick();
+    if (onClick !== undefined) onClick();
   }
 
   useEffect(() => {
-    if (pathname !== '/search') return;
+    if (pathname.includes('search')) {
+      setSearchParams({ q: value });
 
-    setSearchParams({ q: value });
-
-    if (searchDish) dispatch(searchDishes(searchDish));
+      if (searchDish) dispatch(searchDishes(searchDish));
+    }
   }, [dispatch, pathname, searchDish, setSearchParams, value]);
 
   return (
@@ -108,5 +107,5 @@ export const FilterForm = ({ onClick }) => {
 };
 
 FilterForm.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };

@@ -33,13 +33,16 @@ const DessertsPage = lazy(() =>
 const DrinksPage = lazy(() => import('./page/user/DrinksPage/DrinksPage'));
 const Basket = lazy(() => import('./page/user/Basket/Basket'));
 const NotFound = lazy(() => import('./page/NotFound/NotFound'));
-const Search = lazy(() => import('./components/user/Filter/Search'));
+const Search = lazy(() => import('./page/user/Search/Search'));
 const UserAccount = lazy(() => import('./page/user/UserAccount/UserAccount'));
 
 //*admin
 const MainLayoutAdmin = lazy(() =>
   import('./components/admin/MainLayout/MainLayout'),
 );
+const HomePage = lazy(() => import('./page/admin/Home'));
+const SearchPageAdmin = lazy(() => import('./page/admin/Search/Search'));
+const ChangeDish = lazy(() => import('./page/admin/ChangeDish/ChangeDish'));
 
 function App() {
   const token = useSelector(getToken);
@@ -56,32 +59,6 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route
-            path="/login"
-            element={
-              <AuthRout>
-                <Login />
-              </AuthRout>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <AuthRout>
-                <Register />
-              </AuthRout>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <AdminPrivateRoute redirectedTo="/">
-                <MainLayoutAdmin />
-              </AdminPrivateRoute>
-            }
-          >
-            <Route index element={<p style={{ color: '#ffff' }}>All Menu</p>} />
-          </Route>
           <Route
             path="/"
             element={
@@ -106,6 +83,34 @@ function App() {
             />
             <Route path="search" element={<Search />} />
           </Route>
+          <Route
+            path="/admin"
+            element={
+              <AdminPrivateRoute>
+                <MainLayoutAdmin />
+              </AdminPrivateRoute>
+            }
+          >
+            <Route index element={<HomePage />} />
+            <Route path="search" element={<SearchPageAdmin />} />
+            <Route path="change/:id" element={<ChangeDish />} />
+          </Route>
+          <Route
+            path="/login"
+            element={
+              <AuthRout>
+                <Login />
+              </AuthRout>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <AuthRout>
+                <Register />
+              </AuthRout>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

@@ -1,9 +1,15 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getMenuPopular, getSpecificsDishes, searchDishes } from './operation';
+import {
+  getAllMenu,
+  getMenuPopular,
+  getSpecificsDishes,
+  searchDishes,
+} from './operation';
 
 const initialState = {
   popularDishes: [],
   specifics: [],
+  dishes: [],
   filteredDishes: [],
   isLoading: false,
   error: null,
@@ -14,6 +20,11 @@ export const dishesSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
+      .addCase(getAllMenu.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dishes = payload;
+        state.error = null;
+      })
       .addCase(getMenuPopular.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.popularDishes = payload;
@@ -30,14 +41,22 @@ export const dishesSlice = createSlice({
         state.error = null;
       })
       .addMatcher(
-        isAnyOf(getMenuPopular.pending, getSpecificsDishes.pending),
+        isAnyOf(
+          getMenuPopular.pending,
+          getSpecificsDishes.pending,
+          getAllMenu.pending,
+        ),
         (state) => {
           state.isLoading = true;
           state.error = null;
         },
       )
       .addMatcher(
-        isAnyOf(getMenuPopular.rejected, getSpecificsDishes.rejected),
+        isAnyOf(
+          getMenuPopular.rejected,
+          getSpecificsDishes.rejected,
+          getAllMenu.rejected,
+        ),
         (state, { payload }) => {
           state.isLoading = false;
           state.error = payload;

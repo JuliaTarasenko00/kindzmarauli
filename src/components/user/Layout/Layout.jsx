@@ -25,7 +25,7 @@ import {
 } from './Layout.style';
 import { Select } from '../Select/Select';
 import { Footer } from '../Footer/Footer';
-import { FilterForm } from '../Filter/FilterForm';
+import { FilterForm } from '../../FilterForm';
 import { authorized, dishWithBasket, role } from '../../../redux/selector';
 import { Loader } from '../../Loader/Loader';
 import { getDishesBasketAuth } from '../../../redux/basket/operation';

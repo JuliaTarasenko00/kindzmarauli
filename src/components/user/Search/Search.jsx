@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import { filterDish, loading } from '../../../redux/selector';
-import { CreatedMarkup } from '../CreatedMarkup/CreatedMarkup';
-import { FilterSection } from './FilterForm.styled';
+import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
+import { FilterSection } from './Search.styled';
 import { Container } from '../../../globalStyle';
+import { Loader } from '../../../components/Loader/Loader';
 
 const Search = () => {
   const isLoading = useSelector(loading);
@@ -12,7 +13,7 @@ const Search = () => {
   return (
     <>
       <FilterSection>
-        {isLoading && <p style={{ color: '#fff' }}>Loading...</p>}
+        {isLoading && <Loader />}
         {!isLoading && (
           <>
             {filteredProducts.length === 0 && (

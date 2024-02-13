@@ -3,6 +3,19 @@ import { toast } from 'react-toastify';
 import { styleToastify } from '../../components/toastify';
 import { $instants } from '../requests';
 
+export const getAllMenu = createAsyncThunk('all/menu', async (_, thunkAPI) => {
+  try {
+    const { data } = await $instants.get('dishes');
+    return data;
+  } catch (error) {
+    const { status } = error.response;
+    if (status === 500) {
+      toast.error('Server error.', styleToastify);
+    }
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
 export const getMenuPopular = createAsyncThunk(
   'menu/PopularDishes',
   async (_, thunkAPI) => {
