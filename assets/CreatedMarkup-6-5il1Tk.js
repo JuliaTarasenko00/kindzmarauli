@@ -1,4 +1,4 @@
-import{s as n,c as l,u as m,a as u,m as f,z as w,y as b,I as v,j as t,C as k,q as j,o as P}from"./index-1bHXgBHC.js";import{P as a}from"./index-KkZWmbZ6.js";const $=n.div`
+import{s as n,c as l,u as m,a as u,m as f,z as w,y as b,I as v,j as t,C as k,q as j,o as P}from"./index-OF7pzLKL.js";import{P as a}from"./index-_JRL6Qm-.js";const $=n.div`
   width: ${({["$data_specificsPage"]:i})=>i==="true"?"333px":"100%"};
   margin: ${({["$data_specificsPage"]:i})=>i==="true"?"0 auto":"0"};
 

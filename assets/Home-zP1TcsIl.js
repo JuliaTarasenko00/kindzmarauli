@@ -1,0 +1,1 @@
+import{c as o,u as a,Q as r,b as i,S as n,j as s,C as c}from"./index-OF7pzLKL.js";import{M as p}from"./MarkupComponent-mmAecPt3.js";import"./index-_JRL6Qm-.js";const x=()=>{const t=o(),e=a(r);return i.useEffect(()=>{t(n())},[t]),s.jsx("section",{children:s.jsx(c,{children:s.jsx(p,{list:e})})})};export{x as default};

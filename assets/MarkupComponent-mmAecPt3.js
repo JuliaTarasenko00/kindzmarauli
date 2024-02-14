@@ -1,4 +1,4 @@
-import{s as o,g as a,j as r,q as s}from"./index-1bHXgBHC.js";import{P as n}from"./index-KkZWmbZ6.js";const p=o.ul`
+import{s as o,g as a,j as r,q as s}from"./index-OF7pzLKL.js";import{P as n}from"./index-_JRL6Qm-.js";const p=o.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -69,6 +69,9 @@ import{s as o,g as a,j as r,q as s}from"./index-1bHXgBHC.js";import{P as n}from"
   max-width: 84px;
   padding: 10px;
   border-radius: 41px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
   transition: color var(--transition), background-color var(--transition);
 
   &:hover,
@@ -76,4 +79,4 @@ import{s as o,g as a,j as r,q as s}from"./index-1bHXgBHC.js";import{P as n}from"
     color: var(--button-basket-background-active);
     background-color: #000;
   }
-`,v=({list:t})=>r.jsx(p,{children:t.map(i=>{const{finalPrice:c}=s(i);return r.jsxs(d,{children:[r.jsx(g,{src:i.image,alt:i.name,loading:"lazy",width:"260"}),r.jsxs(l,{children:[r.jsxs(x,{children:[r.jsx(m,{children:i.name}),r.jsx(h,{children:i.description}),r.jsxs(u,{children:[i.gram,"g"]})]}),r.jsxs(f,{children:[r.jsxs("div",{children:[i.discounted!==0&&r.jsxs(r.Fragment,{children:[r.jsxs(e,{children:["Old price: ",i.price," "]}),r.jsxs(e,{children:["Discounted: ",i.discounted,"%"]})]}),r.jsxs(b,{children:["Price: ",c]})]}),r.jsx(j,{to:`change/${i._id}`,children:"Change"})]})]})]},i._id)})});v.propTypes={list:n.arrayOf(n.shape({name:n.string,discounted:n.number,description:n.string,price:n.number,gram:n.number,specificsDish:n.object,image:n.string,_id:n.string})).isRequired};export{v as M};
+`,v=({list:t})=>r.jsx(p,{children:t.map(i=>{const{finalPrice:c}=s(i);return r.jsxs(d,{children:[r.jsx(g,{src:i.image,alt:i.name,loading:"lazy",width:"260"}),r.jsxs(l,{children:[r.jsxs(x,{children:[r.jsx(m,{children:i.name}),r.jsx(h,{children:i.description}),r.jsxs(u,{children:[i.gram,"g"]})]}),r.jsxs(f,{children:[r.jsxs("div",{children:[i.discounted!==0&&r.jsxs(r.Fragment,{children:[r.jsxs(e,{children:["Old price: ",i.price," "]}),r.jsxs(e,{children:["Discounted: ",i.discounted,"%"]})]}),r.jsxs(b,{children:["Price: ",c]})]}),r.jsx(j,{to:`/admin/change/${i._id}`,children:"Change"})]})]})]},i._id)})});v.propTypes={list:n.arrayOf(n.shape({name:n.string,discounted:n.number,description:n.string,price:n.number,gram:n.number,specificsDish:n.object,image:n.string,_id:n.string})).isRequired};export{v as M};
