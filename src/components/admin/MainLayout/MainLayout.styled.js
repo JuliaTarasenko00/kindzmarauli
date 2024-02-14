@@ -33,6 +33,9 @@ export const Button = styled.button`
   background-color: var(--active-color);
   color: #000;
   padding: 10px 8px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
   border-radius: 15px;
   transition: color var(--transition), background-color var(--transition);
 

@@ -10,7 +10,7 @@ const SearchPage = () => {
   const navigate = useNavigate();
 
   return (
-    <section>
+    <section style={{ padding: '30px 0' }}>
       <Container>
         <Button type="button" onClick={() => navigate('/admin')}>
           Return to thr entire menu

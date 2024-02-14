@@ -39,7 +39,14 @@ export const MarkupComponent = ({ list }) => {
                   )}
                   <Price>Price: {finalPrice}</Price>
                 </div>
-                <ButtonChange to={`change/${dish._id}`}>Change</ButtonChange>
+                <ButtonChange to={`/admin/change/${dish._id}`}>
+                  Change
+                </ButtonChange>
+                {/* <button
+                  onClick={() => navigate(`/admin/change/${dish._id}`)}
+                >
+                  Change
+                </button> */}
               </WrapperPrice>
             </Wrapper>
           </Item>

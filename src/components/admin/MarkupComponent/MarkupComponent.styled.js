@@ -94,6 +94,9 @@ export const ButtonChange = styled(Link)`
   max-width: 84px;
   padding: 10px;
   border-radius: 41px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
   transition: color var(--transition), background-color var(--transition);
 
   &:hover,
