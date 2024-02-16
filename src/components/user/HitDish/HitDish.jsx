@@ -31,10 +31,10 @@ import { useEffect, useState } from 'react';
 import useAddDishBasket from '../../../helpers/hooks/addDishBasket';
 import { dishPricing } from '../../../helpers/hooks/dishPricing';
 import { Container } from '../../../globalStyle';
-import { popularDishes } from '../../../redux/selector';
+import { listDishes } from '../../../redux/selector';
 
 export const HitDish = () => {
-  const popular = useSelector(popularDishes);
+  const popular = useSelector(listDishes);
   const [randomDish, setRandomDish] = useState(null);
   const addDishBasket = useAddDishBasket(Array(randomDish));
   const price = dishPricing(randomDish);

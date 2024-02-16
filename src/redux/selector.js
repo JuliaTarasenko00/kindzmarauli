@@ -1,4 +1,4 @@
-export const popularDishes = (state) => state.dishes.popularDishes;
+export const listDishes = (state) => state.dishes.dishes;
 
 export const specificsDishes = (state) => state.dishes.specifics;
 
@@ -20,6 +20,6 @@ export const authorized = (state) => state.auth.authentication;
 
 export const role = (state) => state.auth.role;
 
-export const listDishes = (state) => state.dishes.dishes;
-
 export const dishToChange = (state) => state.dishes.changeDish;
+
+export const totalPage = (state) => state.dishes.totalPage;

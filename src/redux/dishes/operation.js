@@ -3,27 +3,13 @@ import { toast } from 'react-toastify';
 import { styleToastify } from '../../components/toastify';
 import { $instants } from '../requests';
 
-export const getAllMenu = createAsyncThunk(
-  'all/dishes',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await $instants.get('dishes');
-      return data;
-    } catch (error) {
-      const { status } = error.response;
-      if (status === 500) {
-        toast.error('Server error.', styleToastify);
-      }
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
-
-export const getMenuPopular = createAsyncThunk(
+export const getMenu = createAsyncThunk(
   'popular/dishes',
-  async (_, thunkAPI) => {
+  async ({ page = 1, limit = 12 }, thunkAPI) => {
     try {
-      const { data } = await $instants.get('dishes?page=1&limit=12');
+      const { data } = await $instants.get(
+        `dishes?page=${page}&limit=${limit}`,
+      );
       return data;
     } catch (error) {
       const { status } = error.response;
