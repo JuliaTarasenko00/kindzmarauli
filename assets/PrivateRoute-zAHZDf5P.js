@@ -1,0 +1,1 @@
+import{u as o,a as i,r as n,j as p,N as m}from"./index-iVvS-PYO.js";import{P as r}from"./index-oWf2afwM.js";import{R as u}from"./rolesUser-HP9JZ5bM.js";const d=({children:t,redirectedTo:e="/login"})=>{const s=o(i),a=o(n);return s&&a===u.USER?t:p.jsx(m,{to:e})};d.propTypes={children:r.node,redirectedTo:r.string};export{d as default};
