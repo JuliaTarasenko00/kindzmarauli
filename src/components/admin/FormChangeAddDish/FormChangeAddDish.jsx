@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { CgCloseO } from 'react-icons/cg';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
+
 import {
   ChangeButton,
   DeleteImage,
@@ -13,20 +15,45 @@ import {
   InputFile,
   Label,
   LabelAddedImage,
-  RemoveButton,
   Textarea,
   Wrapper,
   WrapperAddedImageInput,
   WrapperImage,
   WrapperPrice,
+  WrapperSelect,
 } from './FormChangeAddDish.styled';
+import { MenuItem } from '@mui/material';
+import { specificsDish } from '../../../helpers/specifics_dish';
+import {
+  CustomFormControl,
+  CustomInputLabel,
+  CustomSelect,
+} from './styledMuiComponent';
 
-export const FormChangeAddDish = ({
-  handelSubmitForm,
-  initialValues,
-  dataSchema,
-}) => {
+const dataSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(10, 'Min length 10 symbol')
+    .max(50, 'Max length 50 symbol')
+    .required('Required'),
+  description: Yup.string()
+    .min(10, 'Min length 10 symbol')
+    .max(500, 'Max length 500 symbol')
+    .required('Required'),
+  price: Yup.string().max(10, 'Max length 10 symbol').required('Required'),
+  discounted: Yup.string().max(3, 'Max length 3 symbol').required('Required'),
+  gram: Yup.string().max(5, 'Max length 5 symbol').required('Required'),
+});
+
+export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
   const [selectImg, setSelectImg] = useState(null);
+  const [specificsNameValue, setSpecificsNameValue] = useState(
+    initialValues.specificsName,
+  );
+
+  const specifics = Object.values(specificsDish);
+  const dish = Object.values(specificsDish).find(
+    (d) => d.name === specificsNameValue,
+  );
 
   return (
     <Formik
@@ -159,11 +186,41 @@ export const FormChangeAddDish = ({
                     )}
                   </div>
                 </WrapperPrice>
-                <Label htmlFor="specifics">Specifics: </Label>
-                <Input type="text" name="specifics" id="specifics" />
+                <WrapperSelect>
+                  <CustomFormControl size="small">
+                    <CustomInputLabel>Specifics</CustomInputLabel>
+                    <CustomSelect
+                      value={values.specificsName}
+                      name="specificsName"
+                      onChange={(ev) => {
+                        setSpecificsNameValue(ev.target.value);
+                        handleChange(ev);
+                      }}
+                    >
+                      {specifics.map((value, index) => (
+                        <MenuItem key={index} value={value.name}>
+                          {value.name}
+                        </MenuItem>
+                      ))}
+                    </CustomSelect>
+                  </CustomFormControl>
+                  <CustomFormControl size="small">
+                    <CustomSelect
+                      value={values.specifics}
+                      name="specifics"
+                      onChange={handleChange}
+                    >
+                      {!!dish &&
+                        Object.entries(dish.value).map((value, index) => (
+                          <MenuItem key={index} value={value[1]}>
+                            {value[1]}
+                          </MenuItem>
+                        ))}
+                    </CustomSelect>
+                  </CustomFormControl>
+                </WrapperSelect>
               </Wrapper>
             </FormWrapper>
-            <RemoveButton type="button">Remove this dish</RemoveButton>
             <ChangeButton
               type="submit"
               disabled={Object.keys(errors).length !== 0}
@@ -177,7 +234,7 @@ export const FormChangeAddDish = ({
   );
 };
 
-FormChangeAddDish.propType = {
+FormChangeAddDish.propTypes = {
   handelSubmitForm: PropTypes.func.isRequired,
   initialValues: PropTypes.shape({
     image: PropTypes.string,
@@ -185,7 +242,8 @@ FormChangeAddDish.propType = {
     price: PropTypes.number,
     discounted: PropTypes.number,
     description: PropTypes.string,
+    specificsName: PropTypes.string,
+    specifics: PropTypes.string,
     gram: PropTypes.number,
   }).isRequired,
-  dataSchema: PropTypes.object.isRequired,
 };

@@ -46,10 +46,9 @@ export const LabelAddedImage = styled.label`
 
 export const Wrapper = styled.div`
   flex: 1;
-
-  & div {
-    margin-bottom: 15px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const InputFile = styled.input`
@@ -113,7 +112,7 @@ export const ChangeButton = styled.button`
   line-height: 1;
   transition: background-color var(--transition);
   margin-left: auto;
-
+  margin-top: 30px;
   &:hover,
   :focus {
     background-color: ${({ ['disabled']: disabled }) =>
@@ -127,4 +126,10 @@ export const ErrorTitle = styled.p`
   font-size: 10px;
   line-height: 1;
   color: red;
+`;
+
+export const WrapperSelect = styled.div`
+  display: flex;
+  align-items: end;
+  gap: 10px;
 `;

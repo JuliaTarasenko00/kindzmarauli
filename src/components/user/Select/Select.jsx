@@ -14,18 +14,20 @@ import {
 import { specificsDish } from '../../../helpers/specifics_dish';
 import { loading } from '../../../redux/selector';
 
+const { value } = specificsDish.HOTDISHES;
+
 const options = [
   {
     name: 'Main Dishes',
-    to: `hot_dishes#${specificsDish.MAIN}`,
+    to: `hot_dishes#${value.MAIN}`,
   },
   {
     name: 'Grilled Dishes',
-    to: `hot_dishes#${specificsDish.GRILLED}`,
+    to: `hot_dishes#${value.GRILLED}`,
   },
   {
     name: 'Khinkali',
-    to: `hot_dishes#${specificsDish.KHINKALI}`,
+    to: `hot_dishes#${value.KHINKALI}`,
   },
 ];
 

@@ -15,6 +15,7 @@ const AppetizerPage = () => {
   const dispatch = useDispatch();
 
   const name = useMemo(() => pathname.split('/'), [pathname]);
+  const { value } = specificsDish.APPETIZER;
 
   useEffect(() => {
     dispatch(getSpecificsDishes(name[1]));
@@ -23,20 +24,18 @@ const AppetizerPage = () => {
   const salad = useMemo(
     () =>
       specifics.filter(
-        (dish) =>
-          Object.values(dish.specificsDish).join(' ') === specificsDish.SALAD,
+        (dish) => Object.values(dish.specificsDish).join(' ') === value.SALAD,
       ),
-    [specifics],
+    [specifics, value],
   );
 
   const hotSnack = useMemo(
     () =>
       specifics.filter(
         (dish) =>
-          Object.values(dish.specificsDish).join(' ') ===
-          specificsDish.HOTSNACK,
+          Object.values(dish.specificsDish).join(' ') === value.HOTSNACK,
       ),
-    [specifics],
+    [specifics, value],
   );
 
   return (

@@ -18,6 +18,7 @@ const HotDishes = () => {
   const dispatch = useDispatch();
 
   const name = useMemo(() => pathname.split('/'), [pathname]);
+  const { value } = specificsDish.HOTDISHES;
 
   useEffect(() => {
     dispatch(getSpecificsDishes(name[1]));
@@ -26,48 +27,45 @@ const HotDishes = () => {
   const grill = useMemo(
     () =>
       specifics.filter(
-        (dish) =>
-          Object.values(dish.specificsDish).join(' ') === specificsDish.GRILLED,
+        (dish) => Object.values(dish.specificsDish).join(' ') === value.GRILLED,
       ),
-    [specifics],
+    [specifics, value],
   );
 
   const mainDishes = useMemo(
     () =>
       specifics.filter(
-        (dish) =>
-          Object.values(dish.specificsDish).join(' ') === specificsDish.MAIN,
+        (dish) => Object.values(dish.specificsDish).join(' ') === value.MAIN,
       ),
-    [specifics],
+    [specifics, value],
   );
 
   const khinkali = useMemo(
     () =>
       specifics.filter(
         (dish) =>
-          Object.values(dish.specificsDish).join(' ') ===
-          specificsDish.KHINKALI,
+          Object.values(dish.specificsDish).join(' ') === value.KHINKALI,
       ),
-    [specifics],
+    [specifics, value],
   );
 
   useEffect(() => {
     if (isLoading) return;
 
     switch (hash) {
-      case `#${specificsDish.MAIN}`:
+      case `#${value.MAIN}`:
         return mainRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-      case `#${specificsDish.GRILLED}`:
+      case `#${value.GRILLED}`:
         return grilledRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-      case `#${specificsDish.KHINKALI}`:
+      case `#${value.KHINKALI}`:
         return khinkaliRef.current?.scrollIntoView({ behavior: 'smooth' });
 
       default:
         return;
     }
-  }, [hash, isLoading]);
+  }, [hash, isLoading, value]);
 
   return (
     <>

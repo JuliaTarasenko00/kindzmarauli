@@ -67,3 +67,42 @@ export const getDishId = createAsyncThunk('id/dishes', async (id, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const changeDataDish = createAsyncThunk(
+  'change/dish',
+  async (data, thunkAPI) => {
+    const { id, newData } = data;
+    try {
+      const { data } = await $instants.put(`/dishes/${id}`, newData);
+      return data;
+    } catch (error) {
+      const { status, data } = error.response;
+      if (status === 404) {
+        toast.error(data.message, styleToastify);
+      }
+      if (status === 500) {
+        toast.error('Server error.', styleToastify);
+      }
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const deleteDish = createAsyncThunk(
+  'delete/dish',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await $instants.delete(`/dishes/${id}`);
+      return data._id;
+    } catch (error) {
+      const { status, data } = error.response;
+      if (status === 404) {
+        toast.error(data.message, styleToastify);
+      }
+      if (status === 500) {
+        toast.error('Server error.', styleToastify);
+      }
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

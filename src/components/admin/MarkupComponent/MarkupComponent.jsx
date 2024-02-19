@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { dishPricing } from '../../../helpers/hooks/dishPricing';
+import { MdOutlineDeleteForever } from 'react-icons/md';
 import {
   ButtonChange,
+  DeleteButton,
   Description,
   Gram,
   Img,
@@ -11,11 +13,16 @@ import {
   OldPrice,
   Price,
   Wrapper,
+  WrapperButton,
   WrapperDescription,
   WrapperPrice,
 } from './MarkupComponent.styled';
+import { useDispatch } from 'react-redux';
+import { deleteDish } from '../../../redux/dishes/operation';
 
 export const MarkupComponent = ({ list }) => {
+  const dispatch = useDispatch();
+
   return (
     <List>
       {list.map((dish) => {
@@ -39,14 +46,23 @@ export const MarkupComponent = ({ list }) => {
                   )}
                   <Price>Price: {finalPrice}</Price>
                 </div>
-                <ButtonChange to={`/admin/change/${dish._id}`}>
-                  Change
-                </ButtonChange>
-                {/* <button
-                  onClick={() => navigate(`/admin/change/${dish._id}`)}
-                >
-                  Change
-                </button> */}
+                <WrapperButton>
+                  <DeleteButton
+                    type="button"
+                    onClick={() => dispatch(deleteDish(dish._id))}
+                  >
+                    <MdOutlineDeleteForever />
+                  </DeleteButton>
+                  <ButtonChange to={`/admin/change/${dish._id}`}>
+                    Change
+                  </ButtonChange>
+
+                  {/* <button
+                    onClick={() => navigate(`/admin/change/${dish._id}`)}
+                  >
+                    Change
+                  </button> */}
+                </WrapperButton>
               </WrapperPrice>
             </Wrapper>
           </Item>

@@ -1,5 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
+  changeDataDish,
+  deleteDish,
   getDishId,
   getMenu,
   getSpecificsDishes,
@@ -42,8 +44,24 @@ export const dishesSlice = createSlice({
         state.changeDish = payload;
         state.error = null;
       })
+      .addCase(changeDataDish.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.changeDish = payload;
+        state.error = null;
+      })
+      .addCase(deleteDish.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dishes = state.dishes.filter((dish) => dish._id !== payload);
+        state.error = null;
+      })
       .addMatcher(
-        isAnyOf(getMenu.pending, getSpecificsDishes.pending, getDishId.pending),
+        isAnyOf(
+          getMenu.pending,
+          getSpecificsDishes.pending,
+          getDishId.pending,
+          changeDataDish.pending,
+          deleteDish.pending,
+        ),
         (state) => {
           state.isLoading = true;
           state.error = null;
@@ -53,7 +71,8 @@ export const dishesSlice = createSlice({
         isAnyOf(
           getMenu.rejected,
           getSpecificsDishes.rejected,
-
+          changeDataDish.rejected,
+          deleteDish.rejected,
           getDishId.rejected,
         ),
         (state, { payload }) => {

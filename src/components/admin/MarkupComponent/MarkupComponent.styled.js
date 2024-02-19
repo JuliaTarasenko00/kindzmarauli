@@ -84,9 +84,15 @@ export const OldPrice = styled.p`
   }
 `;
 
+export const WrapperButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+`;
+
 export const ButtonChange = styled(Link)`
   cursor: pointer;
-  margin-left: auto;
   display: block;
   background-color: var(--active-color);
   border: none;
@@ -103,5 +109,25 @@ export const ButtonChange = styled(Link)`
   :focus {
     color: var(--button-basket-background-active);
     background-color: #000;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  cursor: pointer;
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: red;
+  max-width: 84px;
+  transition: color var(--transition);
+
+  &:hover,
+  :focus {
+    color: #4f0f0f;
+  }
+
+  & svg {
+    width: 30px;
+    height: 30px;
   }
 `;
