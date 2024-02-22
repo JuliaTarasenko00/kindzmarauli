@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
-  position: static;
+  position: sticky;
   top: 0;
   padding-bottom: 44px;
   padding-top: 50px;

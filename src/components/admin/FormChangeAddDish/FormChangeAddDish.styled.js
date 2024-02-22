@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-export const RemoveButton = styled.button`
-  cursor: pointer;
-  background-color: transparent;
-  color: #ff0000;
-  border: none;
-  transition: color var(--transition);
-
-  &:hover,
-  :focus {
-    color: #de5050;
-  }
-`;
-
 export const Form = styled.form``;
 
 export const FormWrapper = styled.div`
@@ -23,7 +10,9 @@ export const FormWrapper = styled.div`
 
 export const WrapperAddedImageInput = styled.div``;
 
-export const WrapperImage = styled.div``;
+export const WrapperImage = styled.div`
+  position: relative;
+`;
 
 export const Image = styled.img`
   width: 500px;
@@ -32,16 +21,45 @@ export const Image = styled.img`
   border-radius: 10px;
 `;
 
-export const DeleteImage = styled.button``;
+export const DeleteImage = styled.button`
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  color: red;
+  transition: color var(--transition);
+
+  &:hover,
+  :focus {
+    color: #de5050;
+  }
+
+  & svg {
+    width: 40px;
+    height: 40px;
+  }
+`;
 
 export const LabelAddedImage = styled.label`
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   cursor: pointer;
   margin-top: 15px;
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
   color: var(--main-color);
+
+  & span {
+    color: green;
+    & svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -62,6 +80,10 @@ export const Label = styled.label`
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
+
+  & span {
+    color: red;
+  }
 `;
 
 export const Input = styled.input`

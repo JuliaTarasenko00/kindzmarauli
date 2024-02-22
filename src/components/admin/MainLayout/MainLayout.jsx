@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Loader } from '../../Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogOut } from '../../../redux/auth/operation';
 import { dataUser } from '../../../redux/selector';
@@ -14,6 +13,7 @@ import {
   WrapperMainLayout,
 } from './MainLayout.styled';
 import { FilterForm } from '../../FilterForm';
+import { LoaderForPage } from '../../LoaderForPage';
 
 const LayoutAdmin = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const LayoutAdmin = () => {
             </Button>
           </WrapperAdmin>
         </WrapperMainLayout>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<LoaderForPage />}>
           <Outlet />
         </Suspense>
       </Main>

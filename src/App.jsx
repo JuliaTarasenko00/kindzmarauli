@@ -43,6 +43,15 @@ const MainLayoutAdmin = lazy(() =>
 const HomePage = lazy(() => import('./page/admin/Home'));
 const SearchPageAdmin = lazy(() => import('./page/admin/Search/Search'));
 const ChangeDish = lazy(() => import('./page/admin/ChangeDish/ChangeDish'));
+const AddNewDish = lazy(() => import('./page/admin/AddNewDish/AddNewDish'));
+const HotDishes = lazy(() =>
+  import('./page/admin/HotDishesPage/HotDishesPage'),
+);
+const Appetizer = lazy(() =>
+  import('./page/admin/AppetizerPage/AppetizerPage'),
+);
+const Drinks = lazy(() => import('./page/admin/DrinksPage/DrinksPage'));
+const Desserts = lazy(() => import('./page/admin/DessertsPage/DessertsPage'));
 
 function App() {
   const token = useSelector(getToken);
@@ -94,6 +103,11 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPageAdmin />} />
             <Route path="change/:id" element={<ChangeDish />} />
+            <Route path="add_newDish" element={<AddNewDish />} />
+            <Route path="hot_dishes" element={<HotDishes />} />
+            <Route path="appetizer" element={<Appetizer />} />
+            <Route path="desserts" element={<Desserts />} />
+            <Route path="drinks" element={<Drinks />} />
           </Route>
           <Route
             path="/login"

@@ -36,7 +36,7 @@ export const dishesSlice = createSlice({
       })
       .addCase(searchDishes.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.filteredDishes = payload;
+        state.filteredDishes = payload.result;
         state.error = null;
       })
       .addCase(getDishId.fulfilled, (state, { payload }) => {

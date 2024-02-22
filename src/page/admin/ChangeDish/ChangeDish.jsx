@@ -1,17 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import { IoArrowBackCircle } from 'react-icons/io5';
 import { changeDataDish, getDishId } from '../../../redux/dishes/operation';
+import { isEqual } from 'lodash';
+import { toast } from 'react-toastify';
 import { dishToChange, loading } from '../../../redux/selector';
 import { Container } from '../../../globalStyle';
-import { isEqual } from 'lodash';
 import { FormChangeAddDish } from '../../../components/admin/FormChangeAddDish/FormChangeAddDish';
-import { toast } from 'react-toastify';
 import { styleToastify } from '../../../components/toastify';
+import { LoaderForPage } from '../../../components/LoaderForPage';
+import { GoBackButton } from './ChangeDish.styled';
 
 const ChangeDishPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const backTo = useRef(location.state?.from ?? '/admin');
   const dish = useSelector(dishToChange);
   const isLoading = useSelector(loading);
 
@@ -62,11 +67,17 @@ const ChangeDishPage = () => {
   return (
     <section style={{ padding: '20px 0' }}>
       <Container>
+        {isLoading && <LoaderForPage />}
         {!isLoading && (
-          <FormChangeAddDish
-            handelSubmitForm={handelSubmitForm}
-            initialValues={initialValues}
-          />
+          <>
+            <GoBackButton to={backTo.current}>
+              <IoArrowBackCircle /> Go back
+            </GoBackButton>
+            <FormChangeAddDish
+              handelSubmitForm={handelSubmitForm}
+              initialValues={initialValues}
+            />
+          </>
         )}
       </Container>
     </section>

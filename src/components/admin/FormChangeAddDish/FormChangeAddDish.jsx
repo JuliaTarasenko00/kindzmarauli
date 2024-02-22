@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { CgCloseO } from 'react-icons/cg';
+import { CiCirclePlus } from 'react-icons/ci';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+import img from '../../../assets/img/no_image.jpg';
 import {
   ChangeButton,
   DeleteImage,
@@ -24,11 +25,7 @@ import {
 } from './FormChangeAddDish.styled';
 import { MenuItem } from '@mui/material';
 import { specificsDish } from '../../../helpers/specifics_dish';
-import {
-  CustomFormControl,
-  CustomInputLabel,
-  CustomSelect,
-} from './styledMuiComponent';
+import { CustomFormControl, CustomSelect } from './styledMuiComponent';
 
 const dataSchema = Yup.object().shape({
   name: Yup.string()
@@ -39,12 +36,18 @@ const dataSchema = Yup.object().shape({
     .min(10, 'Min length 10 symbol')
     .max(500, 'Max length 500 symbol')
     .required('Required'),
-  price: Yup.string().max(10, 'Max length 10 symbol').required('Required'),
-  discounted: Yup.string().max(3, 'Max length 3 symbol').required('Required'),
-  gram: Yup.string().max(5, 'Max length 5 symbol').required('Required'),
+  price: Yup.number().max(10, 'Max length 10 symbol').required('Required'),
+  discounted: Yup.number().max(3, 'Max length 3 symbol').required('Required'),
+  gram: Yup.number().max(5, 'Max length 5 symbol').required('Required'),
+  specificsName: Yup.string().required('Required'),
+  specifics: Yup.string().required('Required'),
 });
 
-export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
+export const FormChangeAddDish = ({
+  handelSubmitForm,
+  initialValues,
+  newDish,
+}) => {
   const [selectImg, setSelectImg] = useState(null);
   const [specificsNameValue, setSpecificsNameValue] = useState(
     initialValues.specificsName,
@@ -78,6 +81,8 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                     src={
                       selectImg !== null
                         ? URL.createObjectURL(selectImg)
+                        : values.image === ''
+                        ? img
                         : values.image
                     }
                     alt={values.name}
@@ -93,7 +98,10 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                   )}
                 </WrapperImage>
                 <LabelAddedImage htmlFor="image">
-                  Add a new photo
+                  {newDish ? 'Add Photo' : 'Add a new photo'}
+                  <span>
+                    <CiCirclePlus />
+                  </span>
                 </LabelAddedImage>
                 <InputFile
                   type="file"
@@ -111,7 +119,9 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
               </WrapperAddedImageInput>
               <Wrapper>
                 <div>
-                  <Label htmlFor="name">Name: </Label>
+                  <Label htmlFor="name">
+                    Name: <span>*</span>
+                  </Label>
                   <Input
                     type="text"
                     name="name"
@@ -125,7 +135,9 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                   )}
                 </div>
                 <div>
-                  <Label htmlFor="description">Description: </Label>
+                  <Label htmlFor="description">
+                    Description: <span>*</span>
+                  </Label>
                   <Textarea
                     value={values.description}
                     name="description"
@@ -141,7 +153,9 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                 </div>
                 <WrapperPrice>
                   <div>
-                    <Label htmlFor="price">Price: </Label>
+                    <Label htmlFor="price">
+                      Price: <span>*</span>
+                    </Label>
                     <Input
                       type="text"
                       name="price"
@@ -156,7 +170,9 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                     )}
                   </div>
                   <div>
-                    <Label htmlFor="discounted">Discount: </Label>
+                    <Label htmlFor="discounted">
+                      Discount: <span>*</span>
+                    </Label>
                     <Input
                       type="text"
                       name="discounted"
@@ -171,7 +187,9 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                     )}
                   </div>
                   <div>
-                    <Label htmlFor="gram">Gram: </Label>
+                    <Label htmlFor="gram">
+                      Gram: <span>*</span>
+                    </Label>
                     <Input
                       type="text"
                       className="price"
@@ -187,8 +205,10 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                   </div>
                 </WrapperPrice>
                 <WrapperSelect>
+                  <Label>
+                    Specifics: <span>*</span>{' '}
+                  </Label>
                   <CustomFormControl size="small">
-                    <CustomInputLabel>Specifics</CustomInputLabel>
                     <CustomSelect
                       value={values.specificsName}
                       name="specificsName"
@@ -197,12 +217,21 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                         handleChange(ev);
                       }}
                     >
-                      {specifics.map((value, index) => (
-                        <MenuItem key={index} value={value.name}>
-                          {value.name}
-                        </MenuItem>
-                      ))}
+                      {specifics.map((value, index) => {
+                        const newStr = value.name.replace(/_/g, ' ');
+
+                        return (
+                          <MenuItem key={index} value={value.name}>
+                            <p style={{ textTransform: 'capitalize' }}>
+                              {newStr}
+                            </p>
+                          </MenuItem>
+                        );
+                      })}
                     </CustomSelect>
+                    {errors.specificsName && touched.specificsName && (
+                      <ErrorTitle>{errors.specificsName}</ErrorTitle>
+                    )}
                   </CustomFormControl>
                   <CustomFormControl size="small">
                     <CustomSelect
@@ -211,12 +240,20 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
                       onChange={handleChange}
                     >
                       {!!dish &&
-                        Object.entries(dish.value).map((value, index) => (
-                          <MenuItem key={index} value={value[1]}>
-                            {value[1]}
-                          </MenuItem>
-                        ))}
-                    </CustomSelect>
+                        Object.entries(dish.value).map((value, index) => {
+                          const newStr = value[1].replace(/_/g, ' ');
+                          return (
+                            <MenuItem key={index} value={value[1]}>
+                              <p style={{ textTransform: 'capitalize' }}>
+                                {newStr}
+                              </p>
+                            </MenuItem>
+                          );
+                        })}
+                    </CustomSelect>{' '}
+                    {errors.specifics && touched.specifics && (
+                      <ErrorTitle>{errors.specifics}</ErrorTitle>
+                    )}
                   </CustomFormControl>
                 </WrapperSelect>
               </Wrapper>
@@ -225,7 +262,7 @@ export const FormChangeAddDish = ({ handelSubmitForm, initialValues }) => {
               type="submit"
               disabled={Object.keys(errors).length !== 0}
             >
-              Change
+              {newDish ? 'Add' : 'Change'}
             </ChangeButton>
           </Form>
         );
@@ -239,11 +276,12 @@ FormChangeAddDish.propTypes = {
   initialValues: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
-    price: PropTypes.number,
-    discounted: PropTypes.number,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    discounted: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     description: PropTypes.string,
     specificsName: PropTypes.string,
     specifics: PropTypes.string,
-    gram: PropTypes.number,
+    gram: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
+  newDish: PropTypes.bool,
 };

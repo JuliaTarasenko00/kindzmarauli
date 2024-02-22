@@ -1,53 +1,28 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { specificsDish } from '../../../helpers/specifics_dish';
+import { useSelector } from 'react-redux';
 import { Section } from './HotDishesPage.styled';
-import { loading, specificsDishes } from '../../../redux/selector';
+import { loading } from '../../../redux/selector';
 import { Loader } from '../../../components/Loader/Loader';
-import { getSpecificsDishes } from '../../../redux/dishes/operation';
 import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
+import { useSpecificsFilter } from '../../../helpers/useSpecificsFilter';
+import { useRequestDataSpecifics } from '../../../helpers/useRequestDataSpecifics';
+import { specificsDish } from '../../../helpers/specifics_dish';
 
 const HotDishes = () => {
   const isLoading = useSelector(loading);
-  const specifics = useSelector(specificsDishes);
   const mainRef = useRef(null);
   const grilledRef = useRef(null);
   const khinkaliRef = useRef(null);
   const { hash, pathname } = useLocation();
-  const dispatch = useDispatch();
 
-  const name = useMemo(() => pathname.split('/'), [pathname]);
-  const { value } = specificsDish.HOTDISHES;
+  const { value } = useRequestDataSpecifics(pathname, specificsDish.HOTDISHES);
 
-  useEffect(() => {
-    dispatch(getSpecificsDishes(name[1]));
-  }, [name, dispatch]);
+  const grill = useSpecificsFilter(value.GRILLED);
 
-  const grill = useMemo(
-    () =>
-      specifics.filter(
-        (dish) => Object.values(dish.specificsDish).join(' ') === value.GRILLED,
-      ),
-    [specifics, value],
-  );
+  const mainDishes = useSpecificsFilter(value.MAIN);
 
-  const mainDishes = useMemo(
-    () =>
-      specifics.filter(
-        (dish) => Object.values(dish.specificsDish).join(' ') === value.MAIN,
-      ),
-    [specifics, value],
-  );
-
-  const khinkali = useMemo(
-    () =>
-      specifics.filter(
-        (dish) =>
-          Object.values(dish.specificsDish).join(' ') === value.KHINKALI,
-      ),
-    [specifics, value],
-  );
+  const khinkali = useSpecificsFilter(value.KHINKALI);
 
   useEffect(() => {
     if (isLoading) return;
