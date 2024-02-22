@@ -1,0 +1,1 @@
+import{u as r,$ as u,b as t,c as n,a0 as p}from"./index-aGPUGDE_.js";const l=e=>{const c=r(u);return t.useMemo(()=>c.filter(s=>Object.values(s.specificsDish).join(" ")===e),[c,e])},m=(e,c)=>{const i=n(),s=t.useMemo(()=>e.split("/"),[e]),o=s[1]==="admin"?s[2]:s[1],{value:a}=c;return t.useEffect(()=>{i(p(o))},[s,i,o]),{value:a}};export{l as a,m as u};
