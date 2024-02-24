@@ -286,4 +286,5 @@ FormChangeAddDish.propTypes = {
     gram: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
   newDish: PropTypes.bool,
+  setPatchImg: PropTypes.func,
 };
