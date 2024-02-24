@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const $instants = axios.create({
-  baseURL: 'https://kindzmarauli-backend.onrender.com',
+  baseURL: 'http://localhost:3000',
 });
 
 export const setToken = (token) => {

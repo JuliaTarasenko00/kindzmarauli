@@ -36,9 +36,9 @@ const dataSchema = Yup.object().shape({
     .min(10, 'Min length 10 symbol')
     .max(500, 'Max length 500 symbol')
     .required('Required'),
-  price: Yup.number().max(10, 'Max length 10 symbol').required('Required'),
-  discounted: Yup.number().max(3, 'Max length 3 symbol').required('Required'),
-  gram: Yup.number().max(5, 'Max length 5 symbol').required('Required'),
+  price: Yup.number().required('Required'),
+  discounted: Yup.number().required('Required'),
+  gram: Yup.number().required('Required'),
   specificsName: Yup.string().required('Required'),
   specifics: Yup.string().required('Required'),
 });
@@ -47,6 +47,7 @@ export const FormChangeAddDish = ({
   handelSubmitForm,
   initialValues,
   newDish,
+  setPatchImg,
 }) => {
   const [selectImg, setSelectImg] = useState(null);
   const [specificsNameValue, setSpecificsNameValue] = useState(
@@ -111,6 +112,7 @@ export const FormChangeAddDish = ({
                   multiple
                   onChange={(ev) => {
                     setSelectImg(ev.target.files[0]);
+                    setPatchImg(ev.target.files[0]);
                   }}
                 />
                 {errors.image && touched.image && (

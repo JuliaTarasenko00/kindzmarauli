@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import { IoArrowBackCircle } from 'react-icons/io5';
@@ -19,6 +19,7 @@ const ChangeDishPage = () => {
   const backTo = useRef(location.state?.from ?? '/admin');
   const dish = useSelector(dishToChange);
   const isLoading = useSelector(loading);
+  const [patchImg, setPatchImg] = useState(null);
 
   const initialValues = {
     image: dish?.image,
@@ -40,20 +41,24 @@ const ChangeDishPage = () => {
     if (notChangedData) {
       return toast.error('You have not made any changes', styleToastify);
     } else {
+      const data = new FormData();
+      data.append('description', values.description);
+      data.append('discounted', values.discounted);
+      data.append('image', patchImg ? patchImg : values.image);
+      data.append('name', values.name);
+      data.append('price', values.price);
+      data.append('gram', values.gram);
+      data.append(
+        'specificsDish',
+        JSON.stringify({
+          [values.specificsName]: values.specifics,
+        }),
+      );
+
       dispatch(
         changeDataDish({
           id,
-          newData: {
-            description: values.description,
-            discounted: values.discounted,
-            gram: values.gram,
-            image: values.image,
-            name: values.name,
-            price: values.price,
-            specificsDish: {
-              [values.specificsName]: values.specifics,
-            },
-          },
+          newData: data,
         }),
       );
       return toast.success('Data has been changed', styleToastify);
@@ -76,6 +81,8 @@ const ChangeDishPage = () => {
             <FormChangeAddDish
               handelSubmitForm={handelSubmitForm}
               initialValues={initialValues}
+              setPatchImg={setPatchImg}
+              patchImg={patchImg}
             />
           </>
         )}

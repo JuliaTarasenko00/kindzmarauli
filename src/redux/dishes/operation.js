@@ -73,7 +73,7 @@ export const changeDataDish = createAsyncThunk(
   async (data, thunkAPI) => {
     const { id, newData } = data;
     try {
-      const { data } = await $instants.put(`/dishes/${id}`, newData);
+      const { data } = await $instants.patch(`/dishes/${id}`, newData);
       return data;
     } catch (error) {
       const { status, data } = error.response;
