@@ -1,0 +1,3 @@
+import{g as p,u as d,l,k as m,j as s,L as u}from"./index-dEfuOcOi.js";import{C as a}from"./CreatedMarkup-ax2GumN6.js";import{u as h,a as i}from"./useRequestDataSpecifics-UnfuhQsr.js";import{s as x}from"./specifics_dish-9ytSTQnN.js";import"./index-49JrwbJf.js";const o=p.section`
+  padding-bottom: 60px;
+`,D=()=>{const e=d(l),{pathname:r}=m(),{value:t}=h(r,x.APPETIZER),n=i(t.SALAD),c=i(t.HOTSNACK);return s.jsxs(s.Fragment,{children:[e&&s.jsx(u,{}),!e&&s.jsxs(s.Fragment,{children:[s.jsx(o,{children:s.jsx(a,{titleDishes:"Salads",dishes:n})}),s.jsx(o,{children:s.jsx(a,{titleDishes:"Hot Appetizers",dishes:c})})]})]})};export{D as default};
