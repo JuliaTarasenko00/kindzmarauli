@@ -54,7 +54,6 @@ const ChangeDishPage = () => {
           [values.specificsName]: values.specifics,
         }),
       );
-
       dispatch(
         changeDataDish({
           id,
@@ -83,6 +82,8 @@ const ChangeDishPage = () => {
               initialValues={initialValues}
               setPatchImg={setPatchImg}
               patchImg={patchImg}
+              id={id}
+              patch={backTo.current}
             />
           </>
         )}

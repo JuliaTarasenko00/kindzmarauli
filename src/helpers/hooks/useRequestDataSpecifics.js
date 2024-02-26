@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { getSpecificsDishes } from '../redux/dishes/operation';
+import { getSpecificsDishes } from '../../redux/dishes/operation';
 import { useDispatch } from 'react-redux';
 
 export const useRequestDataSpecifics = (pathname, specificsDish) => {

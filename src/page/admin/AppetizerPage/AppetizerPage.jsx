@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import { loading } from '../../../redux/selector';
 import { useLocation } from 'react-router-dom';
-import { useRequestDataSpecifics } from '../../../helpers/useRequestDataSpecifics';
+import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSpecifics';
 import { specificsDish } from '../../../helpers/specifics_dish';
-import { useSpecificsFilter } from '../../../helpers/useSpecificsFilter';
+import { useSpecificsFilter } from '../../../helpers/hooks/useSpecificsFilter';
 import { LoaderForPage } from '../../../components/LoaderForPage';
-import { MarkupComponent } from '../../../components/admin/MarkupComponent/MarkupComponent';
 import { Container } from '../../../globalStyle';
+import { RenderComponent } from '../../../components/admin/RenderComponent';
 
 const AppetizerPage = () => {
   const isLoading = useSelector(loading);
@@ -25,12 +25,12 @@ const AppetizerPage = () => {
         <>
           <section style={{ padding: '20px 0' }}>
             <Container>
-              <MarkupComponent title={'Salads'} list={salad} />
+              <RenderComponent specifics={salad} title={'Salads'} />
             </Container>
           </section>
           <section style={{ padding: '20px 0' }}>
             <Container>
-              <MarkupComponent title={'Hot Appetizers'} list={hotSnack} />
+              <RenderComponent specifics={hotSnack} title={'Hot Appetizers'} />
             </Container>
           </section>
         </>

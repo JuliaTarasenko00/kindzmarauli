@@ -14,4 +14,19 @@ export const specificsDish = {
       HOTSNACK: 'hot_snack',
     },
   },
+  DESSERT: {
+    name: 'desserts',
+    value: {
+      ICECREAM: 'ice_cream',
+      CAKE: 'cake',
+    },
+  },
+  DRINKS: {
+    name: 'drinks',
+    value: {
+      ALCOHOLICCOCKTAILS: 'alcoholic_cocktails',
+      NONALCOHOLICCOCKTAILS: 'non_alcoholic_cocktails',
+      HOTDRINKS: 'hot_drinks',
+    },
+  },
 };

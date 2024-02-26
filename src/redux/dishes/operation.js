@@ -8,11 +8,30 @@ export const getMenu = createAsyncThunk(
   async ({ page = 1, limit = 12 }, thunkAPI) => {
     try {
       const { data } = await $instants.get(
-        `dishes?page=${page}&limit=${limit}`,
+        `/dishes?page=${page}&limit=${limit}`,
       );
       return data;
     } catch (error) {
       const { status } = error.response;
+      if (status === 500) {
+        toast.error('Server error.', styleToastify);
+      }
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const addNewDish = createAsyncThunk(
+  'addDish/dishes',
+  async (dish, thunkAPI) => {
+    try {
+      const { data } = await $instants.post('/dishes', dish);
+      return data;
+    } catch (error) {
+      const { status, data } = error.response;
+      if (status === 404) {
+        toast.error(data.message, styleToastify);
+      }
       if (status === 500) {
         toast.error('Server error.', styleToastify);
       }
@@ -26,7 +45,7 @@ export const getSpecificsDishes = createAsyncThunk(
   async (name, thunkAPI) => {
     try {
       const { data } = await $instants.get(
-        `dishes/specifics?specificsDish=${name}`,
+        `/dishes/specifics?specificsDish=${name}`,
       );
       return data;
     } catch (error) {
@@ -43,7 +62,7 @@ export const searchDishes = createAsyncThunk(
   'search/dishes',
   async (text, thunkAPI) => {
     try {
-      const { data } = await $instants.get(`dishes?name=${text}`);
+      const { data } = await $instants.get(`/dishes?name=${text}`);
       return data;
     } catch (error) {
       const { status } = error.response;

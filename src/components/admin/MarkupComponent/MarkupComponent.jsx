@@ -12,24 +12,29 @@ import {
   NameDish,
   OldPrice,
   Price,
-  Title,
   Wrapper,
   WrapperButton,
   WrapperDescription,
   WrapperPrice,
 } from './MarkupComponent.styled';
-import { useDispatch } from 'react-redux';
-import { deleteDish } from '../../../redux/dishes/operation';
 import { useLocation } from 'react-router-dom';
+import { $instants } from '../../../redux/requests';
 
-export const MarkupComponent = ({ list, title }) => {
-  const dispatch = useDispatch();
+export const MarkupComponent = ({ list, mainPage }) => {
   const location = useLocation();
+
+  const handelDelete = async (id) => {
+    try {
+      await $instants.delete(`/dishes/${id}`);
+    } catch (error) {
+      console.log('aaaa');
+      console.log(error);
+    }
+  };
 
   return (
     <>
-      {title && <Title>{title}</Title>}
-      <List $positionContent={(!!title).toString()}>
+      <List $positionContent={(!mainPage).toString()}>
         {list?.map((dish) => {
           const { finalPrice } = dishPricing(dish);
           return (
@@ -59,7 +64,7 @@ export const MarkupComponent = ({ list, title }) => {
                   <WrapperButton>
                     <DeleteButton
                       type="button"
-                      onClick={() => dispatch(deleteDish(dish._id))}
+                      onClick={() => handelDelete(dish._id)}
                     >
                       <MdOutlineDeleteForever />
                     </DeleteButton>
@@ -99,5 +104,5 @@ MarkupComponent.propTypes = {
       _id: PropTypes.string,
     }),
   ).isRequired,
-  title: PropTypes.string,
+  mainPage: PropTypes.bool,
 };

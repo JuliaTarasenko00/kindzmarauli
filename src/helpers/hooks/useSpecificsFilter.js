@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { specificsDishes } from '../redux/selector';
+import { specificsDishes } from '../../redux/selector';
 
 export const useSpecificsFilter = (specificsValue) => {
   const specifics = useSelector(specificsDishes);

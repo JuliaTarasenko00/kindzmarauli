@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
+  addNewDish,
   changeDataDish,
   deleteDish,
   getDishId,
@@ -27,6 +28,10 @@ export const dishesSlice = createSlice({
         state.isLoading = false;
         state.dishes = payload.result;
         state.totalPage = payload.totalPages;
+        state.error = null;
+      })
+      .addCase(addNewDish.fulfilled, (state) => {
+        state.isLoading = false;
         state.error = null;
       })
       .addCase(getSpecificsDishes.fulfilled, (state, { payload }) => {
@@ -57,6 +62,7 @@ export const dishesSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getMenu.pending,
+          addNewDish.pending,
           getSpecificsDishes.pending,
           getDishId.pending,
           changeDataDish.pending,
@@ -70,6 +76,7 @@ export const dishesSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getMenu.rejected,
+          addNewDish.rejected,
           getSpecificsDishes.rejected,
           changeDataDish.rejected,
           deleteDish.rejected,
