@@ -4,8 +4,8 @@ import { loading } from '../../../redux/selector';
 import { Section } from './Appetizer.styled';
 import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
 import { Loader } from '../../../components/Loader/Loader';
-import { useSpecificsFilter } from '../../../helpers/useSpecificsFilter';
-import { useRequestDataSpecifics } from '../../../helpers/useRequestDataSpecifics';
+import { useSpecificsFilter } from '../../../helpers/hooks/useSpecificsFilter';
+import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSpecifics';
 import { specificsDish } from '../../../helpers/specifics_dish';
 
 const AppetizerPage = () => {
