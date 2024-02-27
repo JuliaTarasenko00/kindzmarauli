@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Section } from './HotDishesPage.styled';
 import { loading } from '../../../redux/selector';
-import { Loader } from '../../../components/Loader/Loader';
-import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
 import { useSpecificsFilter } from '../../../helpers/hooks/useSpecificsFilter';
 import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSpecifics';
 import { specificsDish } from '../../../helpers/specifics_dish';
+import { RenderUserComponent } from '../../../components/user/RenderUserComponent';
+import { LoaderForPage } from '../../../components/LoaderForPage';
 
 const HotDishes = () => {
   const isLoading = useSelector(loading);
@@ -42,20 +41,22 @@ const HotDishes = () => {
     }
   }, [hash, isLoading, value]);
 
+  const options = [
+    { title: 'Main Dishes', specifics: mainDishes, ref: mainRef },
+    { title: 'Grill Dishes', specifics: grill, ref: grilledRef },
+    { title: 'Khinkali', specifics: khinkali, ref: khinkaliRef },
+  ];
+
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading && <LoaderForPage />}
       {!isLoading && (
         <>
-          <Section ref={mainRef}>
-            <CreatedMarkup titleDishes={'Main Dishes'} dishes={mainDishes} />
-          </Section>
-          <Section ref={grilledRef}>
-            <CreatedMarkup titleDishes={'Grilled Dishes'} dishes={grill} />
-          </Section>
-          <Section ref={khinkaliRef}>
-            <CreatedMarkup titleDishes={'Khinkali'} dishes={khinkali} />
-          </Section>
+          {options.map(({ title, specifics, ref }) => (
+            <section style={{ padding: '20px 0' }} key={title} ref={ref}>
+              <RenderUserComponent title={title} specifics={specifics} />
+            </section>
+          ))}
         </>
       )}
     </>

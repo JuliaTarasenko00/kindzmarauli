@@ -18,21 +18,35 @@ const DessertsPage = () => {
 
   const cake = useSpecificsFilter(value.CAKE);
 
+  const options = [
+    {
+      title: 'Ice-cream',
+      dataSpecifics: iceCream,
+      valueSpecifics: value.ICECREAM,
+    },
+    {
+      title: 'Cake',
+      dataSpecifics: cake,
+      valueSpecifics: value.CAKE,
+    },
+  ];
+
   return (
     <>
       {isLoading && <LoaderForPage />}
       {!isLoading && (
         <>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent specifics={iceCream} title={'Ice-cream'} />
-            </Container>
-          </section>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent specifics={cake} title={'Cake'} />
-            </Container>
-          </section>
+          {options.map(({ title, dataSpecifics, valueSpecifics }) => (
+            <section style={{ padding: '20px 0' }} key={valueSpecifics}>
+              <Container>
+                <RenderComponent
+                  specifics={dataSpecifics}
+                  title={title}
+                  value={valueSpecifics}
+                />
+              </Container>
+            </section>
+          ))}
         </>
       )}
     </>

@@ -20,26 +20,40 @@ const HotDishesPageAdmin = () => {
 
   const khinkali = useSpecificsFilter(value.KHINKALI);
 
+  const options = [
+    {
+      title: 'Main Dishes',
+      dataSpecifics: mainDishes,
+      valueSpecifics: value.MAIN,
+    },
+    {
+      title: 'Grill Dishes',
+      dataSpecifics: grill,
+      valueSpecifics: value.GRILLED,
+    },
+    {
+      title: 'khinkali',
+      dataSpecifics: khinkali,
+      valueSpecifics: value.KHINKALI,
+    },
+  ];
+
   return (
     <>
       {isLoading && <LoaderForPage />}
       {!isLoading && (
         <>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent specifics={mainDishes} title={'Main Dishes'} />
-            </Container>
-          </section>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent specifics={grill} title={'Grilled Dishes'} />
-            </Container>
-          </section>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent specifics={khinkali} title={'Khinkali'} />
-            </Container>
-          </section>
+          {options.map(({ title, dataSpecifics, valueSpecifics }) => (
+            <section style={{ padding: '20px 0' }} key={valueSpecifics}>
+              <Container>
+                <RenderComponent
+                  specifics={dataSpecifics}
+                  title={title}
+                  value={valueSpecifics}
+                />
+              </Container>
+            </section>
+          ))}
         </>
       )}
     </>

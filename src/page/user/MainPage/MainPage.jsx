@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMenu } from '../../../redux/dishes/operation';
 import { loading, listDishes } from '../../../redux/selector';
-import { Section } from './MainPage.styled';
+import { Section, Title } from './MainPage.styled';
 import { Loader } from '../../../components/Loader/Loader';
 import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
 import { HitDish } from '../../../components/user/HitDish/HitDish';
@@ -28,7 +28,8 @@ const MainPage = () => {
         <>
           <HitDish />
           <Section>
-            <CreatedMarkup title={'Popular Dishes'} dishes={popular} />
+            <Title>Popular Dishes</Title>
+            <CreatedMarkup dishes={popular} mainPage={true} />
           </Section>
         </>
       )}

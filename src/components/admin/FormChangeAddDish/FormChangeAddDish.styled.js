@@ -1,4 +1,23 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const GoBackButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--active-color);
+  transition: color var(--transition);
+
+  &:hover,
+  :focus {
+    color: var(--button-basket-background-active);
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+`;
 
 export const Form = styled.form``;
 

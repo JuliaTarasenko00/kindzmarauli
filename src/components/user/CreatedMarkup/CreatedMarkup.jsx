@@ -13,7 +13,6 @@ import {
   PopularList,
   PopularWrapper,
   Prise,
-  Title,
   WrapperPrice,
   WrapperSection,
 } from './CreatedMarkup.styled';
@@ -21,15 +20,13 @@ import useAddDishBasket from '../../../helpers/hooks/addDishBasket';
 import { dishPricing } from '../../../helpers/hooks/dishPricing';
 
 export const CreatedMarkup = (prop) => {
-  const { title, dishes, titleDishes } = prop;
+  const { dishes, mainPage } = prop;
   const addDishBasket = useAddDishBasket(dishes);
 
   return (
     <Container>
-      <WrapperSection $data_specificsPage={(!!titleDishes).toString()}>
-        {title && <Title>{title}</Title>}
-        {titleDishes && <Title className="specifics">{titleDishes}</Title>}
-        <PopularList $data_specificsPage={(!!titleDishes).toString()}>
+      <WrapperSection $data_specificsPage={(!mainPage).toString()}>
+        <PopularList $data_specificsPage={(!mainPage).toString()}>
           {dishes?.map((dish) => {
             const { finalPrice } = dishPricing(dish);
             return (
@@ -69,8 +66,7 @@ export const CreatedMarkup = (prop) => {
 };
 
 CreatedMarkup.propTypes = {
-  title: PropTypes.string,
-  titleHotDishes: PropTypes.string,
+  mainPage: PropTypes.bool,
   dishes: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

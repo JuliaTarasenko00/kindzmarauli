@@ -6,7 +6,7 @@ import { MdOutlineDeleteForever } from 'react-icons/md';
 import { MenuItem } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
+import { IoArrowBackCircle } from 'react-icons/io5';
 import img from '../../../assets/img/no_image.jpg';
 import {
   ChangeButton,
@@ -14,6 +14,7 @@ import {
   ErrorTitle,
   Form,
   FormWrapper,
+  GoBackButton,
   Image,
   Input,
   InputFile,
@@ -48,7 +49,7 @@ const dataSchema = Yup.object().shape({
   gram: Yup.number().required('Required'),
   specificsName: Yup.string().required('Required'),
   specifics: Yup.string().required('Required'),
-  // image: Yup.string().required('Required'),
+  image: Yup.mixed().required('A file is required'),
 });
 
 export const FormChangeAddDish = ({
@@ -76,7 +77,7 @@ export const FormChangeAddDish = ({
 
       const timer = setTimeout(() => {
         navigate(patch);
-      }, 5000);
+      }, 3000);
       return () => clearTimeout(timer);
     } catch (error) {
       const { status, data } = error.response;
@@ -91,6 +92,12 @@ export const FormChangeAddDish = ({
 
   return (
     <>
+      {patch !== '' && (
+        <GoBackButton to={patch}>
+          <IoArrowBackCircle />
+          Go Back
+        </GoBackButton>
+      )}
       <Formik
         initialValues={initialValues}
         onSubmit={handelSubmitForm}
@@ -103,7 +110,7 @@ export const FormChangeAddDish = ({
           handleBlur,
           errors,
           touched,
-          resetForm,
+          setFieldValue,
         }) => {
           return (
             <Form onSubmit={handleSubmit}>
@@ -126,7 +133,8 @@ export const FormChangeAddDish = ({
                       <DeleteImage
                         type="button"
                         onClick={() => {
-                          setSelectImg(null), resetForm({ image: '' });
+                          setSelectImg(null);
+                          setFieldValue('image', '');
                         }}
                       >
                         <CgCloseO />
@@ -145,11 +153,10 @@ export const FormChangeAddDish = ({
                     name="image"
                     accept="image/png, image/jpeg"
                     multiple
-                    // value={values.image}
                     onChange={(ev) => {
+                      setFieldValue('image', ev.currentTarget.files[0]);
                       setSelectImg(ev.target.files[0]);
                       setPatchImg(ev.target.files[0]);
-                      // handleChange(ev);
                     }}
                   />
                   {errors.image && touched.image && (
@@ -331,5 +338,5 @@ FormChangeAddDish.propTypes = {
   newDish: PropTypes.bool,
   setPatchImg: PropTypes.func,
   id: PropTypes.string,
-  patch: PropTypes.object,
+  patch: PropTypes.string,
 };

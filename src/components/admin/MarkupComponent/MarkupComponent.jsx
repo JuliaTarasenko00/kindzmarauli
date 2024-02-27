@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { dishPricing } from '../../../helpers/hooks/dishPricing';
+import { useLocation } from 'react-router-dom';
 import { MdOutlineDeleteForever } from 'react-icons/md';
+import { dishPricing } from '../../../helpers/hooks/dishPricing';
 import {
   ButtonChange,
   DeleteButton,
@@ -17,19 +18,15 @@ import {
   WrapperDescription,
   WrapperPrice,
 } from './MarkupComponent.styled';
-import { useLocation } from 'react-router-dom';
-import { $instants } from '../../../redux/requests';
+import { useDispatch } from 'react-redux';
+import { deleteDish } from '../../../redux/dishes/operation';
 
 export const MarkupComponent = ({ list, mainPage }) => {
   const location = useLocation();
+  const dispatch = useDispatch();
 
-  const handelDelete = async (id) => {
-    try {
-      await $instants.delete(`/dishes/${id}`);
-    } catch (error) {
-      console.log('aaaa');
-      console.log(error);
-    }
+  const handelDelete = (id) => {
+    dispatch(deleteDish(id));
   };
 
   return (
@@ -74,12 +71,6 @@ export const MarkupComponent = ({ list, mainPage }) => {
                     >
                       Change
                     </ButtonChange>
-
-                    {/* <button
-                      onClick={() => navigate(`/admin/change/${dish._id}`)}
-                    >
-                      Change
-                    </button> */}
                   </WrapperButton>
                 </WrapperPrice>
               </Wrapper>

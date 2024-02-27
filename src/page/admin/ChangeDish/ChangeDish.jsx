@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
-import { IoArrowBackCircle } from 'react-icons/io5';
 import { changeDataDish, getDishId } from '../../../redux/dishes/operation';
 import { isEqual } from 'lodash';
 import { toast } from 'react-toastify';
@@ -74,16 +73,13 @@ const ChangeDishPage = () => {
         {isLoading && <LoaderForPage />}
         {!isLoading && (
           <>
-            <GoBackButton to={backTo.current}>
-              <IoArrowBackCircle /> Go back
-            </GoBackButton>
             <FormChangeAddDish
               handelSubmitForm={handelSubmitForm}
               initialValues={initialValues}
               setPatchImg={setPatchImg}
               patchImg={patchImg}
               id={id}
-              patch={backTo.current}
+              patch={backTo.current.pathname}
             />
           </>
         )}

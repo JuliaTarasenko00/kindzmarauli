@@ -11,6 +11,7 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   max-width: 240px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: rgb(240 255 255);

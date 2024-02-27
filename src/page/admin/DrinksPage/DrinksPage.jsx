@@ -20,32 +20,40 @@ const DrinksPage = () => {
 
   const hotDrinks = useSpecificsFilter(value.HOTDRINKS);
 
+  const options = [
+    {
+      title: 'Alcoholic Cocktails',
+      dataSpecifics: alcoholicCocktails,
+      valueSpecifics: value.ALCOHOLICCOCKTAILS,
+    },
+    {
+      title: 'Non Alcoholic Cocktails',
+      dataSpecifics: nonAlcoholicCocktails,
+      valueSpecifics: value.NONALCOHOLICCOCKTAILS,
+    },
+    {
+      title: 'Hot Drinks',
+      dataSpecifics: hotDrinks,
+      valueSpecifics: value.HOTDRINKS,
+    },
+  ];
+
   return (
     <>
       {isLoading && <LoaderForPage />}
       {!isLoading && (
         <>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent
-                specifics={alcoholicCocktails}
-                title={'Alcoholic Cocktails'}
-              />
-            </Container>
-          </section>
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent
-                specifics={nonAlcoholicCocktails}
-                title={'Non Alcoholic Cocktails'}
-              />
-            </Container>
-          </section>{' '}
-          <section style={{ padding: '20px 0' }}>
-            <Container>
-              <RenderComponent specifics={hotDrinks} title={'Hot Drinks'} />
-            </Container>
-          </section>
+          {options.map(({ title, dataSpecifics, valueSpecifics }) => (
+            <section style={{ padding: '20px 0' }} key={valueSpecifics}>
+              <Container>
+                <RenderComponent
+                  specifics={dataSpecifics}
+                  title={title}
+                  value={valueSpecifics}
+                />
+              </Container>
+            </section>
+          ))}
         </>
       )}
     </>

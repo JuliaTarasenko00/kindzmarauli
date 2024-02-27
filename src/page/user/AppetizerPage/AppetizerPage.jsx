@@ -1,12 +1,11 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { loading } from '../../../redux/selector';
-import { Section } from './Appetizer.styled';
-import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
-import { Loader } from '../../../components/Loader/Loader';
 import { useSpecificsFilter } from '../../../helpers/hooks/useSpecificsFilter';
 import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSpecifics';
 import { specificsDish } from '../../../helpers/specifics_dish';
+import { RenderUserComponent } from '../../../components/user/RenderUserComponent';
+import { LoaderForPage } from '../../../components/LoaderForPage';
 
 const AppetizerPage = () => {
   const isLoading = useSelector(loading);
@@ -18,17 +17,21 @@ const AppetizerPage = () => {
 
   const hotSnack = useSpecificsFilter(value.HOTSNACK);
 
+  const options = [
+    { title: 'Salad', specifics: salad },
+    { title: 'Hot Appetizers', specifics: hotSnack },
+  ];
+
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading && <LoaderForPage />}
       {!isLoading && (
         <>
-          <Section>
-            <CreatedMarkup titleDishes={'Salads'} dishes={salad} />
-          </Section>
-          <Section>
-            <CreatedMarkup titleDishes={'Hot Appetizers'} dishes={hotSnack} />
-          </Section>
+          {options.map(({ title, specifics }) => (
+            <section style={{ padding: '20px 0' }} key={title}>
+              <RenderUserComponent title={title} specifics={specifics} />
+            </section>
+          ))}
         </>
       )}
     </>
