@@ -4,8 +4,8 @@ import { loading } from '../../../redux/selector';
 import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSpecifics';
 import { specificsDish } from '../../../helpers/specifics_dish';
 import { useSpecificsFilter } from '../../../helpers/hooks/useSpecificsFilter';
-import { LoaderForPage } from '../../../components/LoaderForPage';
 import { RenderUserComponent } from '../../../components/user/RenderUserComponent';
+import { Loader } from '../../../components/Loader/Loader';
 
 const DessertsPage = () => {
   const isLoading = useSelector(loading);
@@ -24,7 +24,7 @@ const DessertsPage = () => {
 
   return (
     <>
-      {isLoading && <LoaderForPage />}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           {options.map(({ title, specifics }) => (

@@ -5,7 +5,7 @@ import { useSpecificsFilter } from '../../../helpers/hooks/useSpecificsFilter';
 import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSpecifics';
 import { specificsDish } from '../../../helpers/specifics_dish';
 import { RenderUserComponent } from '../../../components/user/RenderUserComponent';
-import { LoaderForPage } from '../../../components/LoaderForPage';
+import { Loader } from '../../../components/Loader/Loader';
 
 const AppetizerPage = () => {
   const isLoading = useSelector(loading);
@@ -24,7 +24,7 @@ const AppetizerPage = () => {
 
   return (
     <>
-      {isLoading && <LoaderForPage />}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           {options.map(({ title, specifics }) => (
