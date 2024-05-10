@@ -1,0 +1,1 @@
+import{u as r,a1 as u,b as t,c as n,a2 as p}from"./index-q9DV3WYH.js";const l=e=>{const c=r(u);return t.useMemo(()=>c.filter(s=>Object.values(s.specificsDish).join(" ")===e),[c,e])},m=(e,c)=>{const i=n(),s=t.useMemo(()=>e.split("/"),[e]),a=s[1]==="admin"?s[2]:s[1],{value:o}=c;return t.useEffect(()=>{i(p(a))},[s,i,a]),{value:o}};export{l as a,m as u};
