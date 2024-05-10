@@ -30,6 +30,7 @@ import { authorized, dishWithBasket, role } from '../../../redux/selector';
 import { Loader } from '../../Loader/Loader';
 import { getDishesBasketAuth } from '../../../redux/basket/operation';
 import { ROLES } from '../../../helpers/rolesUser';
+import { HideOnScroll } from './HideOnScroll';
 
 const Layout = () => {
   const [visibility, setVisibility] = useState(false);
@@ -74,75 +75,77 @@ const Layout = () => {
 
   return (
     <>
-      <Header>
-        <Container>
-          <HeaderContainer>
-            <Logo to="/">
-              <Span>
-                <GrRestaurant />
-              </Span>
-              Kindzmarauli
-            </Logo>
-            <Button
-              type="button"
-              className="open_mobil_menu"
-              onClick={openMenu}
-            >
-              <CiMenuFries />
-            </Button>
-            <WrapperNav data-visibility={visibility.toString()}>
-              <Nav>
-                <Button
-                  className="close_mobil_menu"
-                  type="button"
-                  onClick={closeMenu}
-                >
-                  <TfiClose />
-                </Button>
-                <List>
-                  <Item>
-                    <Select onClick={closeMenu} />
-                  </Item>
-                  {pagesMenu.map(({ name, to }) => (
-                    <Item key={name}>
-                      <MainNavigate
-                        activeclassname="active"
-                        to={to}
-                        onClick={closeMenu}
-                      >
-                        {name}
-                      </MainNavigate>
-                    </Item>
-                  ))}
-                </List>
-              </Nav>
-              <WrapperAction>
-                <FilterForm onClick={closeMenu} />
-                <WrapperButton>
+      <HideOnScroll>
+        <Header>
+          <Container>
+            <HeaderContainer>
+              <Logo to="/">
+                <Span>
+                  <GrRestaurant />
+                </Span>
+                Kindzmarauli
+              </Logo>
+              <Button
+                type="button"
+                className="open_mobil_menu"
+                onClick={openMenu}
+              >
+                <CiMenuFries />
+              </Button>
+              <WrapperNav data-visibility={visibility.toString()}>
+                <Nav>
                   <Button
+                    className="close_mobil_menu"
                     type="button"
-                    className="user_button"
-                    onClick={() => {
-                      navigate('user_account');
-                      closeMenu();
-                    }}
+                    onClick={closeMenu}
                   >
-                    <TbUser />
+                    <TfiClose />
                   </Button>
-                  <WrapperBasket>
-                    <MainNavigate to="basket" onClick={closeMenu}>
-                      <GrBasket />
-                    </MainNavigate>
-                    {numberOrders > 0 && (
-                      <NumberOrders>{numberOrders}</NumberOrders>
-                    )}
-                  </WrapperBasket>
-                </WrapperButton>
-              </WrapperAction>
-            </WrapperNav>
-          </HeaderContainer>
-        </Container>
-      </Header>
+                  <List>
+                    <Item>
+                      <Select onClick={closeMenu} />
+                    </Item>
+                    {pagesMenu.map(({ name, to }) => (
+                      <Item key={name}>
+                        <MainNavigate
+                          activeclassname="active"
+                          to={to}
+                          onClick={closeMenu}
+                        >
+                          {name}
+                        </MainNavigate>
+                      </Item>
+                    ))}
+                  </List>
+                </Nav>
+                <WrapperAction>
+                  <FilterForm onClick={closeMenu} />
+                  <WrapperButton>
+                    <Button
+                      type="button"
+                      className="user_button"
+                      onClick={() => {
+                        navigate('user_account');
+                        closeMenu();
+                      }}
+                    >
+                      <TbUser />
+                    </Button>
+                    <WrapperBasket>
+                      <MainNavigate to="basket" onClick={closeMenu}>
+                        <GrBasket />
+                      </MainNavigate>
+                      {numberOrders > 0 && (
+                        <NumberOrders>{numberOrders}</NumberOrders>
+                      )}
+                    </WrapperBasket>
+                  </WrapperButton>
+                </WrapperAction>
+              </WrapperNav>
+            </HeaderContainer>
+          </Container>
+        </Header>
+      </HideOnScroll>
       <main style={{ flexGrow: 1 }}>
         <Suspense fallback={<Loader />}>
           <Outlet />
