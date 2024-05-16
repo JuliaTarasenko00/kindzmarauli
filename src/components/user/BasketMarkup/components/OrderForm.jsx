@@ -15,6 +15,7 @@ import {
   WrapperInput,
   TitleIsOrder,
   WrapperOrder,
+  WrapperForm,
 } from './OrderForm.styled';
 import img from '../../../../assets/img/order.png';
 import { useDispatch, useSelector } from 'react-redux';
@@ -52,11 +53,10 @@ export const OrderForm = () => {
   const dispatch = useDispatch();
   const [isOrder, setIsOrder] = useState(false);
   const user = useSelector((state) => state.auth.user);
-  console.log('user: ', user);
 
   const initialValues = {
-    userName: user.fullName || '',
-    phone: user.phoneNumber || '',
+    userName: '' || user?.fullName,
+    phone: '' || user?.phoneNumber,
     city: cityArray[0].city,
     street: '',
     pay: '',
@@ -87,67 +87,69 @@ export const OrderForm = () => {
             isSubmitting,
           }) => {
             return (
-              <Form onSubmit={handleSubmit} style={{ width: 300 }}>
-                <WrapperInput>
-                  <Label htmlFor="userName">
-                    <LabelTitle>
-                      Name <span>*</span>
-                    </LabelTitle>
-                    <Input type="text" id="userName" name="userName" />
-                  </Label>
-                  {errors.userName && touched.userName && (
-                    <ErrorMessage>{errors.userName}</ErrorMessage>
-                  )}
-                </WrapperInput>
-                <WrapperInput>
-                  <Label htmlFor="phone">
-                    <LabelTitle>
-                      Phone <span>*</span>
-                    </LabelTitle>
-                    <MaskedInput
-                      ref={ref}
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      CustomComponent={PhoneInput}
-                      value={values.phone}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                  </Label>
-                  {errors.phone && touched.phone && (
-                    <ErrorMessage>{errors.phone}</ErrorMessage>
-                  )}
-                </WrapperInput>
-                <WrapperInput>
-                  <Label htmlFor="city">
-                    <LabelTitle className="city">
-                      City <span>*</span>
-                    </LabelTitle>
-                    <Input as="select" name="city" id="city">
-                      {cityArray.map(({ city, id }) => (
-                        <Option value={city} key={id}>
-                          {city}
-                        </Option>
-                      ))}
-                    </Input>
-                  </Label>
-                  {errors.city && touched.city && (
-                    <ErrorMessage>{errors.city}</ErrorMessage>
-                  )}
-                </WrapperInput>
-                <WrapperInput>
-                  <Label htmlFor="street">
-                    <LabelTitle>
-                      Street <span>*</span>
-                    </LabelTitle>
-                    <Input type="text" name="street" id="street" />
-                  </Label>
-                  {errors.street && touched.street && (
-                    <ErrorMessage>{errors.street}</ErrorMessage>
-                  )}
-                </WrapperInput>
-                <WrapperInput>
+              <Form onSubmit={handleSubmit}>
+                <WrapperForm>
+                  <WrapperInput>
+                    <Label htmlFor="userName">
+                      <LabelTitle>
+                        Name <span>*</span>
+                      </LabelTitle>
+                      <Input type="text" id="userName" name="userName" />
+                    </Label>
+                    {errors.userName && touched.userName && (
+                      <ErrorMessage>{errors.userName}</ErrorMessage>
+                    )}
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Label htmlFor="phone">
+                      <LabelTitle>
+                        Phone <span>*</span>
+                      </LabelTitle>
+                      <MaskedInput
+                        ref={ref}
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        CustomComponent={PhoneInput}
+                        value={values.phone}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                    </Label>
+                    {errors.phone && touched.phone && (
+                      <ErrorMessage>{errors.phone}</ErrorMessage>
+                    )}
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Label htmlFor="city">
+                      <LabelTitle className="city">
+                        City <span>*</span>
+                      </LabelTitle>
+                      <Input as="select" name="city" id="city">
+                        {cityArray.map(({ city, id }) => (
+                          <Option value={city} key={id}>
+                            {city}
+                          </Option>
+                        ))}
+                      </Input>
+                    </Label>
+                    {errors.city && touched.city && (
+                      <ErrorMessage>{errors.city}</ErrorMessage>
+                    )}
+                  </WrapperInput>
+                  <WrapperInput>
+                    <Label htmlFor="street">
+                      <LabelTitle>
+                        Street <span>*</span>
+                      </LabelTitle>
+                      <Input type="text" name="street" id="street" />
+                    </Label>
+                    {errors.street && touched.street && (
+                      <ErrorMessage>{errors.street}</ErrorMessage>
+                    )}
+                  </WrapperInput>
+                </WrapperForm>
+                <WrapperInput className="payment">
                   <p>
                     Payment method <span>*</span>
                   </p>

@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 export const Section = styled.div`
   background-color: #0f0f11b8;
-  padding: 45px;
+  padding: 25px;
+
+  @media screen and (min-width: 768px) {
+    padding: 45px;
+  }
 `;
 
 export const WrapperOrder = styled.div`
@@ -14,19 +18,38 @@ export const WrapperOrder = styled.div`
 `;
 
 export const Form = styled.form`
+  width: 200px;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+`;
+
+export const WrapperForm = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: column;
 `;
 
 export const WrapperInput = styled.div`
+  &.payment {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
   & p:not(:last-child) {
     font-weight: 500;
     font-size: 13px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #9ea2aa;
-    margin-bottom: 5px;
 
     & span {
       color: #fbd13e;
@@ -35,16 +58,26 @@ export const WrapperInput = styled.div`
 `;
 
 export const Label = styled.label`
-  display: flex;
-  align-items: center;
+  display: grid;
   gap: 5px;
+  justify-content: start;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    justify-items: start;
+    justify-content: space-between;
+  }
 `;
 
 export const LabelTitle = styled.p`
   display: block;
   flex-grow: 1;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 10px;
+  display: flex;
+  gap: 2px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #9ea2aa;
@@ -60,6 +93,10 @@ export const LabelTitle = styled.p`
   & span {
     color: #fbd13e;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 export const Option = styled.option``;
@@ -69,6 +106,7 @@ export const Input = styled(Field)`
   border: none;
   border-radius: 5px;
   outline: none;
+  width: 100%;
 `;
 
 export const PhoneInput = styled.input`
@@ -76,6 +114,7 @@ export const PhoneInput = styled.input`
   border: none;
   border-radius: 5px;
   outline: none;
+  width: 100%;
 `;
 
 export const ErrorMessage = styled.p`
@@ -85,8 +124,10 @@ export const ErrorMessage = styled.p`
 `;
 
 export const Button = styled.button`
+  display: block;
   cursor: pointer;
   margin-top: 30px;
+  margin-left: auto;
   background-color: #fbd13e;
   box-shadow: 0px 10px 31px 0px rgba(15, 15, 17, 0.2);
   color: #000;
