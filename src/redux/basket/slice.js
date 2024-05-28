@@ -7,6 +7,7 @@ import {
 } from './operationNotAuth';
 import {
   addDishBasketAuth,
+  clearAllDishAuth,
   deleteDishAuth,
   getDishesBasketAuth,
   magnificationCountDishBasket,
@@ -16,6 +17,7 @@ import {
 const initialState = {
   basketDishes: [],
   totalPrice: 0,
+  idBasket: '',
   isLoading: false,
   error: null,
 };
@@ -24,6 +26,14 @@ const totalSum = (state) => {
   return state.reduce((sum, obj) => {
     return obj.total + sum;
   }, 0);
+};
+
+const basketState = (state, { payload }) => {
+  state.basketDishes = payload.goods.dishes;
+  state.totalPrice = payload.goods.totalPriceDishes;
+  state.idBasket = payload._id;
+  state.isLoading = false;
+  state.error = null;
 };
 
 export const basketSlice = createSlice({
@@ -74,52 +84,20 @@ export const basketSlice = createSlice({
         state.totalPrice = totalSum(state.basketDishes);
       })
       .addCase(getDishesBasketAuth.fulfilled, (state, { payload }) => {
-        state.basketDishes = payload;
-        state.totalPrice = totalSum(state.basketDishes);
+        state.basketDishes = payload.goods?.dishes ?? [];
+        state.totalPrice = payload.goods?.totalPriceDishes ?? 0;
+        state.idBasket = payload._id;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(addDishBasketAuth.fulfilled, (state, { payload }) => {
-        state.basketDishes.push(payload);
-        state.totalPrice = totalSum(state.basketDishes);
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(magnificationCountDishBasket.fulfilled, (state, { payload }) => {
-        state.basketDishes = state.basketDishes.map((dish) => {
-          if (dish._id === payload._id) {
-            return {
-              ...dish,
-              count: payload.count,
-              total: payload.total,
-            };
-          }
-          return dish;
-        });
-        state.totalPrice = totalSum(state.basketDishes);
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(reductionCountDishBasket.fulfilled, (state, { payload }) => {
-        state.basketDishes = state.basketDishes.map((dish) => {
-          if (dish._id === payload._id) {
-            return {
-              ...dish,
-              count: payload.count,
-              total: payload.total,
-            };
-          }
-          return dish;
-        });
-        state.totalPrice = totalSum(state.basketDishes);
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(deleteDishAuth.fulfilled, (state, { payload }) => {
-        state.basketDishes = state.basketDishes.filter(
-          (dish) => dish._id !== payload._id,
-        );
-        state.totalPrice = totalSum(state.basketDishes);
+      .addCase(addDishBasketAuth.fulfilled, basketState)
+      .addCase(magnificationCountDishBasket.fulfilled, basketState)
+      .addCase(reductionCountDishBasket.fulfilled, basketState)
+      .addCase(deleteDishAuth.fulfilled, basketState)
+      .addCase(clearAllDishAuth.fulfilled, (state) => {
+        state.basketDishes = [];
+        state.totalPrice = 0;
+        state.idBasket = '';
         state.isLoading = false;
         state.error = null;
       })

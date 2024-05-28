@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { useRef, useState } from 'react';
 import * as Yup from 'yup';
@@ -20,6 +21,8 @@ import {
 import img from '../../../../assets/img/order.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearBasket } from '../../../../redux/basket/operationNotAuth';
+import { authorized } from '../../../../redux/selector';
+import { clearAllDishAuth } from '../../../../redux/basket/operation';
 
 const cityArray = [
   { id: 1, city: 'Odessa' },
@@ -48,15 +51,16 @@ const OrderFormSchema = Yup.object().shape({
     .required('Payment method is required'),
 });
 
-export const OrderForm = () => {
+export const OrderForm = ({ id }) => {
   const ref = useRef(null);
   const dispatch = useDispatch();
   const [isOrder, setIsOrder] = useState(false);
   const user = useSelector((state) => state.auth.user);
+  const auth = useSelector(authorized);
 
   const initialValues = {
-    userName: '' || user?.fullName,
-    phone: '' || user?.phoneNumber,
+    userName: '' ?? user?.fullName,
+    phone: '' ?? user?.phoneNumber,
     city: cityArray[0].city,
     street: '',
     pay: '',
@@ -66,7 +70,8 @@ export const OrderForm = () => {
     console.log('values: ', values);
     setIsOrder(true);
 
-    dispatch(clearBasket());
+    const action = auth ? clearAllDishAuth(id) : clearBasket();
+    dispatch(action);
   };
 
   return (
@@ -184,4 +189,8 @@ export const OrderForm = () => {
       )}
     </Section>
   );
+};
+
+OrderForm.propTypes = {
+  id: PropTypes.string,
 };

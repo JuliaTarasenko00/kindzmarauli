@@ -13,16 +13,7 @@ export const useAddDishBasket = (dishes) => {
 
   const addDishBasket = (id) => {
     const addedDish = dishes.find((dish) => dish._id === id);
-    const dishBasket = basket.find((dish) => dish.idProduct === id);
-
-    const dish = {
-      idProduct: addedDish._id,
-      image: addedDish.image,
-      name: addedDish.name,
-      price: addedDish.price,
-      discounted: addedDish.discounted,
-      gram: addedDish.gram,
-    };
+    const dishBasket = basket.find((dish) => dish._id === id);
 
     if (!auth) {
       return dispatch(addBasketDish(addedDish));
@@ -33,7 +24,7 @@ export const useAddDishBasket = (dishes) => {
     }
 
     if (auth) {
-      return dispatch(addDishBasketAuth(dish));
+      return dispatch(addDishBasketAuth(id));
     }
   };
 

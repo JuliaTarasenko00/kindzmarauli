@@ -37,6 +37,7 @@ import {
   minusBasketDish,
 } from '../../../redux/basket/operationNotAuth';
 import {
+  clearAllDishAuth,
   deleteDishAuth,
   magnificationCountDishBasket,
   reductionCountDishBasket,
@@ -46,6 +47,7 @@ import { OrderForm } from './components/OrderForm';
 
 export const BasketMarkup = ({ toggleModal, open }) => {
   const dishes = useSelector(dishWithBasket);
+  const idBasket = useSelector((state) => state.basket.idBasket);
   const totalPrice = useSelector(price);
   const dispatch = useDispatch();
   const auth = useSelector(authorized);
@@ -80,11 +82,17 @@ export const BasketMarkup = ({ toggleModal, open }) => {
     [auth, dispatch],
   );
 
-  const onClickRemoveOrders = useCallback(() => {
-    if (window.confirm('Are you sure want to clear the entire recycle bin?')) {
-      dispatch(clearBasket());
-    }
-  }, [dispatch]);
+  const onClickRemoveOrders = useCallback(
+    (id) => {
+      if (
+        window.confirm('Are you sure want to clear the entire recycle bin?')
+      ) {
+        const action = auth ? clearAllDishAuth(id) : clearBasket();
+        dispatch(action);
+      }
+    },
+    [auth, dispatch],
+  );
 
   return (
     <>
@@ -94,15 +102,13 @@ export const BasketMarkup = ({ toggleModal, open }) => {
             <>
               <WrapperName>
                 <Title>Basket</Title>
-                {!auth && (
-                  <ButtonRemoveBasket
-                    type="button"
-                    onClick={onClickRemoveOrders}
-                  >
-                    Clear Basket
-                    <RiDeleteBin2Line />
-                  </ButtonRemoveBasket>
-                )}
+                <ButtonRemoveBasket
+                  type="button"
+                  onClick={() => onClickRemoveOrders(idBasket)}
+                >
+                  Clear Basket
+                  <RiDeleteBin2Line />
+                </ButtonRemoveBasket>
               </WrapperName>
               <List>
                 {dishes.map((dish) => {
@@ -164,7 +170,7 @@ export const BasketMarkup = ({ toggleModal, open }) => {
       </Section>
       {open && (
         <ModalComponent onClose={toggleModal}>
-          <OrderForm />
+          <OrderForm id={idBasket} />
         </ModalComponent>
       )}
     </>

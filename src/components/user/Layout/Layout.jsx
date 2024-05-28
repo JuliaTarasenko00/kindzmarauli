@@ -40,7 +40,7 @@ const Layout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const numberOrders = basket.reduce((sum, obj) => {
+  const numberOrders = basket?.reduce((sum, obj) => {
     return obj.count + sum;
   }, 0);
 
