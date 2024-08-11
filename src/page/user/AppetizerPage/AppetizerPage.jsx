@@ -6,6 +6,7 @@ import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSp
 import { specificsDish } from '../../../helpers/specifics_dish';
 import { RenderUserComponent } from '../../../components/user/RenderUserComponent';
 import { Loader } from '../../../components/Loader/Loader';
+import { Container } from '../../../globalStyle';
 
 const AppetizerPage = () => {
   const isLoading = useSelector(loading);
@@ -29,7 +30,9 @@ const AppetizerPage = () => {
         <>
           {options.map(({ title, specifics }) => (
             <section style={{ padding: '20px 0' }} key={title}>
-              <RenderUserComponent title={title} specifics={specifics} />
+              <Container>
+                <RenderUserComponent title={title} specifics={specifics} />
+              </Container>
             </section>
           ))}
         </>

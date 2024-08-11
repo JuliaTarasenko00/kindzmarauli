@@ -7,6 +7,7 @@ import { useRequestDataSpecifics } from '../../../helpers/hooks/useRequestDataSp
 import { specificsDish } from '../../../helpers/specifics_dish';
 import { RenderUserComponent } from '../../../components/user/RenderUserComponent';
 import { Loader } from '../../../components/Loader/Loader';
+import { Container } from '../../../globalStyle';
 
 const HotDishes = () => {
   const isLoading = useSelector(loading);
@@ -54,7 +55,9 @@ const HotDishes = () => {
         <>
           {options.map(({ title, specifics, ref }) => (
             <section style={{ padding: '20px 0' }} key={title} ref={ref}>
-              <RenderUserComponent title={title} specifics={specifics} />
+              <Container>
+                <RenderUserComponent title={title} specifics={specifics} />
+              </Container>
             </section>
           ))}
         </>

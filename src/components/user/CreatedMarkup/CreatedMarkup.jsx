@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { GrBasket } from 'react-icons/gr';
-import { Container } from '../../../globalStyle';
 import {
   Button,
   Discount,
@@ -24,7 +23,7 @@ export const CreatedMarkup = (prop) => {
   const addDishBasket = useAddDishBasket(dishes);
 
   return (
-    <Container>
+    <>
       <WrapperSection $data_specificsPage={(!mainPage).toString()}>
         <PopularList $data_specificsPage={(!mainPage).toString()}>
           {dishes?.map((dish) => {
@@ -61,7 +60,7 @@ export const CreatedMarkup = (prop) => {
           })}
         </PopularList>
       </WrapperSection>
-    </Container>
+    </>
   );
 };
 

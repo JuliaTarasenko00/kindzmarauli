@@ -6,6 +6,7 @@ import { Section, Title } from './MainPage.styled';
 import { Loader } from '../../../components/Loader/Loader';
 import { CreatedMarkup } from '../../../components/user/CreatedMarkup/CreatedMarkup';
 import { HitDish } from '../../../components/user/HitDish/HitDish';
+import { Container } from '../../../globalStyle';
 
 const data = {
   page: 1,
@@ -28,8 +29,10 @@ const MainPage = () => {
         <>
           <HitDish />
           <Section>
-            <Title>Popular Dishes</Title>
-            <CreatedMarkup dishes={popular} mainPage={true} />
+            <Container>
+              <Title>Popular Dishes</Title>
+              <CreatedMarkup dishes={popular} mainPage={true} />
+            </Container>
           </Section>
         </>
       )}
