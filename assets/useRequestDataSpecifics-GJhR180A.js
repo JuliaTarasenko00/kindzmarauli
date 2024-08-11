@@ -1,1 +1,0 @@
-import{u as r,a2 as u,b as t,c as n,a3 as p}from"./index-RaBAhGgm.js";const l=e=>{const c=r(u);return t.useMemo(()=>c.filter(s=>Object.values(s.specificsDish).join(" ")===e),[c,e])},m=(e,c)=>{const i=n(),s=t.useMemo(()=>e.split("/"),[e]),a=s[1]==="admin"?s[2]:s[1],{value:o}=c;return t.useEffect(()=>{i(p(a))},[s,i,a]),{value:o}};export{l as a,m as u};
