@@ -8,7 +8,7 @@ Kindzmarauli is a food ordering website that offers an online menu from the rest
 ### Features
 - 🥘 Online menu display
 - 🛒 Food ordering system
-- 🔐 User authentication (if applicable)
+- 🔐 User authentication
 - 📱 Responsive design
 - 🔔 Toast notifications
 
@@ -47,7 +47,7 @@ Kindzmarauli – це сайт для замовлення їжі, який пр
 ### Функції
 - 🥘 Відображення онлайн-меню
 - 🛒 Система замовлення їжі
-- 🔐 Аутентифікація користувачів (якщо передбачено)
+- 🔐 Аутентифікація користувачів
 - 📱 Адаптивний дизайн
 - 🔔 Сповіщення Toast
 
