@@ -45,6 +45,7 @@ yarn start
 ````sh
 yarn build
 
+```
 
 ## Українська
 
