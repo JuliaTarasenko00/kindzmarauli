@@ -3,13 +3,9 @@
 ## English
 
 ### Overview
-
-Kindzmarauli is a food ordering website that offers an online menu from the
-restaurant. The project is built using React and Vite with Yarn as the package
-manager.
+Kindzmarauli is a food ordering website that offers an online menu from the restaurant. The project is built using React and Vite with Yarn as the package manager.
 
 ### Features
-
 - 🥘 Online menu display
 - 🛒 Food ordering system
 - 🔐 User authentication (if applicable)
@@ -17,7 +13,6 @@ manager.
 - 🔔 Toast notifications
 
 ### Technologies Used
-
 - ⚛️ **React** – UI development
 - 🚏 **React Router DOM** – Navigation
 - 🎛 **Redux Toolkit & Redux Persist** – State management
@@ -27,7 +22,6 @@ manager.
 - 🔔 **React Toastify** – Notifications
 
 ### Installation
-
 ```sh
 # Clone the repository
 git clone https://github.com/your-repo/kindzmarauli.git
@@ -41,10 +35,8 @@ yarn start
 ```
 
 ### Build
-
-````sh
+```sh
 yarn build
-
 ```
 
 ## Українська
@@ -79,10 +71,9 @@ yarn install
 
 # Запуск сервера розробки
 yarn start
-````
+```
 
 ### Збірка
-
 ```sh
 yarn build
 ```
