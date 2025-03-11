@@ -24,7 +24,7 @@ Kindzmarauli is a food ordering website that offers an online menu from the rest
 ### Installation
 ```sh
 # Clone the repository
-git clone https://github.com/your-repo/kindzmarauli.git
+git clone https://github.com/JuliaTarasenko00/kindzmarauli.git
 cd kindzmarauli
 
 # Install dependencies
@@ -63,7 +63,7 @@ Kindzmarauli – це сайт для замовлення їжі, який пр
 ### Встановлення
 ```sh
 # Клонування репозиторію
-git clone https://github.com/your-repo/kindzmarauli.git
+git clone https://github.com/JuliaTarasenko00/kindzmarauli.git
 cd kindzmarauli
 
 # Встановлення залежностей
